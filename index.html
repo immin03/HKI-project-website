@@ -431,7 +431,9 @@ nav.gnb a:hover::after{width:100%}
 .expfeature .cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(24px,3vw,48px);
   background:linear-gradient(180deg,rgba(8,11,8,0),rgba(8,11,8,.86))}
 .expfeature .cap h3{font-size:clamp(21px,2.4vw,32px);color:#fff}
-.expfeature .cap p{font-size:14.5px;color:rgba(255,255,255,.72);max-width:60ch;margin-top:12px;line-height:1.9}
+.expfeature .cap p{font-size:14.5px;color:rgba(255,255,255,.72);max-width:60ch;margin-top:12px;line-height:1.9;word-break:keep-all;overflow-wrap:break-word}
+.expfeature .cap p .nowrap{white-space:nowrap}
+
 @media(max-width:700px){.expfeature img{aspect-ratio:4/3;height:auto}}
 
 .exlist{border-top:1px solid rgba(255,255,255,.16)}
@@ -766,6 +768,43 @@ header.hide{transform:translateY(-102%)}
 .dark .course-cmp thead th{background:rgba(0,0,0,.4);color:#fff}
 .dark .course-cmp tbody th{background:rgba(201,174,121,.12);color:var(--brass-l)}
 .dark .course-cmp th,.dark .course-cmp td{border-bottom-color:rgba(255,255,255,.12);color:#D4D8D0}
+
+/* 코스 비교: 셀은 무조건 한 줄 · 좁으면 가로 스크롤 */
+.ms-table-wrap{scrollbar-width:thin;overscroll-behavior-x:contain}
+.ms-table.course-cmp{
+  width:max-content;min-width:840px;max-width:none;
+  table-layout:auto;border-collapse:separate;border-spacing:0}
+.ms-table.course-cmp thead th{width:auto!important}
+.ms-table.course-cmp th,
+.ms-table.course-cmp td{
+  white-space:nowrap!important;word-break:keep-all;overflow-wrap:normal;
+  vertical-align:middle;line-height:1.35;
+  padding:11px 14px;font-size:13px}
+.ms-table.course-cmp thead th{
+  font-family:var(--sans)!important;letter-spacing:.04em!important;
+  padding:12px 14px;font-size:12px}
+.ms-table.course-cmp tbody th{
+  min-width:6.5em;padding-right:16px;
+  position:sticky;left:0;z-index:2;
+  box-shadow:4px 0 10px rgba(0,0,0,.18)}
+.dark .ms-table.course-cmp tbody th{background:#141814}
+.ms-table.course-cmp thead th:first-child{
+  position:sticky;left:0;z-index:3}
+.dark .ms-table.course-cmp thead th:first-child{background:#0c0e0c}
+.ms-scroll-hint{display:none;margin:0 0 8px;font-size:11.5px;letter-spacing:.04em;color:rgba(255,255,255,.45)}
+@media(max-width:720px){
+  .ms-table.course-cmp{min-width:780px}
+  .ms-table.course-cmp th,.ms-table.course-cmp td{padding:9px 12px;font-size:12.5px}
+  .ms-table.course-cmp thead th{padding:10px 12px;font-size:11.5px}
+  .ms-product .ms-bh{margin-bottom:16px;padding-bottom:12px}
+  .ms-product{margin-top:clamp(28px,5vw,44px)}
+  .dark .ms-scroll-hint{display:block}
+  .accord .ac{min-height:112px}
+  .accord .ac .tx{padding:14px 16px}
+  .cards{margin-top:clamp(28px,4vw,44px)}
+  .card .tx{padding:16px var(--pad) 18px}
+  .card p{-webkit-line-clamp:2;margin-top:8px}
+}
 
 @media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){
   .ms-pillars article{transition:background .5s,box-shadow .5s}
@@ -2459,8 +2498,12 @@ img{max-width:100%}
 .am-times div{background:var(--paper);padding:16px 18px}
 .am-times b{display:block;font-weight:400;font-size:12.5px;letter-spacing:.04em;color:var(--brass);margin-bottom:8px}
 .am-times span{font-family:var(--lat);font-size:18px;letter-spacing:.08em;color:var(--ink)}
-@media(max-width:900px){.am-times{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.am-times{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .am-times{grid-template-columns:1fr 1fr}
+  .am-times div{padding:14px 14px}
+  .am-times b{font-size:11.5px;margin-bottom:6px;line-height:1.35}
+  .am-times span{font-size:16px}
+}
 
 /* 알펜루트 — 하이라이트 */
 .am-alpen .am-dot{fill:var(--brass);stroke:#fff;stroke-width:2}
@@ -2487,8 +2530,11 @@ img{max-width:100%}
 
 @media(max-width:720px){
   .am-figure{padding:12px 8px 16px}
-  .am-legend{gap:9px 18px}
-  .am-legend li{font-size:12px}
+  .am-legend{gap:6px 14px;margin-top:14px}
+  .am-legend li{font-size:12px;line-height:1.4}
+  .am-times{margin-top:14px}
+  .accessmap .am-head{margin-bottom:clamp(22px,4vw,36px)}
+  .accessmap .am-head p{font-size:13.5px;line-height:1.75}
 }
 
 
@@ -3282,43 +3328,43 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name am-name-c" x="0" y="-23" text-anchor="middle">고마츠공항 · KOMATSU</text>
       </g>
 
-      <!-- ── 야마시로 골프클럽 (호텔에서 7분) — 배지 좌상단 -->
+      <!-- ── 야마시로 골프클럽 (호텔→7분) — 배지 좌상단 -->
       <g class="am-node am-golf" transform="translate(450,292)">
         <circle class="am-dot" r="5"/>
-        <g class="am-badge" transform="translate(-70,-30)">
-          <rect x="0" y="0" rx="9.5" width="62" height="19"/>
-          <text x="31" y="13.4" text-anchor="middle">호텔 7분</text>
+        <g class="am-badge" transform="translate(-76,-30)">
+          <rect x="0" y="0" rx="9.5" width="70" height="19"/>
+          <text x="35" y="13.4" text-anchor="middle">호텔→7분</text>
         </g>
         <text class="am-name" x="0" y="26" text-anchor="middle">야마시로 골프클럽 · 36H</text>
       </g>
 
-      <!-- ── 후쿠이 국제 (호텔에서 20분) ── -->
+      <!-- ── 후쿠이 국제 (호텔→20분) ── -->
       <g class="am-node am-golf" transform="translate(300,380)">
         <circle class="am-dot" r="5"/>
-        <g class="am-badge" transform="translate(-72,-9)">
-          <rect x="0" y="0" rx="9.5" width="68" height="19"/>
-          <text x="34" y="13.4" text-anchor="middle">호텔 20분</text>
+        <g class="am-badge" transform="translate(-80,-9)">
+          <rect x="0" y="0" rx="9.5" width="76" height="19"/>
+          <text x="38" y="13.4" text-anchor="middle">호텔→20분</text>
         </g>
         <text class="am-name" x="0" y="24" text-anchor="middle">후쿠이 국제 컨트리클럽 · 27H</text>
       </g>
 
-      <!-- ── 와카사 컨트리클럽 (1시간) ── -->
+      <!-- ── 와카사 컨트리클럽 (공항→1시간) ── -->
       <g class="am-node am-golf" transform="translate(238,560)">
         <circle class="am-dot" r="5"/>
         <g class="am-badge am-badge-w" transform="translate(14,-9)">
-          <rect x="0" y="0" rx="9.5" width="58" height="19"/>
-          <text x="29" y="13.4" text-anchor="middle">1시간</text>
+          <rect x="0" y="0" rx="9.5" width="74" height="19"/>
+          <text x="37" y="13.4" text-anchor="middle">공항→1시간</text>
         </g>
         <text class="am-name" x="0" y="24" text-anchor="middle">와카사 컨트리클럽 · 27H</text>
       </g>
 
-      <!-- ── 루리코 · 하토리 (공항 25분) — 야마시로와 분리, 배지 우상단 -->
+      <!-- ── 루리코 · 하토리 (공항→25분) — 배지 우상단 -->
       <g class="am-node am-hotel" transform="translate(575,355)">
         <path class="am-steam" d="M-3,-9 q3,-4 0,-8 M0,-9 q3,-4 0,-8 M3,-9 q3,-4 0,-8"/>
         <circle class="am-dot" r="4.5"/>
         <g class="am-badge am-badge-hotel" transform="translate(14,-30)">
-          <rect x="0" y="0" rx="9.5" width="62" height="19"/>
-          <text x="31" y="13.4" text-anchor="middle">공항 25분</text>
+          <rect x="0" y="0" rx="9.5" width="74" height="19"/>
+          <text x="37" y="13.4" text-anchor="middle">공항→25분</text>
         </g>
         <text class="am-name" x="0" y="26" text-anchor="middle">루리코 · 하토리</text>
       </g>
@@ -3412,21 +3458,21 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <!-- 야마시로 골프 — 배지 좌상단 -->
       <g class="am-node am-golf" transform="translate(280,268)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(-80,-32)"><rect x="0" y="0" rx="12" width="72" height="22"/><text x="36" y="15" text-anchor="middle">호텔 7분</text></g>
+        <g class="am-badge" transform="translate(-86,-32)"><rect x="0" y="0" rx="12" width="80" height="22"/><text x="40" y="15" text-anchor="middle">호텔→7분</text></g>
         <text class="am-name" x="0" y="28" text-anchor="middle">야마시로 36H</text>
       </g>
 
       <!-- 후쿠이 CC -->
       <g class="am-node am-golf" transform="translate(160,350)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(-86,-28)"><rect x="0" y="0" rx="12" width="78" height="22"/><text x="39" y="15" text-anchor="middle">호텔 20분</text></g>
+        <g class="am-badge" transform="translate(-94,-28)"><rect x="0" y="0" rx="12" width="88" height="22"/><text x="44" y="15" text-anchor="middle">호텔→20분</text></g>
         <text class="am-name" x="0" y="28" text-anchor="middle">후쿠이 국제 27H</text>
       </g>
 
       <!-- 와카사 CC -->
       <g class="am-node am-golf" transform="translate(150,520)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge am-badge-w" transform="translate(14,-28)"><rect x="0" y="0" rx="12" width="64" height="22"/><text x="32" y="15" text-anchor="middle">1시간</text></g>
+        <g class="am-badge am-badge-w" transform="translate(14,-28)"><rect x="0" y="0" rx="12" width="86" height="22"/><text x="43" y="15" text-anchor="middle">공항→1시간</text></g>
         <text class="am-name" x="0" y="28" text-anchor="middle">와카사 27H</text>
       </g>
 
@@ -3434,7 +3480,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <g class="am-node am-hotel" transform="translate(430,360)">
         <path class="am-steam" d="M-4,-11 q4,-5 0,-10 M0,-11 q4,-5 0,-10 M4,-11 q4,-5 0,-10"/>
         <circle class="am-dot" r="5.5"/>
-        <g class="am-badge am-badge-hotel" transform="translate(14,-32)"><rect x="0" y="0" rx="12" width="84" height="22"/><text x="42" y="15" text-anchor="middle">공항 25분</text></g>
+        <g class="am-badge am-badge-hotel" transform="translate(14,-32)"><rect x="0" y="0" rx="12" width="86" height="22"/><text x="43" y="15" text-anchor="middle">공항→25분</text></g>
         <text class="am-name" x="0" y="28" text-anchor="middle">루리코 · 하토리</text>
       </g>
 
@@ -3456,7 +3502,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <ul class="am-legend rv">
       <li><span class="am-lg am-lg-air"></span>코마츠공항 — 한국 직항 1시간 30분</li>
       <li><span class="am-lg am-lg-hotel"></span>루리코 · 하토리 — 공항에서 약 25분</li>
-      <li><span class="am-lg am-lg-golf"></span>골프장 3곳 — 호텔 기준 7~20분 · 와카사 1시간</li>
+      <li><span class="am-lg am-lg-golf"></span>골프장 — 호텔→야마시로 7분 · 후쿠이 20분 / 공항→와카사 1시간</li>
       <li><span class="am-lg am-lg-alpen"></span>알펜루트 — 북알프스 산악 절경</li>
     </ul>
 
@@ -3507,6 +3553,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <h3 style="color:#fff">코스 비교</h3>
         <span class="eyebrow on-dark" style="margin:0">Course Overview</span>
       </div>
+      <p class="ms-scroll-hint">← 좌우로 밀어 전체 표를 확인하세요</p>
       <div class="ms-table-wrap">
         <table class="ms-table course-cmp">
           <thead>
@@ -3952,7 +3999,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <span class="eyebrow on-dark" style="margin-bottom:12px">Onsen Pilgrimage</span>
         <h3>1,300년의 온천 마을을 걷다</h3>
         <p>야마시로 · 야마나카 · 카타야마즈. 전용 패스 한 장으로 서로 다른 매력을 가진 세 온천 마을의
-          공동 욕장과 주요 시설을 하루 안에 둘러봅니다. 역사, 자연, 호수라는 각기 다른 표정을 만납니다.</p>
+          공동 욕장과 주요 시설을 하루 안에 둘러봅니다. 역사, 자연, 호수라는 각기 다른 표정을 <span class="nowrap">만납니다.</span></p>
       </div>
     </div>
 
