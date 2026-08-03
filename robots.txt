@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://brilliant-yeot-20afd1.netlify.app/sitemap.xml
