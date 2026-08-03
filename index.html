@@ -769,32 +769,34 @@ header.hide{transform:translateY(-102%)}
 .dark .course-cmp tbody th{background:rgba(201,174,121,.12);color:var(--brass-l)}
 .dark .course-cmp th,.dark .course-cmp td{border-bottom-color:rgba(255,255,255,.12);color:#D4D8D0}
 
-/* 코스 비교: 셀은 무조건 한 줄 · 좁으면 가로 스크롤 */
+/* 코스 비교: 컨테이너 가로 꽉 채움 · 셀은 한 줄 · 좁으면 가로 스크롤 */
 .ms-table-wrap{scrollbar-width:thin;overscroll-behavior-x:contain}
 .ms-table.course-cmp{
-  width:max-content;min-width:840px;max-width:none;
-  table-layout:auto;border-collapse:separate;border-spacing:0}
-.ms-table.course-cmp thead th{width:auto!important}
+  width:100%;min-width:720px;
+  table-layout:fixed;border-collapse:separate;border-spacing:0}
+.ms-table.course-cmp thead th:nth-child(1){width:14%}
+.ms-table.course-cmp thead th:nth-child(2){width:15%}
+.ms-table.course-cmp thead th:nth-child(3){width:28%}
+.ms-table.course-cmp thead th:nth-child(4){width:18%}
+.ms-table.course-cmp thead th:nth-child(5){width:25%}
 .ms-table.course-cmp th,
 .ms-table.course-cmp td{
   white-space:nowrap!important;word-break:keep-all;overflow-wrap:normal;
-  vertical-align:middle;line-height:1.35;
-  padding:11px 14px;font-size:13px}
+  vertical-align:middle;line-height:1.4;
+  padding:14px 18px;font-size:13.5px}
 .ms-table.course-cmp thead th{
   font-family:var(--sans)!important;letter-spacing:.04em!important;
-  padding:12px 14px;font-size:12px}
+  padding:14px 18px;font-size:12.5px}
 .ms-table.course-cmp tbody th{
-  min-width:6.5em;padding-right:16px;
   position:sticky;left:0;z-index:2;
   box-shadow:4px 0 10px rgba(0,0,0,.18)}
 .dark .ms-table.course-cmp tbody th{background:#141814}
-.ms-table.course-cmp thead th:first-child{
-  position:sticky;left:0;z-index:3}
+.ms-table.course-cmp thead th:first-child{position:sticky;left:0;z-index:3}
 .dark .ms-table.course-cmp thead th:first-child{background:#0c0e0c}
 .ms-scroll-hint{display:none;margin:0 0 8px;font-size:11.5px;letter-spacing:.04em;color:rgba(255,255,255,.45)}
 @media(max-width:720px){
-  .ms-table.course-cmp{min-width:780px}
-  .ms-table.course-cmp th,.ms-table.course-cmp td{padding:9px 12px;font-size:12.5px}
+  .ms-table.course-cmp{min-width:680px}
+  .ms-table.course-cmp th,.ms-table.course-cmp td{padding:10px 12px;font-size:12.5px}
   .ms-table.course-cmp thead th{padding:10px 12px;font-size:11.5px}
   .ms-product .ms-bh{margin-bottom:16px;padding-bottom:12px}
   .ms-product{margin-top:clamp(28px,5vw,44px)}
