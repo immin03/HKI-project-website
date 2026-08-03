@@ -52,7 +52,8 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:auto}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:smooth}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{overflow-anchor:none;margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
@@ -754,7 +755,7 @@ header.hide{transform:translateY(-102%)}
 .dark .course-cmp tbody th{background:rgba(201,174,121,.12);color:var(--brass-l)}
 .dark .course-cmp th,.dark .course-cmp td{border-bottom-color:rgba(255,255,255,.12);color:#D4D8D0}
 
-@media (prefers-reduced-motion:no-preference){
+@media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){
   .ms-pillars article{transition:background .5s,box-shadow .5s}
   .ms-pillars article:hover{background:rgba(255,255,255,.45);box-shadow:inset 0 0 0 1px rgba(165,133,74,.25)}
   .ms-pillars article:hover .ms-big{color:rgba(165,133,74,.22);transform:translate(-4px,-4px) scale(1.04)}
@@ -2572,6 +2573,62 @@ img{max-width:100%}
   [data-parallax]{transform:none!important}
 }
 
+/* ══════════════════════════════════════════════
+   [PERF] 모바일·터치 — 스크롤 렉 유발 인터랙션 제거
+   ══════════════════════════════════════════════ */
+@media (max-width:900px), (hover:none){
+  /* 패럴랙스·강제 합성 레이어 끔 */
+  [data-parallax]{transform:none!important;will-change:auto!important}
+  #mprg,.scrollprog{will-change:auto}
+
+  /* 등장: opacity만 (transform 스크롤 경합 제거) */
+  .rv,.rv.rvx-l,.rv.rvx-r,.rv.rvx-up,.rv.rvx-scale{
+    transform:none!important;transition:opacity .5s ease!important}
+  .rv-stagger > *{
+    transform:none!important;transition:opacity .4s ease!important;transition-delay:0s!important}
+  .rv-clip > *,.rv-clip.in > *{transform:none!important;transition:none!important}
+  .wsplit > span{transform:none!important;transition:none!important}
+
+  /* sticky-hover / 레이아웃 thrash 유발 호버 연출 차단 */
+  .card,.card .ph,.card .ph img,.card .more,.card .idx,.card h3,.card::after,
+  .ms-tier,.ms-tier .ms-mark,.ms-pillars article,.ms-pillars .ms-big,
+  .ms-grid article,.ms-grid .n,.news li,.exrow,
+  .course-top .ph img,.stay .ph img,.xslide .xph img,.mgrid .cat .thumb img{
+    transition:none!important}
+  .card:hover{padding-left:0}
+  .card:hover .ph img,.course:hover .ph img,.stay:hover .ph img,
+  .xslide:hover .xph img,.mgrid .cat:hover .thumb img{transform:none}
+  .ms-tier:hover,.ms-grid article:hover{transform:none;box-shadow:none}
+  .ms-pillars article:hover{background:inherit;box-shadow:none}
+  .ms-pillars article:hover .ms-big,.ms-tier:hover .ms-mark{transform:none}
+  .news li:hover{padding-left:0}
+  .exrow:hover{padding-left:0}
+  .accord .ac:hover,.accord .ac:focus-visible{flex-grow:1}
+  .accord .ac:hover img,.accord .ac:focus-visible img{transform:none}
+
+  /* 필터·블러 제거 */
+  .xslide .xph img{filter:none;transform:none}
+  .holes{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(8,11,8,.78)}
+
+  /* 무한 루프 애니메이션 정지 */
+  .scrollcue i,.swipehint i{animation:none!important}
+
+  /* 패널 내용 스태거 애니메이션 제거 */
+  .dpanel.open .dbody > *{opacity:1;transform:none;animation:none!important}
+
+  /* 멤버십 호버 연출 자체 비활성 */
+  .ms-hero .ms-hero-rule{animation:none}
+}
+
+@media (max-width:900px){
+  /* 모바일: 등장 연출 완전 생략 — 스크롤 중 페인트 경쟁 없음 */
+  .rv,.rv-stagger > *,.rv-clip > *,.hero .inner > *,.holes,.scrollcue,.slidedots{
+    opacity:1!important;transform:none!important;transition:none!important}
+  .hero .bg img,.hero .bg img.on{
+    animation:none!important;transform:none!important;will-change:auto!important;
+    transition:opacity .8s ease}
+}
+
 </style>
 <noscript><style>
 .rv,.rv-clip > *,.hero .inner > *,.holes,.scrollcue,.slidedots{opacity:1!important;transform:none!important}
@@ -4307,13 +4364,10 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
 
 // reveal — 관찰자 + 3중 안전장치 (한 번이라도 걸리면 무조건 보이게)
 (function(){
-  var mobile = innerWidth<=720;
   var els=[].slice.call(document.querySelectorAll('.rv,.rv-clip'));
-  if(mobile && els.length>18){
-    // 모바일에서는 주요 블록만 연출, 나머지는 즉시 표시
-    els.forEach(function(el,i){ if(i>=18) el.classList.add('in') });
-    els=els.slice(0,18);
-  }
+  var lite=matchMedia('(max-width:900px), (hover:none)').matches || K90.reduced;
+  // 모바일·터치: 등장 연출 자체를 끔 (스크롤 중 페인트 경쟁 제거)
+  if(lite){ els.forEach(function(el){ el.classList.add('in') }); window.__sweep=null; return }
   function show(el){ el.classList.add('in') }
   function sweep(margin){
     var vh=innerHeight;
@@ -4332,18 +4386,16 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
     io.observe(el);
   });
   requestAnimationFrame(function(){ sweep(1.15) });
-  addEventListener('resize',function(){ sweep(1.05) });
-  window.__sweep = function(){ 
-    els = els.filter(function(el){ return !el.classList.contains('in') });
-    if(els.length) sweep(1.05);
-  };
-  setTimeout(function(){ els.forEach(show); els=[] },5000);
+  // 스크롤마다 스윕하지 않음 — 초기·리사이즈·타임아웃만
+  addEventListener('resize',function(){ sweep(1.05) },{passive:true});
+  setTimeout(function(){ els.forEach(show); els=[] },4000);
 })();
 
 // hero crossfade slider
 (function(){
   var bg=document.getElementById('heroBg'); if(!bg) return;
   var imgs=bg.querySelectorAll('img'), dots=document.getElementById('dots'), i=0, timer;
+  var noKb=matchMedia('(max-width:900px), (prefers-reduced-motion: reduce)').matches;
   imgs.forEach(function(im,k){ im.style.visibility=(k===0)?'visible':'hidden'; });
   imgs.forEach(function(_,n){
     var b=document.createElement('button');
@@ -4356,8 +4408,8 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
     var prev=i;
     imgs[prev].classList.remove('on'); dots.children[prev].setAttribute('aria-current','false');
     i=n;
-    // 애니메이션 재시작(끝 프레임 잔상·재적용 버벅임 방지)
-    void imgs[i].offsetWidth;
+    // 데스크톱 Ken Burns 재시작만 — 모바일은 강제 리플로우 생략
+    if(!noKb) void imgs[i].offsetWidth;
     imgs[i].classList.add('on'); dots.children[i].setAttribute('aria-current','true');
     imgs.forEach(function(im,k){ im.style.visibility=(k===i||k===prev)?'visible':'hidden'; });
     clearInterval(timer); start();
@@ -4371,7 +4423,7 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
 // count-up on the 90-hole bar
 (function(){
   var els=document.querySelectorAll('[data-count]');
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+  if(matchMedia('(prefers-reduced-motion: reduce), (max-width:900px), (hover:none)').matches){
     els.forEach(function(e){e.textContent=e.dataset.count}); return;
   }
   var co=new IntersectionObserver(function(es){es.forEach(function(e){
@@ -4409,6 +4461,7 @@ window.__initTabs(document);
 // eased anchor scrolling — slow, weighted, header-aware
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lite=matchMedia('(max-width:900px), (hover:none)').matches;
   function headerH(){ return document.getElementById('hd').offsetHeight }
   function easeInOutCubic(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2 }
   var busy=false;
@@ -4417,10 +4470,15 @@ window.__initTabs(document);
     if(target.id!=='top'){ var q=document.getElementById('quick');
       var qh=(q&&getComputedStyle(q).display!=='none'&&!q.classList.contains('tuck'))?q.offsetHeight:0;
       top-=headerH()+qh+14 }
-    if(reduce){ scrollTo0(top); return }
+    // 모바일·터치: 브라우저 네이티브 스크롤 (커스텀 rAF 루프 제거)
+    if(reduce || lite){
+      try{ window.scrollTo({top:top, behavior: reduce?'auto':'smooth'}) }
+      catch(e){ window.scrollTo(0,top) }
+      return;
+    }
     var start=scrollY, dist=top-start;
     if(Math.abs(dist)<2) return;
-    var dur=Math.min(1750, Math.max(850, Math.abs(dist)*0.42));
+    var dur=Math.min(1400, Math.max(700, Math.abs(dist)*0.36));
     var t0=null; busy=true;
     requestAnimationFrame(function step(t){
       if(!t0) t0=t;
@@ -4429,7 +4487,6 @@ window.__initTabs(document);
       if(k<1) requestAnimationFrame(step); else busy=false;
     });
   }
-  function scrollTo0(top){ window.scrollTo(0,top) }
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a) return;
     var id=a.getAttribute('href'); if(id==='#'||id==='#none') return;
@@ -4503,33 +4560,33 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
 // ══════════════════════════════════════════════
 (function(){
   var hd=document.getElementById('hd'), prog=document.getElementById('prog'),
-      top=document.getElementById('totop'), mega=document.getElementById('mega'),
-      last=scrollY, ticking=false;
+      top=document.getElementById('totop'),
+      lastSolid=null, cachedHdH=0;
 
   function frame(st){
     var y=st.y;
-    // 진행 바
     var pr=st.ratio;
     if(prog) prog.style.width=(pr*100)+'%';
     var qp=document.getElementById('qprog');
     if(qp) qp.style.transform='scaleX('+pr+')';
-    // 헤더: 스크롤 중에도 항상 표시
-    hd.classList.toggle('solid', y>60);
+    var solid=y>60;
+    if(solid!==lastSolid){
+      hd.classList.toggle('solid', solid);
+      lastSolid=solid;
+      cachedHdH=hd.offsetHeight;
+    }
     hd.classList.remove('hide');
-    // 챕터 바: 히어로를 지나면 등장, 헤더 아래로
     var qk=document.getElementById('quick');
     if(qk){
       var past = y > innerHeight*0.72;
       qk.classList.toggle('tuck', !past);
-      qk.style.top = hd.offsetHeight+'px';
+      if(!cachedHdH) cachedHdH=hd.offsetHeight;
+      qk.style.top = cachedHdH+'px';
     }
-    last=y;
-    // 맨 위로
     if(top) top.classList.toggle('on', y>innerHeight*0.75);
-    // 등장 보조 점검
-    if(window.__sweep) window.__sweep();
   }
   K90.onScroll(function(st){ frame(st) });
+  K90.onResize(function(){ cachedHdH=hd.offsetHeight; lastSolid=null });
 
   if(top) top.onclick=function(){ var a=document.querySelector('a[href="#top"]'); if(a) a.click() };
 })();
@@ -4595,6 +4652,7 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
 // 제목 글자 등장 — 히어로 h1 만 (과하지 않게)
 (function(){
   if(K90.reduced) return;
+  if(matchMedia('(max-width:900px), (hover:none)').matches) return;
   var h=document.querySelector('.hero h1'); if(!h) return;
   var html=h.innerHTML;
   var lines=html.split(/<br\s*\/?>/i);
@@ -4751,36 +4809,39 @@ function initGal(wrap){
       if(e.key==='ArrowLeft'){ e.preventDefault(); go(idx-Math.max(1,per-1)) }
     });
 
-    // 드래그 · 스와이프
+    // 드래그 · 스와이프 — 가로 확정 후에만 measure/추적 (세로 스크롤과 경쟁 최소화)
     var dragging=false, sx=0, sy=0, base=0, dx=0, decided=false, horiz=false;
     track.addEventListener('pointerdown',function(e){
       if(e.button && e.button!==0) return;
-      measure(); dragging=true; decided=false; horiz=false;
-      sx=e.clientX; sy=e.clientY; dx=0; base=-idx*(W+GAP);
+      dragging=true; decided=false; horiz=false;
+      sx=e.clientX; sy=e.clientY; dx=0;
       track.classList.add('grab');
     });
     track.addEventListener('pointermove',function(e){
       if(!dragging) return;
       var mx=e.clientX-sx, my=e.clientY-sy;
       if(!decided){
-        if(Math.abs(mx)<5 && Math.abs(my)<5) return;
-        decided=true; horiz=Math.abs(mx)>Math.abs(my);
-        if(horiz && track.setPointerCapture) { try{ track.setPointerCapture(e.pointerId) }catch(_){} }
+        if(Math.abs(mx)<8 && Math.abs(my)<8) return;
+        decided=true; horiz=Math.abs(mx)>Math.abs(my)*1.15;
+        if(!horiz){ dragging=false; track.classList.remove('grab'); return }
+        measure();
+        base=-idx*(W+GAP);
+        if(track.setPointerCapture) { try{ track.setPointerCapture(e.pointerId) }catch(_){} }
       }
       if(!horiz) return;
       if(e.cancelable) e.preventDefault();
       dx=mx;
-      var lim=W*0.35;
       var t=base+dx;
       if(t>0) t=t*0.35;
       var min=-maxIdx*(W+GAP);
       if(t<min) t=min+(t-min)*0.35;
+      track.style.transition='none';
       track.style.transform='translate3d('+t+'px,0,0)';
     });
     function endDrag(){
       if(!dragging) return;
       dragging=false; track.classList.remove('grab');
-      if(!horiz){ apply(); return }
+      if(!horiz){ return }
       var moved=Math.round(-dx/(W+GAP));
       if(Math.abs(dx)>W*0.18) moved = dx<0 ? Math.max(1,moved) : Math.min(-1,moved);
       go(idx+moved);
@@ -4790,13 +4851,13 @@ function initGal(wrap){
     });
 
     if(window.ResizeObserver){ new ResizeObserver(function(){ go(idx,false) }).observe(view) }
-    addEventListener('resize',function(){ go(idx,false) });
+    addEventListener('resize',function(){ go(idx,false) },{passive:true});
     items.forEach(function(im){
       if(!im.complete){ im.addEventListener('load',function(){ go(idx,false) },{once:true}) }
     });
     wrap.__resync=function(){ go(idx,false) };
     go(0,false);
-    [150,600,1500].forEach(function(t){ setTimeout(function(){ go(idx,false) },t) });
+    setTimeout(function(){ go(idx,false) },400);
   }catch(err){ /* 갤러리 하나가 실패해도 나머지는 계속 동작 */ }
 }
 document.querySelectorAll('[data-gal]').forEach(initGal);
@@ -4938,6 +4999,7 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
 (function(){
   if(!window.K90) return;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lite=matchMedia('(max-width:900px), (hover:none), (pointer:coarse)').matches;
 
   // 1) 등장 변형 클래스 자동 배분 — 좌우 번갈아 + 카드 스태거
   var staggerEls=[];
@@ -4948,9 +5010,17 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
     document.querySelectorAll('.ms-pillars,.ms-grid,.ms-tiers').forEach(function(c){
       c.classList.add('rv-stagger'); staggerEls.push(c);
     });
-    var amh=document.querySelector('.am-head'); if(amh){ amh.classList.add('rvx-l'); }
-    var amf=document.querySelector('.am-figure'); if(amf){ amf.classList.add('rvx-scale'); }
+    // 모바일에서는 스케일/슬라이드 변형 클래스 생략
+    if(!lite){
+      var amh=document.querySelector('.am-head'); if(amh){ amh.classList.add('rvx-l'); }
+      var amf=document.querySelector('.am-figure'); if(amf){ amf.classList.add('rvx-scale'); }
+    }
   }catch(e){}
+
+  if(lite){
+    staggerEls.forEach(function(el){ el.classList.add('in') });
+    return;
+  }
 
   // 스태거 요소는 자체 옵저버로 확실히 .in 부여 (reveal 루프 타이밍 경쟁 회피)
   if('IntersectionObserver' in window && staggerEls.length){
@@ -4958,7 +5028,6 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); sio.unobserve(e.target); } });
     },{threshold:0,rootMargin:'0px 0px -8% 0px'});
     staggerEls.forEach(function(el){ sio.observe(el); });
-    // 이미 화면에 있으면 즉시
     staggerEls.forEach(function(el){
       var r=el.getBoundingClientRect();
       if(r.top<innerHeight && r.bottom>0) el.classList.add('in');
@@ -4969,8 +5038,7 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
 
   if(reduce) return;
 
-  // 2) 패럴랙스 대상 등록 (은은하게)
-  //    data-parallax="속도" — 양수면 느리게 따라옴
+  // 2) 패럴랙스 — 데스크톱 포인터만 (모바일 스크롤 getBoundingClientRect 제거)
   var targets=[];
   function reg(sel,speed,cap){
     document.querySelectorAll(sel).forEach(function(el){
@@ -4979,7 +5047,6 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
       targets.push({el:el,sp:speed,cap:cap||60});
     });
   }
-  // 패럴랙스 — 챕터 마크(.ch) 안 eyebrow는 제외(밑줄·라벨 겹침 방지)
   reg('.hero .copy, .hero .headline, .hero h1', 0.18, 120);
   reg('.subhead', 0.06, 26);
   document.querySelectorAll('.eyebrow').forEach(function(el){
@@ -4988,17 +5055,14 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
     el.setAttribute('data-parallax','');
     targets.push({el:el,sp:0.06,cap:26});
   });
-  // 지도 figure 내부는 제외(무거움), 헤드만
-  if(targets.length>14) targets=targets.slice(0,14);
+  if(targets.length>10) targets=targets.slice(0,10);
 
   var vh=innerHeight;
   K90.onScroll(function(stx){
     var y=stx.y;
     for(var i=0;i<targets.length;i++){
       var t=targets[i], r=t.el.getBoundingClientRect();
-      // 뷰포트 안일 때만 계산
       if(r.bottom<-40 || r.top>vh+40) continue;
-      // 요소 중심이 뷰포트 중앙에서 떨어진 정도에 비례
       var center=r.top+r.height/2, off=(center-vh/2);
       var p=Math.max(-t.cap, Math.min(t.cap, -off*t.sp));
       t.el.style.setProperty('--p', p.toFixed(1)+'px');
