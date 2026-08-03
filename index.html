@@ -124,10 +124,9 @@ nav.gnb a:hover::after{width:100%}
 }
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
-  opacity:0;transform:scale(1.045) translate3d(0,0,0);backface-visibility:hidden;
-  transition:opacity 1.4s ease;animation:none}
-.hero .bg img.on{opacity:1;animation:kb 8.5s linear forwards}
-@keyframes kb{from{transform:scale(1.045) translate3d(0,0,0)}to{transform:scale(1.008) translate3d(0,0,0)}}
+  opacity:0;transform:none;backface-visibility:hidden;
+  transition:opacity .9s ease;animation:none}
+.hero .bg img.on{opacity:1;animation:none}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(180deg,rgba(6,9,7,.5) 0%,rgba(6,9,7,.06) 26%,rgba(6,9,7,.42) 62%,rgba(6,9,7,.9) 100%),
   linear-gradient(90deg,rgba(6,9,7,.5) 0%,rgba(6,9,7,.08) 46%,rgba(6,9,7,0) 70%),
@@ -1928,7 +1927,7 @@ header,.quick,.mbar,.totop,.smap,.resume,.prog{isolation:isolate}
   header.solid{backdrop-filter:none;background:rgba(14,18,14,.97)}
   .mdl .veil{backdrop-filter:none;background:rgba(6,9,7,.82)}
   .totop{backdrop-filter:none;background:rgba(14,18,14,.86)}
-  .hero .bg img{will-change:auto;transform:none!important;transition:opacity 1.4s linear}
+  .hero .bg img{will-change:auto;transform:none!important;transition:opacity .7s ease}
   .hero .bg img.on{animation:none}
   .accord .ac img,.course-top .ph img,.stay .ph img{transition:none}
 }
@@ -2494,32 +2493,20 @@ img{max-width:100%}
 
 
 /* ══════════════════════════════════════════════
-   [HERO-PERF] 히어로 줌 — 슬라이드 길이에 맞춰 끝점 미도달
+   [HERO-PERF] 히어로 — 줌/Ken Burns 없음, 페이드만
    ══════════════════════════════════════════════ */
 .hero .bg{contain:paint;isolation:isolate}
 .hero .bg img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center 42%;
-  opacity:0;transition:opacity 1.4s ease;
-  transform:scale(1.045) translate3d(0,0,0);
-  backface-visibility:hidden;will-change:auto;animation:none}
-.hero .bg img.on{opacity:1;will-change:transform,opacity;
-  animation:kbz 8.5s linear forwards}
-@keyframes kbz{
-  from{transform:scale(1.045) translate3d(0,0,0)}
-  to{transform:scale(1.008) translate3d(0,0,0)}
-}
+  opacity:0;transition:opacity .9s ease;
+  transform:none;backface-visibility:hidden;will-change:auto;animation:none}
+.hero .bg img.on{opacity:1;animation:none;transform:none;will-change:auto}
 @media(max-width:900px){
-  .hero .bg img{transition:opacity 1s ease;transform:none!important;will-change:auto;animation:none;scale:none}
-  .hero .bg img.on{animation:none;transform:none!important;will-change:auto;scale:none}
-  .hero .bg{transform:none!important}
+  .hero .bg img{transition:opacity .7s ease}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero .bg img,.hero .bg img.on{animation:none;transform:none!important;scale:none}
-}
-@media(hover:none){
-  .hero .bg img,.hero .bg img.on{
-    animation:none!important;transform:none!important;will-change:auto!important;scale:none}
+  .hero .bg img,.hero .bg img.on{transition:none;animation:none}
 }
 
 .hero .sub{max-width:min(54ch,92vw)}
@@ -2947,8 +2934,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <!-- ══ HERO ══ -->
 <section class="hero" id="top">
   <div class="bg" id="heroBg">
-    <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="와카사 컨트리클럽 새벽 전경" width="3200" height="1800" srcset="images/hero_m.webp 1600w, images/hero.webp 3200w" sizes="100vw">
-    <img decoding="async" loading="lazy" src="images/hero2.webp" alt="야마시로 골프클럽 항공 전경" width="3200" height="1900" srcset="images/hero2_m.webp 1600w, images/hero2.webp 3200w" sizes="100vw">
+    <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="와카사 컨트리클럽 항공 전경" width="3200" height="1800" srcset="images/hero_m.webp 1600w, images/hero.webp 3200w" sizes="100vw">
+    <img decoding="async" loading="lazy" src="images/hero2.webp" alt="야마시로 골프클럽 항공 전경" width="3200" height="1800" srcset="images/hero2_m.webp 1600w, images/hero2.webp 3200w" sizes="100vw">
     <img decoding="async" loading="lazy" src="images/hero3.webp" alt="후쿠이 국제 컨트리클럽 항공 전경" width="3200" height="1800" srcset="images/hero3_m.webp 1600w, images/hero3.webp 3200w" sizes="100vw">
   </div>
   <div class="inner wrap">
@@ -3273,17 +3260,17 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 
       <!-- 연결선 -->
       <g class="am-links">
-        <line x1="392" y1="248" x2="470" y2="300"/>
+        <line x1="392" y1="248" x2="450" y2="292"/>
         <line x1="392" y1="248" x2="300" y2="380"/>
         <line x1="392" y1="248" x2="238" y2="560"/>
-        <line x1="392" y1="248" x2="510" y2="318"/>
-        <line x1="510" y1="318" x2="470" y2="300"/>
-        <line x1="510" y1="318" x2="300" y2="380"/>
+        <line x1="392" y1="248" x2="575" y2="355"/>
+        <line x1="575" y1="355" x2="450" y2="292"/>
+        <line x1="575" y1="355" x2="300" y2="380"/>
         <line x1="392" y1="248" x2="760" y2="152"/>
       </g>
 
-      <!-- 도시명 (옅게) -->
-      <text class="am-city" x="548" y="286" text-anchor="middle">가가시</text>
+      <!-- 도시명 (옅게) — 노드·배지와 겹치지 않게 -->
+      <text class="am-city" x="660" y="268" text-anchor="middle">가가시</text>
       <text class="am-city" x="360" y="424" text-anchor="middle">후쿠이시</text>
       <text class="am-city" x="150" y="512" text-anchor="middle">쓰루가시</text>
 
@@ -3295,14 +3282,14 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name am-name-c" x="0" y="-23" text-anchor="middle">고마츠공항 · KOMATSU</text>
       </g>
 
-      <!-- ── 야마시로 골프클럽 (호텔에서 7분) ── -->
-      <g class="am-node am-golf" transform="translate(470,300)">
+      <!-- ── 야마시로 골프클럽 (호텔에서 7분) — 배지 좌상단 -->
+      <g class="am-node am-golf" transform="translate(450,292)">
         <circle class="am-dot" r="5"/>
-        <g class="am-badge" transform="translate(14,-9)">
+        <g class="am-badge" transform="translate(-70,-30)">
           <rect x="0" y="0" rx="9.5" width="62" height="19"/>
           <text x="31" y="13.4" text-anchor="middle">호텔 7분</text>
         </g>
-        <text class="am-name" x="4" y="24" text-anchor="middle">야마시로 골프클럽 · 36H</text>
+        <text class="am-name" x="0" y="26" text-anchor="middle">야마시로 골프클럽 · 36H</text>
       </g>
 
       <!-- ── 후쿠이 국제 (호텔에서 20분) ── -->
@@ -3325,15 +3312,15 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name" x="0" y="24" text-anchor="middle">와카사 컨트리클럽 · 27H</text>
       </g>
 
-      <!-- ── 루리코 · 하토리 (공항 25분) ── -->
-      <g class="am-node am-hotel" transform="translate(510,318)">
+      <!-- ── 루리코 · 하토리 (공항 25분) — 야마시로와 분리, 배지 우상단 -->
+      <g class="am-node am-hotel" transform="translate(575,355)">
         <path class="am-steam" d="M-3,-9 q3,-4 0,-8 M0,-9 q3,-4 0,-8 M3,-9 q3,-4 0,-8"/>
         <circle class="am-dot" r="4.5"/>
-        <g class="am-badge am-badge-hotel" transform="translate(12,-9)">
+        <g class="am-badge am-badge-hotel" transform="translate(14,-30)">
           <rect x="0" y="0" rx="9.5" width="62" height="19"/>
           <text x="31" y="13.4" text-anchor="middle">공항 25분</text>
         </g>
-        <text class="am-name" x="8" y="24" text-anchor="middle">루리코 · 하토리</text>
+        <text class="am-name" x="0" y="26" text-anchor="middle">루리코 · 하토리</text>
       </g>
 
       <!-- ── 다테야마 구로베 알펜루트 ── -->
@@ -3400,18 +3387,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 
       <!-- 연결선 -->
       <g class="am-links">
-        <line x1="246" y1="214" x2="318" y2="278"/>
+        <line x1="246" y1="214" x2="280" y2="268"/>
         <line x1="246" y1="214" x2="160" y2="350"/>
         <line x1="246" y1="214" x2="150" y2="520"/>
-        <line x1="246" y1="214" x2="390" y2="318"/>
-        <line x1="390" y1="318" x2="318" y2="278"/>
-        <line x1="390" y1="318" x2="160" y2="350"/>
+        <line x1="246" y1="214" x2="430" y2="360"/>
+        <line x1="430" y1="360" x2="280" y2="268"/>
+        <line x1="430" y1="360" x2="160" y2="350"/>
         <line x1="246" y1="214" x2="400" y2="96"/>
       </g>
 
-      <!-- 도시명 — 노드와 떨어뜨림 -->
-      <text class="am-city" x="420" y="250" text-anchor="middle">가가시</text>
-      <text class="am-city" x="290" y="400" text-anchor="middle">후쿠이시</text>
+      <!-- 도시명 — 노드·배지와 떨어뜨림 -->
+      <text class="am-city" x="470" y="240" text-anchor="middle">가가시</text>
+      <text class="am-city" x="290" y="410" text-anchor="middle">후쿠이시</text>
       <text class="am-city" x="70" y="450" text-anchor="middle">쓰루가시</text>
 
       <!-- 공항 -->
@@ -3422,10 +3409,10 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-sub" x="0" y="-12" text-anchor="middle">KOMATSU</text>
       </g>
 
-      <!-- 야마시로 골프 -->
-      <g class="am-node am-golf" transform="translate(318,278)">
+      <!-- 야마시로 골프 — 배지 좌상단 -->
+      <g class="am-node am-golf" transform="translate(280,268)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(14,-28)"><rect x="0" y="0" rx="12" width="72" height="22"/><text x="36" y="15" text-anchor="middle">호텔 7분</text></g>
+        <g class="am-badge" transform="translate(-80,-32)"><rect x="0" y="0" rx="12" width="72" height="22"/><text x="36" y="15" text-anchor="middle">호텔 7분</text></g>
         <text class="am-name" x="0" y="28" text-anchor="middle">야마시로 36H</text>
       </g>
 
@@ -3443,11 +3430,11 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name" x="0" y="28" text-anchor="middle">와카사 27H</text>
       </g>
 
-      <!-- 호텔 — 야마시로와 분리 -->
-      <g class="am-node am-hotel" transform="translate(390,318)">
+      <!-- 호텔 — 우측으로 분리, 배지 우상단 -->
+      <g class="am-node am-hotel" transform="translate(430,360)">
         <path class="am-steam" d="M-4,-11 q4,-5 0,-10 M0,-11 q4,-5 0,-10 M4,-11 q4,-5 0,-10"/>
         <circle class="am-dot" r="5.5"/>
-        <g class="am-badge am-badge-hotel" transform="translate(-42,-36)"><rect x="0" y="0" rx="12" width="84" height="22"/><text x="42" y="15" text-anchor="middle">공항 25분</text></g>
+        <g class="am-badge am-badge-hotel" transform="translate(14,-32)"><rect x="0" y="0" rx="12" width="84" height="22"/><text x="42" y="15" text-anchor="middle">공항 25분</text></g>
         <text class="am-name" x="0" y="28" text-anchor="middle">루리코 · 하토리</text>
       </g>
 
@@ -4361,12 +4348,11 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
   setTimeout(function(){ els.forEach(show); els=[] },4000);
 })();
 
-// hero crossfade slider
+// hero crossfade slider (opacity only — no zoom/Ken Burns)
 (function(){
   var bg=document.getElementById('heroBg'); if(!bg) return;
   var hero=bg.closest('.hero');
   var imgs=bg.querySelectorAll('img'), dots=document.getElementById('dots'), i=0, timer;
-  var noKb=matchMedia('(max-width:900px), (hover:none), (prefers-reduced-motion: reduce)').matches;
 
   // 모바일: 주소창 변화로 히어로가 커지며 사진이 줌처럼 보이는 현상 차단
   function lockHeroH(){
@@ -4393,8 +4379,6 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
     var prev=i;
     imgs[prev].classList.remove('on'); dots.children[prev].setAttribute('aria-current','false');
     i=n;
-    // 데스크톱 Ken Burns 재시작만 — 모바일은 강제 리플로우·스케일 생략
-    if(!noKb) void imgs[i].offsetWidth;
     imgs[i].classList.add('on'); dots.children[i].setAttribute('aria-current','true');
     imgs.forEach(function(im,k){ im.style.visibility=(k===i||k===prev)?'visible':'hidden'; });
     clearInterval(timer); start();
