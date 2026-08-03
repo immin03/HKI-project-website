@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE KOMATSU 90 — 고마츠 90 멤버십</title>
-<meta name="description" content="한국산업양행이 운영하는 일본 후쿠이·이시카와 프리미엄 골프 멤버십. 하나의 회원권으로 3개 골프장 90홀, 온천 료칸, 후쿠이의 미식과 문화를 누립니다.">
-<meta name="keywords" content="더 고마츠 90, THE KOMATSU 90, 일본 골프 회원권, 후쿠이 골프, 야마시로 골프클럽, 후쿠이 국제 컨트리클럽, 와카사 컨트리클럽, 루리코, 하토리, 한국산업양행">
+<meta name="description" content="한국산업양행이 운영하는 일본 후쿠이·이시카와 프리미엄 골프 멤버십. 하나의 멤버십으로 3개 골프장 90홀, 온천 료칸, 후쿠이의 미식과 문화를 누립니다.">
+<meta name="keywords" content="더 고마츠 90, THE KOMATSU 90, 일본 골프 멤버십, 후쿠이 골프, 야마시로 골프클럽, 후쿠이 국제 컨트리클럽, 와카사 컨트리클럽, 루리코, 하토리, 한국산업양행">
 <meta name="theme-color" content="#0E120E">
 <meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://brilliant-yeot-20afd1.netlify.app/">
@@ -512,6 +512,15 @@ header.hide{transform:translateY(-102%)}
 .fld input:focus,.fld select:focus,.fld textarea:focus{outline:0;border-color:var(--brass)}
 .fld2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 @media(max-width:520px){.fld2{grid-template-columns:1fr}}
+.ichips{display:flex;flex-wrap:wrap;gap:8px}
+.ichip{position:relative;margin:0;cursor:pointer}
+.ichip input{position:absolute;opacity:0;pointer-events:none}
+.ichip span{display:block;padding:10px 14px;border:1px solid var(--line);background:#F7F4EC;
+  font-size:13px;letter-spacing:.02em;color:var(--ink);line-height:1.3;
+  transition:border-color .25s,background .25s,color .25s}
+.ichip input:checked + span{border-color:var(--brass);background:var(--ink);color:#fff}
+.ichip input:focus-visible + span{outline:2px solid var(--brass);outline-offset:2px}
+.ichip:hover span{border-color:rgba(165,133,74,.55)}
 .agree{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--moss);line-height:1.7;margin:6px 0 20px}
 .agree input{width:16px;height:16px;margin-top:2px;flex:0 0 auto;accent-color:var(--brass)}
 .agree em{font-style:normal;color:var(--brass)}
@@ -705,6 +714,35 @@ header.hide{transform:translateY(-102%)}
 .ms-actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
 .ms-actions .tel{font-family:var(--lat);letter-spacing:.14em;font-size:18px;color:var(--ink)}
 .ms-actions .tel em{font-style:normal;font-family:var(--sans);font-size:12px;letter-spacing:.08em;color:#3E4B41;margin-right:10px}
+
+.ms-teaser{margin-top:clamp(40px,5vw,64px);padding:clamp(28px,3.5vw,44px) clamp(24px,3vw,40px);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,48px);align-items:center;
+  border:1px solid rgba(165,133,74,.32);
+  background:linear-gradient(135deg,#F7F4EC 0%,#EDE8DC 100%)}
+.ms-teaser h3{font-size:clamp(22px,2.2vw,30px);font-weight:200;letter-spacing:-.03em;margin:0 0 12px;color:var(--ink);line-height:1.35}
+.ms-teaser p{margin:0;font-size:14.5px;color:#2F3A32;line-height:1.85;max-width:42ch}
+.ms-teaser-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.ms-teaser-actions .tel{font-family:var(--lat);letter-spacing:.14em;font-size:16px;color:var(--ink)}
+.ms-teaser-actions .tel em{font-style:normal;font-family:var(--sans);font-size:12px;letter-spacing:.08em;color:#3E4B41;margin-right:10px}
+@media(max-width:820px){.ms-teaser{grid-template-columns:1fr}}
+
+.dpanel.ms-detail .dnav{display:none}
+.ms-detail-in .ms-bh{margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.ms-detail-in .ms-bh h3{font-size:clamp(22px,2.2vw,30px);font-weight:200;letter-spacing:-.03em;margin:0;color:var(--ink)}
+.ms-detail-in .ms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ms-detail-in .ms-grid article{padding:clamp(20px,2.2vw,28px) 12px clamp(20px,2.2vw,28px) 0;
+  border-top:1px solid var(--line)}
+.ms-detail-in .ms-grid article:nth-child(-n+3){border-top:0;padding-top:8px}
+.ms-detail-in .ms-grid .n{font-family:var(--lat);font-size:12px;letter-spacing:.28em;color:var(--brass);display:inline-block}
+.ms-detail-in .ms-grid h4{font-size:clamp(15px,1.2vw,18px);margin:10px 0 8px;font-weight:300;color:var(--ink)}
+.ms-detail-in .ms-grid p{font-size:13px;color:#2F3A32;line-height:1.8;margin:0;max-width:34ch}
+@media(max-width:900px){.ms-detail-in .ms-grid{grid-template-columns:1fr 1fr}
+  .ms-detail-in .ms-grid article:nth-child(-n+3){border-top:1px solid var(--line);padding-top:clamp(20px,2.2vw,28px)}
+  .ms-detail-in .ms-grid article:nth-child(-n+2){border-top:0;padding-top:8px}}
+@media(max-width:560px){.ms-detail-in .ms-grid{grid-template-columns:1fr}
+  .ms-detail-in .ms-grid article:nth-child(-n+2){border-top:1px solid var(--line)}
+  .ms-detail-in .ms-grid article:first-child{border-top:0}}
 
 /* dark section tables — never white */
 .dark .ms-table-wrap{background:rgba(255,255,255,.04);border-color:rgba(201,174,121,.28)}
@@ -2551,6 +2589,9 @@ img{max-width:100%}
     var card=document.querySelector('.card[data-panel="'+id+'"]');
     if(!tpl||!card) return false;
 
+    panel.classList.remove('ms-detail');
+    var dnav=panel.querySelector('.dnav'); if(dnav) dnav.style.display='';
+
     if(!P.cache[id]){
       var d=document.createElement('div'); d.className='cbody';
       d.appendChild(tpl.content.cloneNode(true));
@@ -2591,11 +2632,34 @@ img{max-width:100%}
     return true;
   };
 
+  window.openMsDetail=function(){
+    var panel=el('dpanel'), tpl=el('msDetailTpl');
+    if(!panel||!tpl) return false;
+    if(!P.cache['ms-detail']){
+      var d=document.createElement('div'); d.className='cbody';
+      d.appendChild(tpl.content.cloneNode(true));
+      P.cache['ms-detail']=d;
+    }
+    var body=panel.querySelector('.dbody');
+    body.innerHTML=''; body.appendChild(P.cache['ms-detail']);
+    panel.classList.add('lt','ms-detail','open');
+    panel.querySelector('.dhead .no').textContent='01';
+    panel.querySelector('.dhead .tt').textContent='멤버십 안내';
+    panel.querySelector('.dhead .mt').textContent='Silver · Gold';
+    var dnav=panel.querySelector('.dnav'); if(dnav) dnav.style.display='none';
+    panel.querySelector('.sheet').scrollTop=0;
+    document.body.classList.add('panel-open');
+    setTimeout(function(){ var c=panel.querySelector('.dclose'); if(c) c.focus() },420);
+    return true;
+  };
+
   window.closePanel=function(fromPop){
     var panel=el('dpanel'); if(!panel||!panel.classList.contains('open')) return;
-    panel.classList.remove('open');
+    var wasMs=panel.classList.contains('ms-detail');
+    panel.classList.remove('open','ms-detail');
+    var dnav=panel.querySelector('.dnav'); if(dnav) dnav.style.display='';
     document.body.classList.remove('panel-open');
-    if(fromPop){ return }
+    if(fromPop || wasMs){ return }
     try{
       if(history.state && history.state.k90==='panel') history.back();
       else history.replaceState(null,'',location.pathname);
@@ -2604,6 +2668,15 @@ img{max-width:100%}
   addEventListener('popstate',function(){
     var panel=el('dpanel');
     if(panel && panel.classList.contains('open')) closePanel(true);
+  });
+
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-ms-open]'); if(!btn) return;
+    e.preventDefault();
+    var mg=document.getElementById('mega');
+    if(mg){ mg.classList.remove('open'); var b=document.getElementById('bg'); if(b) b.setAttribute('aria-expanded','false') }
+    var sh=document.querySelector('.msheet.open'); if(sh) sh.classList.remove('open');
+    openMsDetail();
   });
 
   document.addEventListener('DOMContentLoaded',function(){
@@ -2616,6 +2689,7 @@ img{max-width:100%}
     addEventListener('keydown',function(e){
       if(!panel.classList.contains('open')) return;
       if(e.key==='Escape') closePanel();
+      if(panel.classList.contains('ms-detail')) return;
       var bp=panel.querySelector('.dprev'), bn=panel.querySelector('.dnext');
       if(e.key==='ArrowLeft' && !bp.disabled) bp.click();
       if(e.key==='ArrowRight' && !bn.disabled) bn.click();
@@ -2719,9 +2793,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <nav class="gnb">
     <span class="gi"><a href="#membership">MEMBERSHIP</a>
       <div class="dd">
-        <a href="#membership">회원권 안내 <em>실버 · 골드 멤버십 상품</em></a>
-        <a href="#ms-benefits">회원 혜택 <em>우선예약 · 원스톱 케어</em></a>
-        <a href="#ms-product">포인트 제도 <em>적립 · 사용 안내</em></a>
+        <a href="#membership">멤버십 안내 <em>실버 · 골드</em></a>
+        <a href="#membership" data-ms-open>멤버십 알아보기 <em>요금 · 혜택 · 포인트</em></a>
         <a href="#membership" data-open="inquiry">상담신청 <em>1899-0721</em></a>
       </div></span>
     <span class="gi"><a href="#access">LOCATION</a>
@@ -2792,16 +2865,16 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       </div>
     </div>
     <div class="util">
-      <a href="#news">FAQ</a><a href="#membership">회원권 안내</a>
+      <a href="#news">FAQ</a><a href="#membership">멤버십 안내</a>
       <a href="#hki">오시는 길</a>
     </div>
   </div>
   <div class="right">
-    <button class="rcta" data-open="inquiry" style="border:0;cursor:pointer;width:100%">평생회원권 상담신청</button>
+    <button class="rcta" data-open="inquiry" style="border:0;cursor:pointer;width:100%">평생 멤버십 상담신청</button>
     <div class="row" style="margin-top:26px"><span>입회문의</span><b>1899-0721</b></div>
     <nav>
       <a href="#news">예약 및 취소 안내</a>
-      <a href="#news">회원권 양도 · 명의변경</a>
+      <a href="#news">멤버십 양도 · 명의변경</a>
       <a href="#stay">객실 및 숙박 안내</a>
       <a href="#golf">골프 관련 비용</a>
       <a href="#experience">여행 · 관광 정보</a>
@@ -2814,9 +2887,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <section class="hero" id="top">
   <div class="bg" id="heroBg">
     <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="와카사 컨트리클럽 새벽 전경" width="3200" height="1800" srcset="images/hero_m.webp 1600w, images/hero.webp 3200w" sizes="100vw">
-    <img decoding="async" loading="lazy" src="images/hero2.webp" alt="와카사의 산맥과 코스" width="3200" height="1903" srcset="images/hero2_m.webp 1600w, images/hero2.webp 3200w" sizes="100vw">
-    <img decoding="async" loading="lazy" src="images/hero3.webp" alt="야마시로 골프클럽 전경" width="3200" height="1900" srcset="images/hero3_m.webp 1600w, images/hero3.webp 3200w" sizes="100vw">
-    <img decoding="async" loading="lazy" src="images/hero4.webp" alt="후쿠이 국제 컨트리클럽 전경" width="3200" height="1800" srcset="images/hero4_m.webp 1600w, images/hero4.webp 3200w" sizes="100vw">
+    <img decoding="async" loading="lazy" src="images/hero2.webp" alt="야마시로 골프클럽 항공 전경" width="3200" height="1900" srcset="images/hero2_m.webp 1600w, images/hero2.webp 3200w" sizes="100vw">
+    <img decoding="async" loading="lazy" src="images/hero3.webp" alt="후쿠이 국제 컨트리클럽 항공 전경" width="3200" height="1800" srcset="images/hero3_m.webp 1600w, images/hero3.webp 3200w" sizes="100vw">
   </div>
   <div class="inner wrap">
     <span class="lat">Fukui &nbsp;·&nbsp; Ishikawa &nbsp;·&nbsp; Japan</span>
@@ -2830,7 +2902,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <a href="#yamashiro"><span class="n" data-count="36">0</span><span class="t">Yamashiro<b>야마시로 골프클럽</b></span></a>
     <a href="#fukui"><span class="n" data-count="27">0</span><span class="t">Fukui Kokusai<b>후쿠이 국제 컨트리클럽</b></span></a>
     <a href="#wakasa"><span class="n" data-count="27">0</span><span class="t">Wakasa<b>와카사 컨트리클럽</b></span></a>
-    <a href="#membership" class="total"><span class="n" data-count="90">0</span><span class="t">One Membership<b>하나의 회원권</b></span></a>
+    <a href="#membership" class="total"><span class="n" data-count="90">0</span><span class="t">One Membership<b>하나의 멤버십</b></span></a>
   </div>
 </section>
 
@@ -2857,108 +2929,81 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <span class="ch-no">01</span>
         <div class="ch-meta">
           <span class="eyebrow" style="margin:0">Membership · Komatsu 90</span>
-          <span class="ch-label">실버 · 골드 멤버십 상품</span>
+          <span class="ch-label">실버 · 골드 · 평생 멤버십</span>
         </div>
       </div>
       <h2>가장 특별한 라운드를,<br><em>하나의 멤버십</em>으로</h2>
       <span class="ms-hero-rule"></span>
-      <p class="lede">고마츠 90 멤버십 하나로 야마시로 골프클럽, 후쿠이 국제 컨트리클럽, 와카사 컨트리클럽
-        총 90홀을 이용합니다. ㈜한국산업양행이 세 골프장을 직접 소유·운영합니다.</p>
+      <p class="lede">야마시로 · 후쿠이 국제 · 와카사, 총 90홀을 하나의 멤버십으로 이용합니다.
+        ㈜한국산업양행이 세 골프장을 직접 소유·운영합니다.</p>
     </div>
   </div>
 
   <div class="ms-body">
-  <div class="ms-pillars rv rv-stagger">
-    <article>
-      <span class="ms-big" aria-hidden="true">90</span>
-      <span class="lab">3 Courses · Championship</span>
-      <h3>Total 90홀</h3>
-      <ul>
-        <li>야마시로 골프클럽 · 36홀</li>
-        <li>후쿠이 국제 컨트리클럽 · 27홀</li>
-        <li>와카사 컨트리클럽 · 27홀</li>
-      </ul>
-    </article>
-    <article>
-      <span class="ms-big" aria-hidden="true">One</span>
-      <span class="lab">Convenient All-in-One</span>
-      <h3>원스톱 케어</h3>
-      <ul>
-        <li>공항 픽업 · 샌딩</li>
-        <li>골프장 인근 호텔 예약 대행</li>
-        <li>티타임 일정 통합 관리</li>
-        <li>관광 · 온천 코스 안내</li>
-      </ul>
-    </article>
-    <article>
-      <span class="ms-big" aria-hidden="true">100</span>
-      <span class="lab">100% Ownership</span>
-      <h3>신뢰할 수 있는 멤버십</h3>
-      <p>세 골프장을 100% 직접 소유·운영하여, 운영사 변경이나 매각 리스크 없이
-        멤버십 가치와 이용 안정을 지켜 드립니다.</p>
-    </article>
-  </div>
-
-  <div class="ms-benefits rv" id="ms-benefits">
-    <div class="ms-bh">
-      <h3>회원 혜택</h3>
-      <span class="eyebrow" style="margin:0">Member Privileges</span>
-    </div>
-    <div class="ms-grid rv-stagger">
+    <div class="ms-pillars rv rv-stagger">
       <article>
-        <span class="n">01</span>
-        <h4>우선 예약 서비스</h4>
-        <p>성수기와 주말에도 회원 우선으로 티타임을 확보합니다.</p>
+        <span class="ms-big" aria-hidden="true">90</span>
+        <span class="lab">3 Courses</span>
+        <h3>Total 90홀</h3>
+        <ul>
+          <li>야마시로 · 36홀</li>
+          <li>후쿠이 국제 · 27홀</li>
+          <li>와카사 · 27홀</li>
+        </ul>
       </article>
       <article>
-        <span class="n">02</span>
-        <h4>멤버 전용 프리빌리지</h4>
-        <p>클럽별 차별화된 회원 혜택과 전용 서비스를 제공합니다.</p>
+        <span class="ms-big" aria-hidden="true">2</span>
+        <span class="lab">Plans</span>
+        <h3>실버 · 골드</h3>
+        <ul>
+          <li>실버 3,000만원</li>
+          <li>골드 4,800만원</li>
+          <li>평생 멤버십</li>
+        </ul>
       </article>
       <article>
-        <span class="n">03</span>
-        <h4>원스톱 여행 케어</h4>
-        <p>공항 픽업부터 숙박·라운드 일정까지 컨시어지가 한곳에서 챙깁니다.</p>
-      </article>
-      <article>
-        <span class="n">04</span>
-        <h4>멤버 전용 프로그램</h4>
-        <p>프라이빗 토너먼트, 비즈니스 행사, 초청 프로그램을 운영합니다.</p>
-      </article>
-      <article>
-        <span class="n">05</span>
-        <h4>전담 멤버십 컨시어지</h4>
-        <p>예약부터 일정 조율까지 전담 컨시어지가 세심하게 관리합니다.</p>
-      </article>
-      <article>
-        <span class="n">06</span>
-        <h4>세 개의 프라이빗 클럽</h4>
-        <p>야마시로 · 후쿠이 국제 · 와카사, 하나의 회원권으로 세 곳을 이용합니다.</p>
+        <span class="ms-big" aria-hidden="true">100</span>
+        <span class="lab">Ownership</span>
+        <h3>직접 소유·운영</h3>
+        <p>운영사 변경·매각 리스크 없이 멤버십 가치와 이용 안정을 지켜 드립니다.</p>
       </article>
     </div>
-  </div>
 
-  <div class="ms-product rv" id="ms-product">
+    <div class="ms-teaser rv">
+      <div class="ms-teaser-copy">
+        <h3>요금 · 혜택 · 포인트까지<br>자세히 안내합니다</h3>
+        <p>등급별 입회금, 동반인, 회원요금, 포인트 제도와 송영비 안내를 한곳에서 확인하세요.</p>
+      </div>
+      <div class="ms-teaser-actions">
+        <button type="button" class="btn-solid" data-ms-open style="border:0;cursor:pointer;font-family:var(--lat)">멤버십 알아보기</button>
+        <button type="button" class="btn-line ms-inq" data-open="inquiry" style="cursor:pointer;font-family:var(--lat);color:var(--ink);border-color:rgba(14,18,14,.35)">상담신청</button>
+        <span class="tel"><em>입회문의</em>1899-0721</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<template id="msDetailTpl">
+  <div class="ms-detail-in">
     <div class="ms-bh">
       <h3>멤버십 상품</h3>
       <span class="eyebrow" style="margin:0">Membership Plans</span>
     </div>
-
-    <div class="ms-tiers rv-stagger">
+    <div class="ms-tiers">
       <article class="ms-tier">
         <span class="ms-mark" aria-hidden="true">S</span>
-        <div class="ms-tier-top">
-          <span class="ms-tier-lab">Silver</span>
-        </div>
+        <div class="ms-tier-top"><span class="ms-tier-lab">Silver</span></div>
         <h4>실버</h4>
         <p class="ms-price">3,000<small>만원</small></p>
-        <p class="ms-tier-meta">평생회원권 · 기명 2 + 동반 3</p>
+        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 동반 3</p>
         <ul class="ms-tier-list">
           <li>연 2회 위임 가능</li>
           <li>90홀 통합 이용</li>
           <li>회원요금 · 포인트 적립</li>
         </ul>
         <p class="ms-tier-pts">입회 포인트 900만 지급</p>
+        <button type="button" class="btn-line" data-open="inquiry" data-interest="실버 멤버십" data-dclose
+          style="margin-top:18px;cursor:pointer;font-family:var(--lat);color:var(--ink);border-color:rgba(14,18,14,.35);position:relative;z-index:2">실버로 상담신청</button>
       </article>
       <article class="ms-tier gold">
         <span class="ms-mark" aria-hidden="true">G</span>
@@ -2968,16 +3013,35 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         </div>
         <h4>골드</h4>
         <p class="ms-price">4,800<small>만원</small></p>
-        <p class="ms-tier-meta">평생회원권 · 기명 2 + 동반 7</p>
+        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 동반 7</p>
         <ul class="ms-tier-list">
           <li>연 3회 위임 가능</li>
           <li>90홀 통합 이용</li>
           <li>회원요금 · 포인트 적립</li>
         </ul>
         <p class="ms-tier-pts">입회 포인트 1,500만 지급</p>
+        <button type="button" class="btn-solid" data-open="inquiry" data-interest="골드 멤버십" data-dclose
+          style="margin-top:18px;border:0;cursor:pointer;font-family:var(--lat);position:relative;z-index:2;background:var(--brass-l);color:var(--ink)">골드로 상담신청</button>
       </article>
     </div>
 
+    <div class="ms-bh" style="margin-top:clamp(36px,4vw,52px)">
+      <h3>회원 혜택</h3>
+      <span class="eyebrow" style="margin:0">Member Privileges</span>
+    </div>
+    <div class="ms-grid ms-grid-lite">
+      <article><span class="n">01</span><h4>우선 예약 서비스</h4><p>성수기와 주말에도 회원 우선으로 티타임을 확보합니다.</p></article>
+      <article><span class="n">02</span><h4>멤버 전용 프리빌리지</h4><p>클럽별 차별화된 회원 혜택과 전용 서비스를 제공합니다.</p></article>
+      <article><span class="n">03</span><h4>원스톱 여행 케어</h4><p>공항 픽업부터 숙박·라운드 일정까지 컨시어지가 한곳에서 챙깁니다.</p></article>
+      <article><span class="n">04</span><h4>멤버 전용 프로그램</h4><p>프라이빗 토너먼트, 비즈니스 행사, 초청 프로그램을 운영합니다.</p></article>
+      <article><span class="n">05</span><h4>전담 멤버십 컨시어지</h4><p>예약부터 일정 조율까지 전담 컨시어지가 세심하게 관리합니다.</p></article>
+      <article><span class="n">06</span><h4>세 개의 프라이빗 클럽</h4><p>야마시로 · 후쿠이 국제 · 와카사, 하나의 멤버십으로 세 곳을 이용합니다.</p></article>
+    </div>
+
+    <div class="ms-bh" style="margin-top:clamp(36px,4vw,52px)">
+      <h3>상세 비교</h3>
+      <span class="eyebrow" style="margin:0">Compare</span>
+    </div>
     <div class="ms-table-wrap">
       <table class="ms-table">
         <thead>
@@ -3014,9 +3078,9 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <td>동일</td>
           </tr>
           <tr>
-            <th scope="row">회원혜택</th>
-            <td>포인트 적립 · 평생회원권 · 연 2회 위임 가능</td>
-            <td>포인트 적립 · 평생회원권 · 연 3회 위임 가능</td>
+            <th scope="row">멤버 혜택</th>
+            <td>포인트 적립 · 평생 멤버십 · 연 2회 위임 가능</td>
+            <td>포인트 적립 · 평생 멤버십 · 연 3회 위임 가능</td>
           </tr>
           <tr>
             <th scope="row">기타</th>
@@ -3042,12 +3106,11 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     </div>
 
     <div class="ms-actions">
-      <button class="btn-solid" data-open="inquiry" style="border:0;cursor:pointer;font-family:var(--lat)">평생회원권 상담신청</button>
+      <button class="btn-solid" data-open="inquiry" data-dclose style="border:0;cursor:pointer;font-family:var(--lat)">평생 멤버십 상담신청</button>
       <span class="tel"><em>입회문의</em>1899-0721</span>
     </div>
   </div>
-  </div>
-</section>
+</template>
 
 <div class="sec-break" aria-hidden="true"><i></i><span class="now">01 <b>Membership</b></span><i></i><span>Next · 02 <b>Prologue</b></span><i></i></div>
 
@@ -3374,7 +3437,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <p class="lede r">명문 36홀에서 시작해,<br>
         챌린지 27홀을 지나,<br>
         힐링 27홀에서 완성되는 <em>90홀의</em> 여행.<br>
-        세 개의 코스가 하나의 회원권 안에 있습니다.<br>
+        세 개의 코스가 하나의 멤버십 안에 있습니다.<br>
         <b style="color:var(--brass-l);font-weight:400">코스를 선택하시면 상세 정보가 열립니다.</b></p>
     </div>
 
@@ -3995,7 +4058,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         코스 품질 관리의 경쟁력으로 이어지고 있습니다.</p>
       <p>고마츠 90 멤버십은 글로벌 골프장을 직접 운영하는 기업이 선보이는 일본 골프 멤버십입니다.
         해외 골프장을 운영하는 회사가 직접 관리하는 만큼 안정적인 예약 시스템과 책임 있는 운영 서비스를 제공하여,
-        해외 회원권 이용 시 느낄 수 있는 예약과 운영에 대한 부담을 줄이고, 글로벌 골프 운영 기업이 축적한
+        해외 멤버십 이용 시 느낄 수 있는 예약과 운영에 대한 부담을 줄이고, 글로벌 골프 운영 기업이 축적한
         서비스와 코스 관리의 수준을 직접 경험하실 수 있습니다.</p>
       <div class="values">
         <span>· Differentiated Value</span>
@@ -4011,9 +4074,9 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <img loading="lazy" decoding="async" src="images/fk_aerial2.webp" alt="" width="1600" height="985" srcset="images/fk_aerial2_m.webp 820w, images/fk_aerial2.webp 1600w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw">
   <div class="in wrap">
     <span class="eyebrow on-dark">Membership</span>
-    <h2>하나의 회원권, 90홀의 일본</h2>
-    <p>세 골프장 통합 예약과 료칸 숙박, 후쿠이 체험까지. 평생회원권 상담을 신청하세요.</p>
-    <button class="btn-solid" data-open="inquiry" style="border:0;cursor:pointer;font-family:var(--lat)">평생회원권 상담신청</button>
+    <h2>하나의 멤버십, 90홀의 일본</h2>
+    <p>세 골프장 통합 예약과 료칸 숙박, 후쿠이 체험까지. 평생 멤버십 상담을 신청하세요.</p>
+    <button class="btn-solid" data-open="inquiry" style="border:0;cursor:pointer;font-family:var(--lat)">평생 멤버십 상담신청</button>
   </div>
 </section>
 
@@ -4030,8 +4093,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <div class="rv">
       <h2 style="font-size:clamp(22px,2.4vw,32px);margin-bottom:26px">이용 전 확인하세요</h2>
       <div class="faq">
-        <a href="#">회원권 및 요금 안내</a>
-        <a href="#">회원권 양도·명의변경</a>
+        <a href="#membership" data-ms-open>멤버십 및 요금 안내</a>
+        <a href="#">멤버십 양도·명의변경</a>
         <a href="#">계약 및 증빙서류</a>
         <a href="#">예약 및 취소 규정</a>
         <a href="#">객실 및 숙박 안내</a>
@@ -4088,7 +4151,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <a href="#hki" data-ms><span class="mn">07</span><span class="mt2">운영 철학</span><span class="ms">한국산업양행</span></a>
     <a href="#news" data-ms><span class="mn">08</span><span class="mt2">FAQ</span><span class="ms">이용 안내</span></a>
     <h4 style="margin-top:22px">Membership</h4>
-    <a href="#membership" data-ms data-open="inquiry"><span class="mn">·</span><span class="mt2" style="color:var(--brass)">평생회원권 상담신청</span></a>
+    <a href="#membership" data-ms data-open="inquiry"><span class="mn">·</span><span class="mt2" style="color:var(--brass)">평생 멤버십 상담신청</span></a>
   </div>
 </div>
 
@@ -4111,8 +4174,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<!-- ══ 회원권 상담신청 (Netlify Forms) ══ -->
-<div class="mdl" id="mdlInquiry" role="dialog" aria-modal="true" aria-label="회원권 상담신청">
+<!-- ══ 멤버십 상담신청 (Netlify Forms) ══ -->
+<div class="mdl" id="mdlInquiry" role="dialog" aria-modal="true" aria-label="멤버십 상담신청">
   <div class="veil" data-close></div>
   <div class="box">
     <button class="close" data-close><span>×</span>CLOSE</button>
@@ -4122,7 +4185,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <input type="hidden" name="form-name" value="membership">
       <p style="display:none"><label>이 칸은 비워 두세요 <input name="bot-field"></label></p>
 
-      <h3>평생회원권 상담신청</h3>
+      <h3>평생 멤버십 상담신청</h3>
       <p class="sub">남겨주신 연락처로 담당자가 영업일 기준 1일 이내에 연락드립니다.</p>
       <div id="inqNote"></div>
 
@@ -4134,19 +4197,24 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       </div>
       <div class="fld"><label for="iEmail">이메일</label>
         <input id="iEmail" name="이메일" type="email" maxlength="80" autocomplete="email"></div>
-      <div class="fld2">
-        <div class="fld"><label for="iRegion">거주 지역</label>
-          <select id="iRegion" name="지역">
-            <option value="">선택</option><option>서울</option><option>경기 · 인천</option>
-            <option>충청 · 대전</option><option>영남 · 부산 · 대구</option>
-            <option>호남 · 광주</option><option>강원 · 제주</option><option>해외</option>
-          </select></div>
-        <div class="fld"><label for="iInterest">관심 사항</label>
-          <select id="iInterest" name="관심사항">
-            <option value="">선택</option><option>개인 회원권</option><option>법인 회원권</option>
-            <option>단체 · 기업 라운드</option><option>숙박 연계 패키지</option><option>기타 문의</option>
-          </select></div>
+      <div class="fld">
+        <span class="lab" id="iInterestLab" style="display:block;font-size:11.5px;letter-spacing:.06em;color:var(--moss);margin-bottom:8px">관심 멤버십 <b style="color:var(--brass);font-weight:400">*</b></span>
+        <div class="ichips" role="radiogroup" aria-labelledby="iInterestLab">
+          <label class="ichip"><input type="radio" name="관심사항" value="실버 멤버십" required><span>실버 · 3,000만원</span></label>
+          <label class="ichip"><input type="radio" name="관심사항" value="골드 멤버십"><span>골드 · 4,800만원</span></label>
+          <label class="ichip"><input type="radio" name="관심사항" value="실버 · 골드 비교"><span>등급 비교 상담</span></label>
+          <label class="ichip"><input type="radio" name="관심사항" value="법인 멤버십"><span>법인 멤버십</span></label>
+          <label class="ichip"><input type="radio" name="관심사항" value="포인트 · 혜택 문의"><span>포인트 · 혜택</span></label>
+          <label class="ichip"><input type="radio" name="관심사항" value="양도 · 명의변경"><span>양도 · 명의변경</span></label>
+          <label class="ichip"><input type="radio" name="관심사항" value="기타 문의"><span>기타 문의</span></label>
+        </div>
       </div>
+      <div class="fld"><label for="iRegion">거주 지역</label>
+        <select id="iRegion" name="지역">
+          <option value="">선택</option><option>서울</option><option>경기 · 인천</option>
+          <option>충청 · 대전</option><option>영남 · 부산 · 대구</option>
+          <option>호남 · 광주</option><option>강원 · 제주</option><option>해외</option>
+        </select></div>
       <div class="fld"><label for="iMsg">문의 내용</label>
         <textarea id="iMsg" name="문의내용" maxlength="1000" placeholder="희망 일정, 인원, 궁금한 점을 자유롭게 남겨 주세요."></textarea></div>
 
@@ -4734,15 +4802,22 @@ function initGal(wrap){
 document.querySelectorAll('[data-gal]').forEach(initGal);
 
 // ══════════════════════════════════════════════
-//  회원권 상담신청 — Netlify Forms
+//  멤버십 상담신청 — Netlify Forms
 // ══════════════════════════════════════════════
 (function(){
   // ── 모달 열고 닫기 ───────────────────────
   var openMdl=null;
-  function show(id){
+  function setInterest(val){
+    if(!val) return;
+    document.querySelectorAll('#inqForm input[name="관심사항"]').forEach(function(r){
+      r.checked = (r.value===val);
+    });
+  }
+  function show(id, interest){
     var m=document.getElementById(id); if(!m) return;
     openMdl=m; m.classList.add('open'); document.body.style.overflow='hidden'; document.body.classList.add('modal-open');
-    var f=m.querySelector('input:not([type=hidden]),select,textarea');
+    if(id==='mdlInquiry') setInterest(interest||'');
+    var f=m.querySelector('#iName') || m.querySelector('input:not([type=hidden]),select,textarea');
     if(f) setTimeout(function(){ f.focus() },450);
   }
   function hide(){
@@ -4751,7 +4826,11 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
   }
   document.addEventListener('click',function(e){
     var o=e.target.closest('[data-open]');
-    if(o && !o.classList.contains('card') && !o.classList.contains('xslide') && !o.hasAttribute('data-panel') && !o.hasAttribute('data-xc')){ e.preventDefault(); show('mdlInquiry'); return }
+    if(o && !o.classList.contains('card') && !o.classList.contains('xslide') && !o.hasAttribute('data-panel') && !o.hasAttribute('data-xc')){
+      e.preventDefault();
+      show('mdlInquiry', o.getAttribute('data-interest')||'');
+      return;
+    }
     if(e.target.closest('[data-close]')) hide();
   });
   addEventListener('keydown',function(e){ if(e.key==='Escape') hide() });
@@ -4767,6 +4846,8 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
     var phone=document.getElementById('iPhone').value.replace(/\D/g,'');
     if(!document.getElementById('iName').value.trim()) return note('성함을 입력해 주세요.');
     if(phone.length<9) return note('연락처를 정확히 입력해 주세요.');
+    if(!form.querySelector('input[name="관심사항"]:checked'))
+      return note('관심 멤버십을 선택해 주세요.');
     if(!document.getElementById('iAgree').checked)
       return note('개인정보 수집 · 이용에 동의해 주셔야 접수됩니다.');
     note('');
