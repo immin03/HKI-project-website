@@ -1,0 +1,7 @@
+_incoming/
+_review/
+_convert_photos.py
+*.pyc
+__pycache__/
+images/*_old.webp
+images/*_old.jpg

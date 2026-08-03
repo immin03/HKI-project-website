@@ -13,8 +13,8 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="THE KOMATSU 90">
-<meta property="og:title" content="THE KOMATSU 90 — 가장 가까운 일본에서 가장 깊은 하루">
-<meta property="og:description" content="코마츠공항에서 차로 30분. 90홀의 코스와 1,300년의 온천이 하루 안에 이어집니다.">
+<meta property="og:title" content="THE KOMATSU 90 — 가까운 하루, 깊어지는 휴식">
+<meta property="og:description" content="코마츠공항에서 차로 30분, 90홀 골프와 1,300년 온천이 하루를 채웁니다.">
 <meta property="og:image" content="https://brilliant-yeot-20afd1.netlify.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -281,6 +281,35 @@ nav.gnb a:hover::after{width:100%}
 .secno{font-family:var(--lat);font-size:clamp(52px,7vw,104px);line-height:.8;font-weight:300;
   color:var(--brass);opacity:.3;display:block;margin-bottom:14px}
 .dark .secno{color:var(--brass-l);opacity:.32}
+
+/* chapter mark — clearer section identity */
+.ch{display:flex;align-items:flex-end;gap:clamp(16px,2.2vw,28px);
+  margin-bottom:clamp(28px,3.6vw,48px);padding-bottom:clamp(18px,2.2vw,28px);
+  border-bottom:1px solid rgba(165,133,74,.35)}
+.ch-no{font-family:var(--lat);font-size:clamp(44px,5.6vw,80px);line-height:.82;font-weight:300;
+  color:var(--brass);letter-spacing:.02em;flex:0 0 auto;position:relative;padding-bottom:10px}
+.ch-no::after{content:"";position:absolute;left:0;bottom:0;width:28px;height:1px;background:var(--brass)}
+.ch-meta{flex:1 1 auto;min-width:0;padding-bottom:4px}
+.ch-meta .eyebrow{margin-bottom:0}
+.ch-meta .ch-label{display:block;font-family:var(--sans);font-size:13px;color:var(--moss);margin-top:8px;letter-spacing:.02em}
+.dark .ch{border-bottom-color:rgba(201,174,121,.35)}
+.dark .ch-no{color:var(--brass-l)}
+.dark .ch-no::after{background:var(--brass-l)}
+.dark .ch-meta .ch-label{color:rgba(232,232,226,.62)}
+.ch.on-dark{border-bottom-color:rgba(201,174,121,.35)}
+.ch.on-dark .ch-no{color:var(--brass-l)}
+.ch.on-dark .ch-no::after{background:var(--brass-l)}
+
+.sec-break{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2vw,22px);
+  padding:clamp(22px,3vw,36px) var(--pad);margin:0;background:var(--ink);
+  border-top:1px solid rgba(201,174,121,.28);border-bottom:1px solid rgba(201,174,121,.18)}
+.sec-break i{display:block;width:clamp(28px,6vw,56px);height:1px;background:var(--brass-l);opacity:.55}
+.sec-break span{font-family:var(--lat);font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);white-space:nowrap}
+.sec-break b{font-weight:400;color:var(--brass-l);margin:0 4px}
+.sec-break .now{color:#fff}
+.sec-break .now b{color:var(--brass-l)}
+#prologue{padding-top:clamp(72px,9vw,120px);background:linear-gradient(180deg,#F7F5EF 0%,var(--paper) 120px)}
 
 .dbody .course-top,.dbody .stay{margin-top:0}
 .dbody .subhead:first-child{margin-top:0}
@@ -554,6 +583,157 @@ header.hide{transform:translateY(-102%)}
 .values span{font-family:var(--lat);font-size:14px;letter-spacing:.16em;color:var(--brass)}
 @media(max-width:820px){.hki{grid-template-columns:1fr}}
 
+/* ── membership ────────────────────────── */
+#membership.ms{padding-top:0;overflow:visible}
+.ms-hero{position:relative;color:#fff;min-height:clamp(420px,58vw,560px);
+  padding:clamp(88px,11vw,148px) var(--pad) clamp(48px,6vw,72px);
+  overflow:hidden;margin:0 calc(-1 * var(--pad)) 0;
+  background-color:var(--ink);
+  background-image:url("images/ym_aerial.jpg");
+  background-position:center 42%;background-repeat:no-repeat;background-size:cover}
+.ms-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(115deg,rgba(8,12,8,.78) 0%,rgba(8,12,8,.52) 46%,rgba(8,12,8,.28) 100%),
+  linear-gradient(0deg,rgba(8,12,8,.45) 0%,transparent 48%)}
+.ms-hero::after{content:"";position:absolute;left:var(--pad);right:var(--pad);bottom:0;height:1px;z-index:3;
+  background:linear-gradient(90deg,transparent,rgba(201,174,121,.55),transparent)}
+.ms-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;pointer-events:none}
+.ms-hero .ms-hero-in{position:relative;z-index:2;max-width:min(760px,100%)}
+.ms-hero .secno{color:var(--brass-l);opacity:.4;display:block;margin-bottom:8px}
+.ms-hero .eyebrow{color:var(--brass-l);margin-bottom:18px}
+.ms-hero h2{font-size:clamp(30px,4vw,52px);font-weight:200;line-height:1.22;margin:0;letter-spacing:-.045em}
+.ms-hero h2 em{font-style:normal;color:var(--brass-l)}
+.ms-hero .ms-hero-rule{display:block;width:48px;height:1px;background:var(--brass-l);margin:28px 0 22px;opacity:.9}
+.ms-hero .lede{color:rgba(255,255,255,.78);max-width:44ch;margin:0;font-size:clamp(14.5px,1.15vw,16.5px);line-height:1.9}
+.ms-hero-stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  margin-top:clamp(40px,5vw,64px);max-width:min(920px,100%);border-top:1px solid rgba(201,174,121,.28)}
+.ms-hero-stats div{padding:22px 0 4px;border-right:1px solid rgba(255,255,255,.12)}
+.ms-hero-stats div:last-child{border-right:0}
+.ms-hero-stats b{display:block;font-family:var(--lat);font-size:clamp(28px,3vw,40px);font-weight:400;
+  color:var(--brass-l);letter-spacing:.04em;line-height:1}
+.ms-hero-stats span{display:block;margin-top:10px;font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.62);
+  font-family:var(--lat);text-transform:uppercase}
+@media(max-width:640px){.ms-hero-stats{grid-template-columns:1fr;border-top:0}
+  .ms-hero-stats div{border-right:0;border-top:1px solid rgba(201,174,121,.22);padding:16px 0}}
+
+.ms-body{padding-top:clamp(48px,6vw,80px)}
+.ms-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:0;
+  border:1px solid rgba(165,133,74,.28);background:linear-gradient(180deg,#FBFBF7 0%,#F5F2EA 100%)}
+.ms-pillars article{position:relative;padding:clamp(28px,3vw,40px) clamp(22px,2.4vw,34px);
+  border-right:1px solid rgba(165,133,74,.22);overflow:hidden}
+.ms-pillars article:last-child{border-right:0}
+.ms-pillars .ms-big{position:absolute;right:12px;top:8px;font-family:var(--lat);font-size:clamp(64px,7vw,96px);
+  line-height:1;color:rgba(165,133,74,.12);letter-spacing:-.04em;pointer-events:none;user-select:none}
+.ms-pillars .lab{font-family:var(--lat);font-size:11px;letter-spacing:.22em;color:var(--brass);text-transform:uppercase;position:relative}
+.ms-pillars h3{font-size:clamp(22px,2vw,28px);margin:16px 0 18px;font-weight:200;letter-spacing:-.03em;position:relative}
+.ms-pillars ul{margin:0;padding:0;list-style:none;position:relative}
+.ms-pillars li{font-size:14px;color:var(--moss);line-height:1.8;padding:7px 0 7px 14px;position:relative}
+.ms-pillars li::before{content:"";position:absolute;left:0;top:1.15em;width:6px;height:1px;background:var(--brass)}
+.ms-pillars p{font-size:14px;color:var(--moss);line-height:1.9;margin:0;position:relative}
+@media(max-width:900px){.ms-pillars{grid-template-columns:1fr}
+  .ms-pillars article{border-right:0;border-bottom:1px solid rgba(165,133,74,.22)}
+  .ms-pillars article:last-child{border-bottom:0}}
+
+.ms-benefits{margin-top:clamp(56px,7vw,96px);position:relative;
+  padding:clamp(40px,5vw,64px) clamp(22px,3vw,48px);background:var(--ink);color:#E8E8E2;
+  margin-inline:calc(-1 * var(--pad))}
+.ms-benefits .ms-bh{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;
+  margin-bottom:8px;padding-bottom:22px;border-bottom:1px solid rgba(201,174,121,.28);
+  max-width:1360px;margin-inline:auto;padding-inline:0}
+.ms-benefits .ms-bh h3{font-size:clamp(24px,2.4vw,34px);font-weight:200;letter-spacing:-.03em;color:#fff}
+.ms-benefits .ms-bh .eyebrow{color:var(--brass-l)}
+.ms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:1360px;margin-inline:auto}
+.ms-grid article{padding:clamp(26px,2.8vw,36px) clamp(0px,1vw,12px);border-top:1px solid rgba(255,255,255,.1);
+  position:relative}
+.ms-grid article:nth-child(-n+3){border-top:0;padding-top:28px}
+.ms-grid .n{font-family:var(--lat);font-size:13px;letter-spacing:.28em;color:var(--brass-l)}
+.ms-grid h4{font-size:clamp(16px,1.35vw,20px);margin:14px 0 12px;font-weight:300;letter-spacing:-.02em;color:#fff}
+.ms-grid p{font-size:13.5px;color:rgba(232,232,226,.68);line-height:1.85;margin:0;max-width:36ch}
+@media(max-width:900px){.ms-grid{grid-template-columns:1fr 1fr}
+  .ms-grid article:nth-child(-n+3){border-top:1px solid rgba(255,255,255,.1);padding-top:clamp(26px,2.8vw,36px)}
+  .ms-grid article:nth-child(-n+2){border-top:0;padding-top:28px}}
+@media(max-width:560px){.ms-grid{grid-template-columns:1fr}
+  .ms-grid article:nth-child(-n+2){border-top:1px solid rgba(255,255,255,.1)}
+  .ms-grid article:first-child{border-top:0}}
+
+.ms-product{margin-top:clamp(56px,7vw,100px)}
+.ms-product .ms-bh{margin-bottom:32px;padding-bottom:18px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.ms-product .ms-bh h3{font-size:clamp(24px,2.4vw,34px);font-weight:200;letter-spacing:-.03em}
+
+.ms-tiers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px);margin-bottom:clamp(28px,3.5vw,44px)}
+.ms-tier{position:relative;padding:clamp(30px,3.4vw,48px) clamp(24px,2.6vw,40px);
+  background:linear-gradient(160deg,#FFFEFA 0%,#F4F0E6 100%);
+  border:1px solid rgba(165,133,74,.32);overflow:hidden;isolation:isolate}
+.ms-tier::before{content:"";position:absolute;inset:10px;border:1px solid rgba(165,133,74,.18);pointer-events:none;z-index:1}
+.ms-tier .ms-mark{position:absolute;right:-8px;bottom:-18px;font-family:var(--lat);font-size:clamp(120px,14vw,180px);
+  line-height:.8;color:rgba(165,133,74,.09);letter-spacing:-.06em;pointer-events:none;z-index:0;user-select:none}
+.ms-tier.gold{background:
+  radial-gradient(ellipse 80% 60% at 100% 0%,rgba(201,174,121,.18),transparent 55%),
+  linear-gradient(165deg,#1A2018 0%,#0C100C 100%);
+  border-color:rgba(201,174,121,.42);color:#fff}
+.ms-tier.gold::before{border-color:rgba(201,174,121,.22)}
+.ms-tier.gold .ms-mark{color:rgba(201,174,121,.1)}
+.ms-tier-top{display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:2}
+.ms-tier .ms-tier-lab{font-family:var(--lat);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+.ms-tier.gold .ms-tier-lab{color:var(--brass-l)}
+.ms-tier .ms-badge{font-family:var(--lat);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);background:var(--brass-l);padding:6px 12px;white-space:nowrap}
+.ms-tier h4{font-size:clamp(28px,2.8vw,36px);font-weight:200;margin:18px 0 4px;letter-spacing:-.03em;position:relative;z-index:2}
+.ms-tier.gold h4{color:#fff}
+.ms-tier .ms-price{font-family:var(--lat);font-size:clamp(34px,3.4vw,48px);letter-spacing:.02em;color:var(--ink);
+  margin:20px 0 10px;position:relative;z-index:2;line-height:1}
+.ms-tier.gold .ms-price{color:var(--brass-l)}
+.ms-tier .ms-price small{font-size:.38em;letter-spacing:.14em;margin-left:8px;opacity:.65;vertical-align:middle}
+.ms-tier .ms-tier-meta{font-size:14px;color:var(--moss);line-height:1.8;margin:0;position:relative;z-index:2}
+.ms-tier.gold .ms-tier-meta{color:rgba(255,255,255,.72)}
+.ms-tier .ms-tier-list{margin:22px 0 0;padding:0;list-style:none;position:relative;z-index:2}
+.ms-tier .ms-tier-list li{font-size:13.5px;color:var(--moss);line-height:1.7;padding:8px 0 8px 16px;
+  border-top:1px solid rgba(165,133,74,.18);position:relative}
+.ms-tier .ms-tier-list li::before{content:"";position:absolute;left:0;top:1.2em;width:8px;height:1px;background:var(--brass)}
+.ms-tier.gold .ms-tier-list li{color:rgba(255,255,255,.72);border-top-color:rgba(201,174,121,.2)}
+.ms-tier.gold .ms-tier-list li::before{background:var(--brass-l)}
+.ms-tier .ms-tier-pts{margin-top:22px;padding:14px 16px;position:relative;z-index:2;
+  border:1px solid rgba(165,133,74,.28);background:rgba(165,133,74,.08);
+  font-size:13px;color:var(--moss);letter-spacing:.02em}
+.ms-tier.gold .ms-tier-pts{border-color:rgba(201,174,121,.32);background:rgba(201,174,121,.1);color:rgba(255,255,255,.82)}
+@media(max-width:720px){.ms-tiers{grid-template-columns:1fr}}
+
+.ms-tabs{display:none}
+.ms-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:0;
+  border:1px solid rgba(165,133,74,.22);background:#fff}
+.ms-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+.ms-table th,.ms-table td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+.ms-table thead th{background:var(--ink);color:#fff;font-weight:400;letter-spacing:.06em;border-bottom-color:var(--ink)}
+.ms-table thead th:nth-child(2),.ms-table thead th:nth-child(3){font-family:var(--lat);letter-spacing:.14em}
+.ms-table thead th:first-child{width:18%}
+.ms-table tbody th{font-weight:400;color:var(--brass);white-space:nowrap;background:rgba(165,133,74,.05)}
+.ms-table tbody td{color:var(--moss)}
+.ms-table tbody tr:last-child th,.ms-table tbody tr:last-child td{border-bottom:0}
+.ms-notes{margin:26px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+.ms-notes li{font-size:13.5px;color:var(--moss);line-height:1.8;padding:10px 0 10px 14px;position:relative;border-bottom:1px solid var(--line)}
+.ms-notes li::before{content:"";position:absolute;left:0;top:1.15em;width:5px;height:1px;background:var(--brass)}
+@media(max-width:720px){.ms-notes{grid-template-columns:1fr}}
+.ms-xfer{margin-top:26px;padding:24px 26px;border:1px solid rgba(165,133,74,.28);
+  background:linear-gradient(135deg,rgba(165,133,74,.08),rgba(165,133,74,.03))}
+.ms-xfer b{display:block;font-weight:400;color:var(--ink);margin-bottom:10px;font-size:14px;letter-spacing:.06em}
+.ms-xfer p{margin:0;font-size:13.5px;color:var(--moss);line-height:1.9}
+.ms-actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.ms-actions .tel{font-family:var(--lat);letter-spacing:.14em;font-size:18px;color:var(--ink)}
+.ms-actions .tel em{font-style:normal;font-family:var(--sans);font-size:12px;letter-spacing:.08em;color:var(--moss);margin-right:10px}
+.dark .course-cmp thead th{background:rgba(255,255,255,.06);color:#fff}
+.dark .course-cmp tbody th{background:rgba(255,255,255,.04);color:var(--brass-l)}
+.dark .course-cmp th,.dark .course-cmp td{border-bottom-color:rgba(255,255,255,.12);color:#C5C9C1}
+.dark .ms-table-wrap{border-color:rgba(255,255,255,.14)}
+
+@media (prefers-reduced-motion:no-preference){
+  .ms-hero{background-size:108% auto;animation:msKen 28s ease-in-out infinite alternate}
+  @keyframes msKen{from{background-position:48% 40%}to{background-position:54% 50%}}
+  .ms-tier{transition:transform .7s cubic-bezier(.16,.65,.2,1),border-color .5s,box-shadow .5s}
+  .ms-tier:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(14,18,14,.08)}
+  .ms-tier.gold:hover{box-shadow:0 18px 44px rgba(0,0,0,.35)}
+}
+@media (prefers-reduced-motion:reduce){.ms-hero{background-size:cover;animation:none}}
+
 /* ── cta band ──────────────────────────── */
 .cta{position:relative;padding-block:clamp(80px,10vw,150px);text-align:center;color:#fff;overflow:hidden}
 .cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -566,7 +746,7 @@ header.hide{transform:translateY(-102%)}
 .btn-solid:hover{background:#fff}
 
 /* ── news / faq ────────────────────────── */
-.nf{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(34px,5vw,80px)}
+.nf{display:grid;grid-template-columns:1fr;gap:clamp(34px,5vw,80px);max-width:720px}
 .news li{list-style:none;border-bottom:1px solid var(--line);padding:20px 0;display:block}
 .news{padding:0;margin:0;border-top:1px solid var(--line)}
 .news .d{font-family:var(--lat);font-size:12px;letter-spacing:.2em;color:var(--brass)}
@@ -772,7 +952,8 @@ footer .bot{padding-top:26px;display:flex;justify-content:space-between;gap:20px
   padding:15px clamp(14px,1.8vw,30px) 15px 0;margin-right:clamp(14px,1.8vw,30px);
   color:rgba(255,255,255,.5);white-space:nowrap;position:relative;
   transition:color .6s}
-.quick a .qn{font-family:var(--lat);font-size:11.5px;letter-spacing:.12em;color:var(--brass-l);opacity:.55;
+.quick a .qn{font-family:var(--lat);font-size:12px;letter-spacing:.14em;color:var(--brass-l);opacity:.7;
+  min-width:1.6em}
   transition:opacity .6s}
 .quick a .qt{font-family:var(--sans);font-size:12.5px;font-weight:300;letter-spacing:.05em}
 .quick a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
@@ -1231,6 +1412,7 @@ header.solid .brand{font-size:clamp(15px,1.25vw,19px);transition:font-size .8s c
 .shead h2{font-size:clamp(25px,3vw,42px);line-height:1.28}
 .lede{font-size:clamp(14px,1.05vw,16px);line-height:1.95;color:var(--moss)}
 .dark .lede{color:#9AA098}
+.dark .lede em,.dark .shead h2 em{font-style:normal;color:var(--brass-l)}
 .secno{font-weight:300;letter-spacing:-.02em}
 
 /* 헤어라인 톤 정리 */
@@ -2230,10 +2412,20 @@ img{max-width:100%}
 /* 골프 */
 .am-golf .am-dot{fill:var(--pine)}
 
-/* 온천 */
-.am-onsen .am-dot{fill:var(--moss)}
-.am-onsen .am-steam{fill:none;stroke:var(--moss);stroke-width:1.6;
+/* 온천 · 호텔 */
+.am-onsen .am-dot,.am-hotel .am-dot{fill:var(--moss)}
+.am-onsen .am-steam,.am-hotel .am-steam{fill:none;stroke:var(--moss);stroke-width:1.6;
   stroke-linecap:round;opacity:.9}
+.am-hotel .am-dot{fill:#7A6540}
+.am-badge-hotel rect{fill:#7A6540}
+
+.am-times{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  margin-top:22px;border:1px solid var(--line)}
+.am-times div{background:var(--paper);padding:16px 18px}
+.am-times b{display:block;font-weight:400;font-size:12.5px;letter-spacing:.04em;color:var(--brass);margin-bottom:8px}
+.am-times span{font-family:var(--lat);font-size:18px;letter-spacing:.08em;color:var(--ink)}
+@media(max-width:900px){.am-times{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.am-times{grid-template-columns:1fr}}
 
 /* 알펜루트 — 하이라이트 */
 .am-alpen .am-dot{fill:var(--brass);stroke:#fff;stroke-width:2}
@@ -2255,6 +2447,7 @@ img{max-width:100%}
 .am-lg-air{background:var(--brass)}
 .am-lg-golf{background:var(--pine)}
 .am-lg-onsen{background:var(--moss)}
+.am-lg-hotel{background:#7A6540}
 .am-lg-alpen{background:transparent;border:2px solid var(--brass);border-radius:1px}
 
 @media(max-width:720px){
@@ -2514,6 +2707,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <header id="hd">
   <a class="brand" href="#top">The Komatsu <sup>90</sup></a>
   <nav class="gnb">
+    <span class="gi"><a href="#membership">MEMBERSHIP</a>
+      <div class="dd">
+        <a href="#membership">회원권 안내 <em>실버 · 골드 멤버십 상품</em></a>
+        <a href="#ms-benefits">회원 혜택 <em>우선예약 · 원스톱 케어</em></a>
+        <a href="#ms-product">포인트 제도 <em>적립 · 사용 안내</em></a>
+        <a href="#membership" data-open="inquiry">상담신청 <em>1899-0721</em></a>
+      </div></span>
+    <span class="gi"><a href="#access">LOCATION</a>
+      <div class="dd">
+        <a href="#access">Access Map <em>공항 · 골프장 · 호텔 위치</em></a>
+        <a href="#access">Travel Time <em>공항 25분 · 호텔→야마시로 7분</em></a>
+      </div></span>
     <span class="gi"><a href="#golf">COURSES</a>
       <div class="dd">
         <a href="#yamashiro">Yamashiro Golf Club <em>야마시로 골프클럽 · 36H</em></a>
@@ -2533,11 +2738,10 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <a href="#experience">Dining <em>에치젠 게 · 소바 · 와카사 소고기</em></a>
       </div></span>
     <span class="gi"><a href="#hki">BY HKI</a></span>
-    <span class="gi"><a href="#news">NEWS</a></span>
   </nav>
   <div class="hd-cta">
-    <span class="tel">1660-3500</span>
-    <a class="btn-line" href="#membership">MEMBERSHIP</a>
+    <span class="tel">1899-0721</span>
+    <a class="btn-line" href="#membership" data-open="inquiry">상담신청</a>
     <button class="menubtn" id="bg" aria-label="전체 메뉴 열기" aria-expanded="false">
       <span class="bars"><i></i><i></i></span>MENU</button>
   </div>
@@ -2553,7 +2757,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <li><a href="#wakasa">와카사 컨트리클럽</a></li><li><a href="#golf">코스 이용 안내</a></li></ul>
       </div>
       <div class="cat">
-        <a class="thumb" href="#stay"><img decoding="async" data-src="images/rk_main.webp" alt="" width="1320" height="750" srcset="images/rk_main_m.webp 820w, images/rk_main.webp 1320w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw"><b><i>泊</i><u>STAY</u></b></a>
+        <a class="thumb" href="#stay"><img decoding="async" data-src="images/rk_main.webp" alt="" width="1320" height="850" srcset="images/rk_main_m.webp 900w, images/rk_main.webp 1320w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw"><b><i>泊</i><u>STAY</u></b></a>
         <ul><li><a href="#ruriko">루리코</a></li><li><a href="#hatori">하토리</a></li>
         <li><a href="#wakasastay">와카사 골프리조트</a></li><li><a href="#stay">객실 이용 안내</a></li></ul>
       </div>
@@ -2574,19 +2778,17 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       </div>
       <div class="cat">
         <a class="thumb" href="#hki"><img decoding="async" data-src="images/ym_hki.webp" alt="" width="900" height="536"><b><i>信</i><u>BY HKI</u></b></a>
-        <ul><li><a href="#hki">한국산업양행 소개</a></li><li><a href="#hki">운영 철학</a></li>
-        <li><a href="#news">뉴스 &amp; 프로모션</a></li></ul>
+        <ul><li><a href="#hki">한국산업양행 소개</a></li><li><a href="#hki">운영 철학</a></li></ul>
       </div>
     </div>
     <div class="util">
-      <a href="#news">공지사항</a><a href="#news">FAQ</a><a href="#membership">회원권 안내</a>
-      <a href="#hki">오시는 길</a><a href="#news">보도자료</a>
+      <a href="#news">FAQ</a><a href="#membership">회원권 안내</a>
+      <a href="#hki">오시는 길</a>
     </div>
   </div>
   <div class="right">
     <button class="rcta" data-open="inquiry" style="border:0;cursor:pointer;width:100%">평생회원권 상담신청</button>
-    <div class="row" style="margin-top:26px"><span>이용문의</span><b>1660-3500</b></div>
-    <div class="row"><span>입회문의</span><b>02-2051-1211</b></div>
+    <div class="row" style="margin-top:26px"><span>입회문의</span><b>1899-0721</b></div>
     <nav>
       <a href="#news">예약 및 취소 안내</a>
       <a href="#news">회원권 양도 · 명의변경</a>
@@ -2608,15 +2810,15 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </div>
   <div class="inner wrap">
     <span class="lat">Fukui &nbsp;·&nbsp; Ishikawa &nbsp;·&nbsp; Japan</span>
-    <h1>가장 가까운 일본에서<br><em>가장 깊은 하루</em>를</h1>
+    <h1>가까운 하루,<br><em>깊어지는 휴식</em></h1>
     <span class="rule"></span>
-    <p class="sub">코마츠공항에서 차로 30분. 90홀의 코스와 1,300년의 온천이 하루 안에 이어집니다.</p>
+    <p class="sub">코마츠공항에서 차로 30분, 90홀 골프와 1,300년 온천이 하루를 채웁니다.</p>
   </div>
   <div class="scrollcue">SCROLL<i></i></div>
   <div class="slidedots" id="dots" aria-label="메인 이미지 전환"></div>
   <div class="holes">
     <a href="#yamashiro"><span class="n" data-count="36">0</span><span class="t">Yamashiro<b>야마시로 골프클럽</b></span></a>
-    <a href="#fukui"><span class="n" data-count="27">0</span><span class="t">Fukui Kokusai<b>후쿠이 국제CC</b></span></a>
+    <a href="#fukui"><span class="n" data-count="27">0</span><span class="t">Fukui Kokusai<b>후쿠이 국제 컨트리클럽</b></span></a>
     <a href="#wakasa"><span class="n" data-count="27">0</span><span class="t">Wakasa<b>와카사 컨트리클럽</b></span></a>
     <a href="#membership" class="total"><span class="n" data-count="90">0</span><span class="t">One Membership<b>하나의 회원권</b></span></a>
   </div>
@@ -2625,22 +2827,240 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <nav class="quick tuck" id="quick" aria-label="챕터 이동">
   <span class="qprog" id="qprog"></span>
   <div class="in">
-    <a href="#prologue"><span class="qn">00</span><span class="qt">프롤로그</span></a>
-    <a href="#golf"><span class="qn">01</span><span class="qt">골프 90홀</span></a>
-    <a href="#stay"><span class="qn">02</span><span class="qt">스테이</span></a>
-    <a href="#experience"><span class="qn">03</span><span class="qt">후쿠이의 하루</span></a>
-    <a href="#hki"><span class="qn">04</span><span class="qt">운영 철학</span></a>
-    <a href="#news"><span class="qn">05</span><span class="qt">소식 · 문의</span></a>
+    <a href="#membership"><span class="qn">01</span><span class="qt">멤버십</span></a>
+    <a href="#prologue"><span class="qn">02</span><span class="qt">프롤로그</span></a>
+    <a href="#access"><span class="qn">03</span><span class="qt">위치</span></a>
+    <a href="#golf"><span class="qn">04</span><span class="qt">골프 90홀</span></a>
+    <a href="#stay"><span class="qn">05</span><span class="qt">스테이</span></a>
+    <a href="#experience"><span class="qn">06</span><span class="qt">후쿠이의 하루</span></a>
+    <a href="#hki"><span class="qn">07</span><span class="qt">운영 철학</span></a>
+    <a href="#news"><span class="qn">08</span><span class="qt">FAQ</span></a>
     <a href="#membership" data-open="inquiry"><span class="qn">·</span><span class="qt" style="color:var(--brass-l)">상담신청</span></a>
   </div>
 </nav>
 
+<!-- ══ MEMBERSHIP ══ -->
+<section class="sec wrap lt ms" id="membership">
+  <div class="ms-hero rv">
+    <img decoding="async" src="images/ym_aerial.webp" alt="" width="2000" height="1187" srcset="images/ym_aerial_m.webp 900w, images/ym_aerial.webp 2000w" sizes="100vw" aria-hidden="true">
+    <div class="ms-hero-in">
+      <div class="ch on-dark" style="margin-bottom:22px;max-width:min(760px,100%);border-bottom-color:rgba(201,174,121,.35)">
+        <span class="ch-no">01</span>
+        <div class="ch-meta">
+          <span class="eyebrow on-dark" style="margin:0">Membership · Komatsu 90</span>
+          <span class="ch-label" style="color:rgba(255,255,255,.55)">실버 · 골드 멤버십 상품</span>
+        </div>
+      </div>
+      <h2>가장 특별한 라운드를,<br><em>하나의 멤버십</em>으로</h2>
+      <span class="ms-hero-rule"></span>
+      <p class="lede">고마츠 90 멤버십 하나로 야마시로 골프클럽, 후쿠이 국제 컨트리클럽, 와카사 컨트리클럽
+        총 90홀을 이용합니다. ㈜한국산업양행이 세 골프장을 직접 소유·운영합니다.</p>
+    </div>
+    <div class="ms-hero-stats" aria-hidden="true">
+      <div><b>90</b><span>Holes · 3 Clubs</span></div>
+      <div><b>2</b><span>Membership Plans</span></div>
+      <div><b>100%</b><span>Direct Ownership</span></div>
+    </div>
+  </div>
+
+  <div class="ms-body">
+  <div class="ms-pillars rv">
+    <article>
+      <span class="ms-big" aria-hidden="true">90</span>
+      <span class="lab">3 Courses · Championship</span>
+      <h3>Total 90홀</h3>
+      <ul>
+        <li>야마시로 골프클럽 · 36홀</li>
+        <li>후쿠이 국제 컨트리클럽 · 27홀</li>
+        <li>와카사 컨트리클럽 · 27홀</li>
+      </ul>
+    </article>
+    <article>
+      <span class="ms-big" aria-hidden="true">One</span>
+      <span class="lab">Convenient All-in-One</span>
+      <h3>원스톱 케어</h3>
+      <ul>
+        <li>공항 픽업 · 샌딩</li>
+        <li>골프장 인근 호텔 예약 대행</li>
+        <li>티타임 일정 통합 관리</li>
+        <li>관광 · 온천 코스 안내</li>
+      </ul>
+    </article>
+    <article>
+      <span class="ms-big" aria-hidden="true">100</span>
+      <span class="lab">100% Ownership</span>
+      <h3>신뢰할 수 있는 멤버십</h3>
+      <p>세 골프장을 100% 직접 소유·운영하여, 운영사 변경이나 매각 리스크 없이
+        멤버십 가치와 이용 안정을 지켜 드립니다.</p>
+    </article>
+  </div>
+
+  <div class="ms-benefits rv" id="ms-benefits">
+    <div class="ms-bh">
+      <h3>회원 혜택</h3>
+      <span class="eyebrow" style="margin:0">Member Privileges</span>
+    </div>
+    <div class="ms-grid">
+      <article>
+        <span class="n">01</span>
+        <h4>우선 예약 서비스</h4>
+        <p>성수기와 주말에도 회원 우선으로 티타임을 확보합니다.</p>
+      </article>
+      <article>
+        <span class="n">02</span>
+        <h4>멤버 전용 프리빌리지</h4>
+        <p>클럽별 차별화된 회원 혜택과 전용 서비스를 제공합니다.</p>
+      </article>
+      <article>
+        <span class="n">03</span>
+        <h4>원스톱 여행 케어</h4>
+        <p>공항 픽업부터 숙박·라운드 일정까지 컨시어지가 한곳에서 챙깁니다.</p>
+      </article>
+      <article>
+        <span class="n">04</span>
+        <h4>멤버 전용 프로그램</h4>
+        <p>프라이빗 토너먼트, 비즈니스 행사, 초청 프로그램을 운영합니다.</p>
+      </article>
+      <article>
+        <span class="n">05</span>
+        <h4>전담 멤버십 컨시어지</h4>
+        <p>예약부터 일정 조율까지 전담 컨시어지가 세심하게 관리합니다.</p>
+      </article>
+      <article>
+        <span class="n">06</span>
+        <h4>세 개의 프라이빗 클럽</h4>
+        <p>야마시로 · 후쿠이 국제 · 와카사, 하나의 회원권으로 세 곳을 이용합니다.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="ms-product rv" id="ms-product">
+    <div class="ms-bh">
+      <h3>멤버십 상품</h3>
+      <span class="eyebrow" style="margin:0">Membership Plans</span>
+    </div>
+
+    <div class="ms-tiers">
+      <article class="ms-tier">
+        <span class="ms-mark" aria-hidden="true">S</span>
+        <div class="ms-tier-top">
+          <span class="ms-tier-lab">Silver</span>
+        </div>
+        <h4>실버</h4>
+        <p class="ms-price">3,000<small>만원</small></p>
+        <p class="ms-tier-meta">평생회원권 · 기명 2 + 동반 3</p>
+        <ul class="ms-tier-list">
+          <li>연 2회 위임 가능</li>
+          <li>90홀 통합 이용</li>
+          <li>회원요금 · 포인트 적립</li>
+        </ul>
+        <p class="ms-tier-pts">입회 포인트 900만 지급</p>
+      </article>
+      <article class="ms-tier gold">
+        <span class="ms-mark" aria-hidden="true">G</span>
+        <div class="ms-tier-top">
+          <span class="ms-tier-lab">Gold</span>
+          <span class="ms-badge">Recommended</span>
+        </div>
+        <h4>골드</h4>
+        <p class="ms-price">4,800<small>만원</small></p>
+        <p class="ms-tier-meta">평생회원권 · 기명 2 + 동반 7</p>
+        <ul class="ms-tier-list">
+          <li>연 3회 위임 가능</li>
+          <li>90홀 통합 이용</li>
+          <li>회원요금 · 포인트 적립</li>
+        </ul>
+        <p class="ms-tier-pts">입회 포인트 1,500만 지급</p>
+      </article>
+    </div>
+
+    <div class="ms-table-wrap">
+      <table class="ms-table">
+        <thead>
+          <tr>
+            <th scope="col">구분</th>
+            <th scope="col">SILVER</th>
+            <th scope="col">GOLD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">입회금</th>
+            <td>3,000만원</td>
+            <td>4,800만원</td>
+          </tr>
+          <tr>
+            <th scope="row">회원적용</th>
+            <td>기명 2 + 동반 3</td>
+            <td>기명 2 + 동반 7</td>
+          </tr>
+          <tr>
+            <th scope="row">회원요금<br><small style="color:var(--moss);font-size:12px">기명회원 및 동반인</small></th>
+            <td>루리코 · 하토리 호텔 주중/주말 20,000엔<br>와카사 CC 호텔 주중/주말 18,000엔<br>(VIP Room 19,000엔)</td>
+            <td>동일</td>
+          </tr>
+          <tr>
+            <th scope="row">포함사항</th>
+            <td>2인 1실 숙박 · 조식 · 중식 · 그린피 · 카트비 · 클럽 락커 · 사우나 · 호텔 온천<br>와카사 CC는 조·중·석식 포함</td>
+            <td>동일</td>
+          </tr>
+          <tr>
+            <th scope="row">적용코스</th>
+            <td>총 90홀 — 야마시로 GC 36홀 · 후쿠이 국제 CC 27홀 · 와카사 CC 27홀</td>
+            <td>동일</td>
+          </tr>
+          <tr>
+            <th scope="row">회원혜택</th>
+            <td>포인트 적립 · 평생회원권 · 연 2회 위임 가능</td>
+            <td>포인트 적립 · 평생회원권 · 연 3회 위임 가능</td>
+          </tr>
+          <tr>
+            <th scope="row">기타</th>
+            <td colspan="2">추가 9홀 주중/주말 4,000엔 · 3인 플레이 추가요금 없음 · 양도·양수 2회 가능 (명의개서료 80만원)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="ms-notes">
+      <li>입회 시 실버 900만 / 골드 1,500만 포인트 지급</li>
+      <li>투어 요금 결제 시 현금 최소 60% · 포인트 최대 40%</li>
+      <li>회원요금 현금 결제 금액의 10% 포인트 적립</li>
+      <li>회원 추천 시 60만 포인트 지급</li>
+      <li>위임 시 포인트 사용 불가 · 현금 결제 금액 포인트 적립 없음</li>
+    </ul>
+
+    <div class="ms-xfer">
+      <b>송영비 안내</b>
+      <p>야마시로 · 후쿠이 국제: 4박 5일 기준 1인 5,000엔 / 추가 1일당 1인 1,000엔<br>
+         와카사 CC: 1인 7,000엔 (장기 투숙 추가 송영비 없음)<br>
+         야마시로 + 와카사 CC 일정: 1인 7,000엔</p>
+    </div>
+
+    <div class="ms-actions">
+      <button class="btn-solid" data-open="inquiry" style="border:0;cursor:pointer;font-family:var(--lat)">평생회원권 상담신청</button>
+      <span class="tel"><em>입회문의</em>1899-0721</span>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="sec-break" aria-hidden="true"><i></i><span class="now">01 <b>Membership</b></span><i></i><span>Next · 02 <b>Prologue</b></span><i></i></div>
+
 <!-- ══ INTRO ══ -->
 <section class="sec wrap" id="prologue">
-  <span class="eyebrow rv">Prologue</span>
+  <div class="ch rv">
+    <span class="ch-no">02</span>
+    <div class="ch-meta">
+      <span class="eyebrow">Prologue</span>
+      <span class="ch-label">후쿠이 · 이시카와로의 초대</span>
+    </div>
+  </div>
   <div class="statement rv">
-    <span>후쿠이의 문을 여니 <span class="hl">자연이 먼저 자리를 내어준다</span></span>
-    <span>라운드를 마치니 <span class="hl">온천이 하루를 거두어 간다</span></span>
+    <span>후쿠이에 닿는 순간</span>
+    <span class="hl">일상은 여행으로 바뀐다</span>
+    <span>라운드를 마친 자리에</span>
+    <span class="hl">온천이 남은 하루를 어루만진다</span>
   </div>
   <p class="lede rv" style="margin-top:34px">
     일본 중부 동해 연안의 후쿠이현과 이시카와현 가가 지역. 1,300년의 온천 문화와 명문 코스,
@@ -2657,11 +3077,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 
 <!-- ══ ACCESS MAP ══ -->
 <section class="sec accessmap wrap" id="access">
-  <span class="eyebrow rv">Access · One Base, Many Journeys</span>
+  <div class="ch rv">
+    <span class="ch-no">03</span>
+    <div class="ch-meta">
+      <span class="eyebrow">Access · One Base, Many Journeys</span>
+      <span class="ch-label">코마츠공항 중심 동선</span>
+    </div>
+  </div>
   <div class="am-head rv">
     <h2>코마츠공항에서<br><em>하루가 시작됩니다</em></h2>
-    <p>한국에서 직항 약 1시간 30분. 공항을 중심으로 세 골프장과 1,300년의 온천 마을,
-       그리고 북알프스의 절경 <b>다테야마 구로베 알펜루트</b>까지 모두 반나절 거리입니다.</p>
+    <p>한국에서 직항 약 1시간 30분. 공항에서 루리코·하토리까지 약 25분,
+       호텔에서 야마시로 7분 · 후쿠이 국제 컨트리클럽 20분. 세 골프장과 온천 숙소가
+       하루 동선 안에 이어집니다.</p>
   </div>
 
   <div class="am-figure rv">
@@ -2721,7 +3148,9 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <line x1="392" y1="248" x2="470" y2="300"/>
         <line x1="392" y1="248" x2="300" y2="380"/>
         <line x1="392" y1="248" x2="238" y2="560"/>
-        <line x1="392" y1="248" x2="486" y2="332"/>
+        <line x1="392" y1="248" x2="510" y2="318"/>
+        <line x1="510" y1="318" x2="470" y2="300"/>
+        <line x1="510" y1="318" x2="300" y2="380"/>
         <line x1="392" y1="248" x2="760" y2="152"/>
       </g>
 
@@ -2738,24 +3167,24 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name am-name-c" x="0" y="-23" text-anchor="middle">고마츠공항 · KOMATSU</text>
       </g>
 
-      <!-- ── 야마시로 골프클럽 (28분) ── -->
+      <!-- ── 야마시로 골프클럽 (호텔에서 7분) ── -->
       <g class="am-node am-golf" transform="translate(470,300)">
         <circle class="am-dot" r="5"/>
         <g class="am-badge" transform="translate(14,-9)">
-          <rect x="0" y="0" rx="9.5" width="46" height="19"/>
-          <text x="23" y="13.4" text-anchor="middle">28분</text>
+          <rect x="0" y="0" rx="9.5" width="62" height="19"/>
+          <text x="31" y="13.4" text-anchor="middle">호텔 7분</text>
         </g>
         <text class="am-name" x="4" y="24" text-anchor="middle">야마시로 골프클럽 · 36H</text>
       </g>
 
-      <!-- ── 후쿠이 국제 CC (26분) ── -->
+      <!-- ── 후쿠이 국제 (호텔에서 20분) ── -->
       <g class="am-node am-golf" transform="translate(300,380)">
         <circle class="am-dot" r="5"/>
-        <g class="am-badge" transform="translate(-60,-9)">
-          <rect x="0" y="0" rx="9.5" width="46" height="19"/>
-          <text x="23" y="13.4" text-anchor="middle">26분</text>
+        <g class="am-badge" transform="translate(-72,-9)">
+          <rect x="0" y="0" rx="9.5" width="68" height="19"/>
+          <text x="34" y="13.4" text-anchor="middle">호텔 20분</text>
         </g>
-        <text class="am-name" x="0" y="24" text-anchor="middle">후쿠이 국제 CC · 27H</text>
+        <text class="am-name" x="0" y="24" text-anchor="middle">후쿠이 국제 컨트리클럽 · 27H</text>
       </g>
 
       <!-- ── 와카사 컨트리클럽 (1시간) ── -->
@@ -2768,11 +3197,15 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name" x="0" y="24" text-anchor="middle">와카사 컨트리클럽 · 27H</text>
       </g>
 
-      <!-- ── 야마시로/야마나카 온천 ── -->
-      <g class="am-node am-onsen" transform="translate(486,332)">
+      <!-- ── 루리코 · 하토리 (공항 25분) ── -->
+      <g class="am-node am-hotel" transform="translate(510,318)">
         <path class="am-steam" d="M-3,-9 q3,-4 0,-8 M0,-9 q3,-4 0,-8 M3,-9 q3,-4 0,-8"/>
         <circle class="am-dot" r="4.5"/>
-        <text class="am-name" x="10" y="24" text-anchor="middle">야마시로·야마나카 온천</text>
+        <g class="am-badge am-badge-hotel" transform="translate(12,-9)">
+          <rect x="0" y="0" rx="9.5" width="62" height="19"/>
+          <text x="31" y="13.4" text-anchor="middle">공항 25분</text>
+        </g>
+        <text class="am-name" x="8" y="24" text-anchor="middle">루리코 · 하토리</text>
       </g>
 
       <!-- ── 다테야마 구로베 알펜루트 ── -->
@@ -2842,7 +3275,9 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <line x1="246" y1="214" x2="300" y2="266"/>
         <line x1="246" y1="214" x2="176" y2="336"/>
         <line x1="246" y1="214" x2="150" y2="512"/>
-        <line x1="246" y1="214" x2="330" y2="300"/>
+        <line x1="246" y1="214" x2="340" y2="292"/>
+        <line x1="340" y1="292" x2="300" y2="266"/>
+        <line x1="340" y1="292" x2="176" y2="336"/>
         <line x1="246" y1="214" x2="392" y2="104"/>
       </g>
 
@@ -2861,15 +3296,15 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <!-- 야마시로 골프 -->
       <g class="am-node am-golf" transform="translate(300,266)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(16,-12)"><rect x="0" y="0" rx="12" width="60" height="24"/><text x="30" y="17" text-anchor="middle">28분</text></g>
+        <g class="am-badge" transform="translate(16,-12)"><rect x="0" y="0" rx="12" width="84" height="24"/><text x="42" y="17" text-anchor="middle">호텔 7분</text></g>
         <text class="am-name" x="14" y="30" text-anchor="middle">야마시로 골프클럽 36H</text>
       </g>
 
       <!-- 후쿠이 CC -->
       <g class="am-node am-golf" transform="translate(176,336)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(-76,-12)"><rect x="0" y="0" rx="12" width="60" height="24"/><text x="30" y="17" text-anchor="middle">26분</text></g>
-        <text class="am-name" x="0" y="30" text-anchor="middle">후쿠이 국제 CC 27H</text>
+        <g class="am-badge" transform="translate(-92,-12)"><rect x="0" y="0" rx="12" width="88" height="24"/><text x="44" y="17" text-anchor="middle">호텔 20분</text></g>
+        <text class="am-name" x="0" y="30" text-anchor="middle">후쿠이 국제 27H</text>
       </g>
 
       <!-- 와카사 CC -->
@@ -2879,11 +3314,12 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <text class="am-name" x="6" y="30" text-anchor="middle">와카사 컨트리클럽 27H</text>
       </g>
 
-      <!-- 온천 -->
-      <g class="am-node am-onsen" transform="translate(330,300)">
+      <!-- 호텔 -->
+      <g class="am-node am-hotel" transform="translate(340,292)">
         <path class="am-steam" d="M-4,-11 q4,-5 0,-10 M0,-11 q4,-5 0,-10 M4,-11 q4,-5 0,-10"/>
         <circle class="am-dot" r="5.5"/>
-        <text class="am-name" x="18" y="30" text-anchor="middle">야마시로·야마나카 온천</text>
+        <g class="am-badge am-badge-hotel" transform="translate(16,-12)"><rect x="0" y="0" rx="12" width="84" height="24"/><text x="42" y="17" text-anchor="middle">공항 25분</text></g>
+        <text class="am-name" x="18" y="30" text-anchor="middle">루리코 · 하토리</text>
       </g>
 
       <!-- 알펜루트 -->
@@ -2903,10 +3339,17 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 
     <ul class="am-legend rv">
       <li><span class="am-lg am-lg-air"></span>코마츠공항 — 한국 직항 1시간 30분</li>
-      <li><span class="am-lg am-lg-golf"></span>골프장 3곳 — 90홀</li>
-      <li><span class="am-lg am-lg-onsen"></span>온천 마을 — 1,300년의 온천 문화</li>
+      <li><span class="am-lg am-lg-hotel"></span>루리코 · 하토리 — 공항에서 약 25분</li>
+      <li><span class="am-lg am-lg-golf"></span>골프장 3곳 — 호텔 기준 7~20분 · 와카사 1시간</li>
       <li><span class="am-lg am-lg-alpen"></span>알펜루트 — 북알프스 산악 절경</li>
     </ul>
+
+    <div class="am-times rv">
+      <div><b>공항 → 호텔</b><span>약 25분</span></div>
+      <div><b>호텔 → 야마시로 GC</b><span>약 7분</span></div>
+      <div><b>호텔 → 후쿠이 국제</b><span>약 20분</span></div>
+      <div><b>공항 → 와카사 CC</b><span>약 1시간</span></div>
+    </div>
   </div>
 </section>
 
@@ -2915,12 +3358,20 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <div class="wrap">
     <div class="shead rv">
       <div>
-        <span class="secno">01</span>
-        <span class="eyebrow on-dark">Golf · 90 Holes</span>
+        <div class="ch on-dark" style="margin-bottom:22px;padding-bottom:18px">
+          <span class="ch-no">04</span>
+          <div class="ch-meta">
+            <span class="eyebrow on-dark">Golf · 90 Holes</span>
+            <span class="ch-label">세 개의 골프장 · 하나의 멤버십</span>
+          </div>
+        </div>
         <h2>멤버십 하나로 누리는<br>세 개의 골프장</h2>
       </div>
-      <p class="lede r">자연과 시간이 빚어낸 세 개의 코스. 36홀의 명문, 27홀의 전략, 27홀의 리조트가
-        하나의 회원권 안에 있습니다. <b style="color:var(--brass-l);font-weight:400">코스를 선택하시면 상세 정보가 열립니다.</b></p>
+      <p class="lede r">명문 36홀에서 시작해,<br>
+        챌린지 27홀을 지나,<br>
+        힐링 27홀에서 완성되는 <em>90홀의</em> 여행.<br>
+        세 개의 코스가 하나의 회원권 안에 있습니다.<br>
+        <b style="color:var(--brass-l);font-weight:400">코스를 선택하시면 상세 정보가 열립니다.</b></p>
     </div>
 
     <div class="accord rv">
@@ -2933,6 +3384,36 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <a class="ac" href="#wakasa" onclick="return !openPanel('wakasa')"><img decoding="async" src="images/wk_aerial.webp" alt="와카사 컨트리클럽" width="1600" height="952" srcset="images/wk_aerial_m.webp 820w, images/wk_aerial.webp 1600w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw">
         <div class="tx"><span class="n">27</span><h4>와카사 컨트리클럽</h4>
         <p>아놀드 파머가 그려낸 코스, 그리고 머무름의 여유까지</p></div></a>
+    </div>
+
+    <div class="ms-product rv" style="margin-top:clamp(36px,4vw,56px)">
+      <div class="ms-bh">
+        <h3 style="color:#fff">코스 비교</h3>
+        <span class="eyebrow on-dark" style="margin:0">Course Overview</span>
+      </div>
+      <div class="ms-table-wrap" style="border-color:rgba(255,255,255,.14)">
+        <table class="ms-table course-cmp">
+          <thead>
+            <tr>
+              <th scope="col">골프장</th>
+              <th scope="col">코스</th>
+              <th scope="col">홀 구성</th>
+              <th scope="col">난이도</th>
+              <th scope="col">추천</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" rowspan="2">야마시로</th><td>킹</td><td>18H / 6,987y / 파72</td><td>★★★☆☆</td><td>장타 · 초중급</td></tr>
+            <tr><td>퀸</td><td>18H / 6,848y / 파72</td><td>★★★★☆</td><td>전략 · 중상급</td></tr>
+            <tr><th scope="row" rowspan="3">후쿠이 국제</th><td>도진보</td><td>9H / 3,356y / 파36</td><td>★★★★☆</td><td>전략 · 중급</td></tr>
+            <tr><td>에치젠미사키</td><td>9H / 3,438y / 파36</td><td>★★★☆☆</td><td>장타 · 개방</td></tr>
+            <tr><td>구즈류</td><td>9H / 3,414y / 파36</td><td>★★★★★</td><td>상급 · 집중</td></tr>
+            <tr><th scope="row" rowspan="3">와카사</th><td>스이게츠코</td><td>9H / 파36</td><td>★★★☆☆</td><td>장타 · 초중급</td></tr>
+            <tr><td>스가코</td><td>9H / 파36</td><td>★★★★☆</td><td>전략 · 중상급</td></tr>
+            <tr><td>휴가코</td><td>9H / 파36</td><td>★★★★★</td><td>정밀 · 상급</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="cards rv" data-group="golf">
@@ -2983,7 +3464,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <dl class="meta">
             <div><dt>Opened</dt><dd>1972.10</dd></div>
             <div><dt>Course</dt><dd>36H · Par 72/72</dd></div>
-            <div><dt>Designer</dt><dd>熊谷組</dd></div>
+            <div><dt>Designer</dt><dd>熊谷組 (Kumagaya Gumi)</dd></div>
             <div><dt>Area</dt><dd>350만 ㎡</dd></div>
             <div><dt>Airport</dt><dd>코마츠 30분</dd></div>
           </dl>
@@ -2998,22 +3479,20 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king.webp" alt="킹 코스" srcset="images/ym_king_m.webp 820w, images/ym_king.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="950"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>18홀 / 6,987야드 / 파 72</td></tr>
-            <tr><th>코스 형태</th><td>원 웨이 원 라운드 스루 플레이, 전체적으로 플랫한 구성</td></tr>
-            <tr><th>그린</th><td>크고 언듈레이션이 평탄함</td></tr>
+            <tr><th>코스 형태</th><td>원 웨이 원 라운드 스루 플레이 / 전체적으로 플랫한 구성</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★☆☆</span> 초·중급자 적합 (백 티는 상급자도 고전)</td></tr>
-            <tr><th>주요 장애물</th><td>대형 벙커, 연못, 언덕 지형</td></tr>
-            <tr><th>플레이 스타일</th><td>드라이버 활용 극대화, 거리 우위를 살리는 개방적 레이아웃</td></tr>
+            <tr><th>플레이 스타일</th><td>거리 우위 활용, 개방적 레이아웃</td></tr>
+            <tr><th>추천 골퍼</th><td>장타자, 초·중급자 (백 티는 상급자)</td></tr>
           </table>
         </div>
         <div class="panel" role="tabpanel">
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_queen.webp" alt="퀸 코스" srcset="images/ym_queen_m.webp 820w, images/ym_queen.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>18홀 / 6,848야드 / 파 72</td></tr>
-            <tr><th>코스 형태</th><td>대부분의 홀이 나무로 둘러싸인 구성, 페어웨이는 플랫</td></tr>
-            <tr><th>그린</th><td>미세한 경사, 까다로운 핀 위치</td></tr>
+            <tr><th>코스 형태</th><td>대부분의 홀이 나무로 둘러싸인 구성 / 페어웨이 플랫</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★★☆</span> 중·상급자 적합, 하이그레이드 메인 코스</td></tr>
-            <tr><th>주요 장애물</th><td>대형 벙커, 해저드, 나무로 둘러싸인 좁은 진입로</td></tr>
-            <tr><th>플레이 스타일</th><td>방향성과 거리 조절, 코스 매니지먼트가 핵심</td></tr>
+            <tr><th>플레이 스타일</th><td>방향성 &amp; 거리 조절 능력, 코스 매니지먼트가 핵심</td></tr>
+            <tr><th>추천 골퍼</th><td>중·상급자, 전략형 골퍼</td></tr>
           </table>
         </div>
       </div>
@@ -3055,7 +3534,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <div><dt>Opened</dt><dd>1974.10</dd></div>
             <div><dt>Course</dt><dd>27H · Par 108</dd></div>
             <div><dt>Yards</dt><dd>10,229 y</dd></div>
-            <div><dt>Designer</dt><dd>미야자와 조헤이</dd></div>
+            <div><dt>Designer</dt><dd>宮沢長平 (Miyazawa Chouhei)</dd></div>
             <div><dt>Airport</dt><dd>코마츠 30분</dd></div>
           </dl>
         </div>
@@ -3069,28 +3548,31 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <div class="panel show" role="tabpanel">
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_tojinbo.webp" alt="도진보 코스" srcset="images/fk_tojinbo_m.webp 820w, images/fk_tojinbo.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
           <table class="spec">
-            <tr><th>테마</th><td>정확성과 전략</td></tr>
-            <tr><th>난이도</th><td><span class="stars">★★★★☆</span></td></tr>
-            <tr><th>코스 성격</th><td>계곡과 숲을 따라 이어지는 전략형 코스. 정확한 아이언 플레이가 스코어를 가릅니다.</td></tr>
+            <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,356야드</td></tr>
+            <tr><th>코스 형태</th><td>계곡과 숲을 따라 이어지는 전략형 코스</td></tr>
+            <tr><th>난이도</th><td><span class="stars">★★★★☆</span> 정확성과 전략</td></tr>
+            <tr><th>플레이 스타일</th><td>숲과 계곡 활용, 정확한 아이언 플레이가 중요</td></tr>
             <tr><th>추천 골퍼</th><td>중급자, 전략형 골퍼</td></tr>
           </table>
         </div>
         <div class="panel" role="tabpanel">
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_echizen.webp" alt="에치젠미사키 코스" srcset="images/fk_echizen_m.webp 820w, images/fk_echizen.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
           <table class="spec">
-            <tr><th>테마</th><td>비거리와 개방감</td></tr>
-            <tr><th>난이도</th><td><span class="stars">★★★☆☆</span></td></tr>
-            <tr><th>코스 성격</th><td>바다를 향해 뻗은 해안 풍경을 연상시키는 넓은 페어웨이. 드라이버를 마음껏 쓸 수 있습니다.</td></tr>
-            <tr><th>추천 골퍼</th><td>장타자, 드라이버에 자신 있는 골퍼</td></tr>
+            <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,438야드</td></tr>
+            <tr><th>코스 형태</th><td>넓은 페어웨이, 시원한 전개, 바다를 향한 해안 레이아웃</td></tr>
+            <tr><th>난이도</th><td><span class="stars">★★★☆☆</span> 비거리와 개방감</td></tr>
+            <tr><th>플레이 스타일</th><td>넓은 페어웨이, 드라이버를 마음껏 활용</td></tr>
+            <tr><th>추천 골퍼</th><td>장타자, 드라이버 자신 있는 골퍼</td></tr>
           </table>
         </div>
         <div class="panel" role="tabpanel">
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_kuzuryu.webp" alt="구즈류 코스 3번 홀" srcset="images/fk_kuzuryu_m.webp 820w, images/fk_kuzuryu.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="969"></figure>
           <table class="spec">
-            <tr><th>테마</th><td>멘털과 집중력</td></tr>
-            <tr><th>난이도</th><td><span class="stars">★★★★★</span></td></tr>
-            <tr><th>코스 성격</th><td>후쿠이 최대 하천 구즈류강에서 이름을 딴 코스. 워터 해저드와 까다로운 숏홀이 리듬을 시험합니다.</td></tr>
-            <tr><th>추천 골퍼</th><td>상급자, 코스 매니지먼트를 중시하는 골퍼</td></tr>
+            <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,414야드</td></tr>
+            <tr><th>코스 형태</th><td>물을 활용한 전략적 홀 구성</td></tr>
+            <tr><th>난이도</th><td><span class="stars">★★★★★</span> 멘털과 집중력</td></tr>
+            <tr><th>플레이 스타일</th><td>워터 해저드 다수, 까다로운 숏홀, 코스 매니지먼트 필수</td></tr>
+            <tr><th>추천 골퍼</th><td>상급자, 코스 매니지먼트 중시 골퍼</td></tr>
           </table>
         </div>
       </div>
@@ -3149,7 +3631,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <tr><th>홀 구성</th><td>9홀 / 파 36</td></tr>
             <tr><th>코스 형태</th><td>넓은 페어웨이, 장타형 구성</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★☆☆</span> 초·중급자 적합</td></tr>
-            <tr><th>주요 장애물</th><td>호수, 벙커</td></tr>
+            <tr><th>플레이 스타일</th><td>거리 우위 활용, 개방적 레이아웃</td></tr>
+            <tr><th>추천 골퍼</th><td>장타자, 초·중급자</td></tr>
           </table>
         </div>
         <div class="panel" role="tabpanel">
@@ -3158,16 +3641,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <tr><th>홀 구성</th><td>9홀 / 파 36</td></tr>
             <tr><th>코스 형태</th><td>숲과 바위를 활용한 전략적 구성</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★★☆</span> 중·상급자 적합</td></tr>
-            <tr><th>주요 장애물</th><td>숲, 바위, 벙커, 해저드</td></tr>
+            <tr><th>플레이 스타일</th><td>방향성 &amp; 거리 조절 능력, 코스 매니지먼트가 핵심</td></tr>
+            <tr><th>추천 골퍼</th><td>중·상급자, 전략형 골퍼</td></tr>
           </table>
         </div>
         <div class="panel" role="tabpanel">
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/wk_hyuga.webp" alt="휴가코 코스" srcset="images/wk_hyuga_m.webp 820w, images/wk_hyuga.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="985"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>9홀 / 파 36</td></tr>
-            <tr><th>코스 형태</th><td>기복 있는 지형, 정밀 플레이를 요구</td></tr>
+            <tr><th>코스 형태</th><td>기복 있는 지형, 정밀 플레이 요구</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★★★</span> 상급자 적합</td></tr>
-            <tr><th>그린</th><td>소형 그린, 강한 언듈레이션</td></tr>
+            <tr><th>플레이 스타일</th><td>정확한 샷 선택과 높은 집중력이 핵심</td></tr>
+            <tr><th>추천 골퍼</th><td>상급자, 정밀형 골퍼</td></tr>
           </table>
         </div>
       </div>
@@ -3195,7 +3680,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <img loading="lazy" decoding="async" src="images/wk_g7.webp" alt="숲으로 둘러싸인 그린" width="900" height="600">
         <img loading="lazy" decoding="async" src="images/wk_g8.webp" alt="호수를 낀 코스 전경" width="900" height="507">
       </div></div><div class="galbar"><i></i></div></div></template>
-    <div class="endmark"><i></i><span>Next · Stay</span><i></i></div>
+    <div class="endmark"><i></i><span>Next · 05 Stay</span><i></i></div>
   </div>
 </section>
 
@@ -3203,12 +3688,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <section class="sec wrap lt" id="stay">
   <div class="shead rv">
     <div>
-      <span class="secno">02</span>
-      <span class="eyebrow">Stay · Onsen Ryokan</span>
+      <div class="ch" style="margin-bottom:22px;padding-bottom:18px">
+        <span class="ch-no">05</span>
+        <div class="ch-meta">
+          <span class="eyebrow">Stay · Onsen Ryokan</span>
+          <span class="ch-label">야마시로 온천 · 와카사 리조트</span>
+        </div>
+      </div>
       <h2>온천이 흐르는 시간</h2>
     </div>
-    <p class="lede r">라운드를 마친 오후, 뜨거운 온천물에 몸을 담그면 하루의 피로는 흩어지고
-      오직 나를 위한 고요한 시간만 남습니다. <b style="color:var(--brass);font-weight:400">숙소를 선택하시면 객실과 시설을 확인하실 수 있습니다.</b></p>
+    <p class="lede r">라운드를 마친 오후, 뜨거운 온천물에 몸을 담그면 하루의 피로는<br>
+      흩어지고 오직 나를 위한 고요한 시간만 남습니다.<br>
+      <b style="color:var(--brass);font-weight:400">숙소를 선택하시면 갤러리를 확인하실 수 있습니다.</b></p>
   </div>
 
     <div class="cards rv" data-group="stay">
@@ -3220,7 +3711,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <p>1,300년 역사의 야마시로 온천에 자리한 전통 료칸. 대욕장과 노천탕, 프라이빗 노천탕, 사우나를 갖추었습니다.</p>
         <span class="more">117 Rooms</span>
       </span>
-      <img loading="lazy" decoding="async" src="images/rk_main.webp" srcset="images/rk_main_m.webp 820w, images/rk_main.webp 1320w" sizes="(max-width:900px) 100vw, 20vw" alt="">
+      <img loading="lazy" decoding="async" src="images/rk_main.webp" srcset="images/rk_main_m.webp 900w, images/rk_main.webp 1320w" sizes="(max-width:900px) 100vw, 20vw" alt="">
       <span class="go2"><span class="go2t">자세히 보기</span><span class="go2i"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
     <button type="button" class="card" data-panel="hatori" onclick="return openPanel('hatori'),false" aria-label="하토리 상세 보기">
@@ -3251,43 +3742,24 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <template class="cbody-tpl" data-panel="ruriko">
 <div class="sv">
   <div class="sv-hero">
-    <img class="sv-img" loading="lazy" decoding="async" src="images/rk_main.webp" srcset="images/rk_main_m.webp 820w, images/rk_main.webp 1320w" sizes="(max-width:760px) 92vw, 60vw" width="1320" height="750" alt="">
+    <img class="sv-img" loading="lazy" decoding="async" src="images/rk_main.webp" srcset="images/rk_main_m.webp 900w, images/rk_main.webp 1320w" sizes="(max-width:760px) 92vw, 60vw" width="1320" height="850" alt="">
     <div class="sv-lead"><p class="sv-jp">瑠璃光 · RURIKOH</p><h3 class="sv-name">루리코</h3><p class="sv-desc">1,300년 역사의 야마시로 온천에 자리한 전통 료칸. 대욕장과 노천탕, 프라이빗 노천탕, 사우나를 갖추었습니다.</p><span class="sv-meta">117 Rooms</span></div>
-  </div>
-  <div class="sv-sec"><span class="sv-eyebrow">Guest Rooms</span><h4 class="sv-h4">객실</h4></div>
-  <div class="sv-list">
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_deluxe.webp" width="960" height="600" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">디럭스</h5><p class="sv-p"><b>구성</b>넓은 다다미 공간에 응접 코너를 더한 상위 등급 객실</p><p class="sv-p"><b>특징</b>객실 내 노천탕을 갖춘 타입이 포함됩니다</p><p class="sv-p"><b>추천</b>기념일 여행, 프라이빗한 체류</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_washitsu.webp" width="960" height="600" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">화실</h5><p class="sv-p"><b>구성</b>전통 다다미 화실. 도코노마와 툇마루가 딸린 정통 료칸 객실</p><p class="sv-p"><b>특징</b>이부자리를 깔아 주는 전통 방식의 취침</p><p class="sv-p"><b>추천</b>일본 료칸을 처음 경험하는 동반자</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_wayo.webp" width="960" height="600" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">화양실</h5><p class="sv-p"><b>구성</b>다다미 공간에 침대를 더한 화양실. 대형 타입도 운영</p><p class="sv-p"><b>특징</b>바닥 생활이 부담스러운 분께 적합</p><p class="sv-p"><b>추천</b>3인 이상 동반 라운드 팀</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_twin.webp" width="960" height="600" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">트윈 · 싱글</h5><p class="sv-p"><b>구성</b>침대 중심의 트윈룸과 1인 전용 싱글룸</p><p class="sv-p"><b>특징</b>간결한 구성으로 이른 티오프에 편리</p><p class="sv-p"><b>추천</b>비즈니스 라운드, 개인 회원</p></div>
-    </div>
-  </div>
-  <div class="sv-sec"><span class="sv-eyebrow">Facilities</span><h4 class="sv-h4">온천과 다이닝</h4></div>
-  <div class="sv-grid">
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_onsen.webp" width="900" height="469" alt=""><figcaption class="sv-cap">야마시로 온천수를 쓰는 대욕장<em>Onsen</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_food.webp" width="900" height="469" alt=""><figcaption class="sv-cap">가가의 제철 식재료로 차린 가이세키<em>Kaiseki</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_dining.webp" width="900" height="650" alt=""><figcaption class="sv-cap">조용한 개별 다이닝<em>Dining</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_lounge.webp" width="900" height="562" alt=""><figcaption class="sv-cap">라운지와 휴식 공간<em>Lounge</em></figcaption></figure>
   </div>
   <div class="sv-sec"><span class="sv-eyebrow">Gallery</span><h4 class="sv-h4">갤러리</h4></div>
   <div class="sv-grid sv-gal">
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g1.webp" width="900" height="580" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g2.webp" width="900" height="469" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g3.webp" width="900" height="562" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g4.webp" width="900" height="469" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g5.webp" width="900" height="650" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g6.webp" width="900" height="562" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_onsen.webp" srcset="images/rk_onsen_m.webp 900w, images/rk_onsen.webp 1440w" sizes="(max-width:760px) 92vw, 44vw" width="1440" height="750" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g1.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g2.webp" width="1440" height="750" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g5.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_deluxe.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_washitsu.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_wayo.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_twin.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_food.webp" width="900" height="650" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_dining.webp" width="900" height="650" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_lounge.webp" width="960" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g3.webp" width="900" height="650" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/rk_g6.webp" width="900" height="650" alt=""></figure>
   </div>
 </div>
 </template>
@@ -3298,40 +3770,20 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <img class="sv-img" loading="lazy" decoding="async" src="images/ht_main.webp" srcset="images/ht_main_m.webp 820w, images/ht_main.webp 1000w" sizes="(max-width:760px) 92vw, 60vw" width="1000" height="667" alt="">
     <div class="sv-lead"><p class="sv-jp">葉渡莉 · HATORI</p><h3 class="sv-name">하토리</h3><p class="sv-desc">노송나무와 돌로 지은 대욕장과 노천탕에서 미네랄이 풍부한 야마시로 온천수를 즐깁니다.</p><span class="sv-meta">67 Rooms</span></div>
   </div>
-  <div class="sv-sec"><span class="sv-eyebrow">Guest Rooms</span><h4 class="sv-h4">객실</h4></div>
-  <div class="sv-list">
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_fuji_dx.webp" srcset="images/ht_fuji_dx_m.webp 820w, images/ht_fuji_dx.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="711" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">후지동 디럭스</h5><p class="sv-p"><b>구성</b>藤の棟의 상위 등급 디럭스 화실</p><p class="sv-p"><b>특징</b>넓은 다다미 공간에 응접 코너를 더한 구성</p><p class="sv-p"><b>추천</b>여유로운 체류를 원하는 회원</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_fuji.webp" srcset="images/ht_fuji_m.webp 820w, images/ht_fuji.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">후지동</h5><p class="sv-p"><b>구성</b>藤の棟 표준 디럭스 화실 · 26실</p><p class="sv-p"><b>특징</b>정통 화실 구성에 현대적인 설비</p><p class="sv-p"><b>추천</b>2인 동반 숙박</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_hagi.webp" srcset="images/ht_hagi_m.webp 820w, images/ht_hagi.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">하기동</h5><p class="sv-p"><b>구성</b>萩の棟 스탠다드 화실 · 27실</p><p class="sv-p"><b>특징</b>단체 라운드 팀을 한 동에 배정하기 좋은 구성</p><p class="sv-p"><b>추천</b>단체 골프 여행</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_single.webp" srcset="images/ht_single_m.webp 820w, images/ht_single.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">싱글 화양실</h5><p class="sv-p"><b>구성</b>1인 전용 화양실 · 8실</p><p class="sv-p"><b>특징</b>침대와 다다미를 함께 갖춘 1인 객실</p><p class="sv-p"><b>추천</b>개인 회원, 비즈니스 체류</p></div>
-    </div>
-  </div>
-  <div class="sv-sec"><span class="sv-eyebrow">Facilities</span><h4 class="sv-h4">온천과 다이닝</h4></div>
-  <div class="sv-grid">
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_onsen.webp" width="900" height="534" alt=""><figcaption class="sv-cap">노송나무와 돌로 지은 대욕장<em>Onsen</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_food.webp" width="900" height="534" alt=""><figcaption class="sv-cap">가가 요리와 제철 식재료<em>Dining</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_ext2.webp" width="900" height="600" alt=""><figcaption class="sv-cap">료칸 외관과 정원<em>Exterior</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_main.webp" srcset="images/ht_main_m.webp 820w, images/ht_main.webp 1000w" sizes="(max-width:760px) 46vw, 23vw" width="1000" height="667" alt=""><figcaption class="sv-cap">로비와 라운지<em>Lobby</em></figcaption></figure>
-  </div>
   <div class="sv-sec"><span class="sv-eyebrow">Gallery</span><h4 class="sv-h4">갤러리</h4></div>
   <div class="sv-grid sv-gal">
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g1.webp" width="900" height="534" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g2.webp" width="900" height="534" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g3.webp" width="900" height="534" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g4.webp" width="900" height="534" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g5.webp" width="900" height="534" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g6.webp" width="900" height="534" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_onsen.webp" srcset="images/ht_onsen_m.webp 900w, images/ht_onsen.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g2.webp" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g3.webp" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_fuji_dx.webp" srcset="images/ht_fuji_dx_m.webp 900w, images/ht_fuji_dx.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="711" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_fuji.webp" srcset="images/ht_fuji_m.webp 900w, images/ht_fuji.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_hagi.webp" srcset="images/ht_hagi_m.webp 900w, images/ht_hagi.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_single.webp" srcset="images/ht_single_m.webp 900w, images/ht_single.webp 1200w" sizes="(max-width:760px) 92vw, 44vw" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_food.webp" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g6.webp" width="1200" height="712" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_g1.webp" width="900" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_ext2.webp" width="1000" height="667" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/ht_main.webp" srcset="images/ht_main_m.webp 900w, images/ht_main.webp 1000w" sizes="(max-width:760px) 46vw, 23vw" width="1000" height="667" alt=""></figure>
   </div>
 </div>
 </template>
@@ -3342,26 +3794,12 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_ext.webp" width="900" height="600" alt="">
     <div class="sv-lead"><p class="sv-jp">WAKASA CC RESORT</p><h3 class="sv-name">와카사 골프리조트</h3><p class="sv-desc">와카사 컨트리클럽 클럽하우스에 병설된 호텔. 라운드를 마치고 이동 없이 그대로 머무를 수 있어 27홀 연속 라운드와 이른 티오프에 편리합니다.</p><span class="sv-meta">9 Rooms</span></div>
   </div>
-  <div class="sv-sec"><span class="sv-eyebrow">Guest Rooms</span><h4 class="sv-h4">객실</h4></div>
-  <div class="sv-list">
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_lobby.webp" width="900" height="600" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">양실</h5><p class="sv-p"><b>구성</b>침대 중심의 양실 · 4실</p><p class="sv-p"><b>특징</b>클럽하우스 내 위치로 이동 없이 체류</p><p class="sv-p"><b>추천</b>이른 티오프 예정 팀</p></div>
-    </div>
-    <div class="sv-row">
-      <div class="sv-pic"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_dining.webp" width="900" height="600" alt=""></div>
-      <div class="sv-txt"><h5 class="sv-t">VIP실</h5><p class="sv-p"><b>구성</b>넓은 구성의 VIP실 · 5실</p><p class="sv-p"><b>특징</b>총 9실 18명 수용</p><p class="sv-p"><b>추천</b>단체 · 기업 라운드</p></div>
-    </div>
-  </div>
-  <div class="sv-sec"><span class="sv-eyebrow">Facilities</span><h4 class="sv-h4">온천과 다이닝</h4></div>
-  <div class="sv-grid">
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_ext.webp" width="900" height="600" alt=""><figcaption class="sv-cap">클럽하우스 외관<em>Exterior</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_lobby.webp" width="900" height="600" alt=""><figcaption class="sv-cap">로비<em>Lobby</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_dining.webp" width="900" height="600" alt=""><figcaption class="sv-cap">다이닝<em>Dining</em></figcaption></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_food.webp" width="900" height="600" alt=""><figcaption class="sv-cap">조식과 식사<em>Food</em></figcaption></figure>
-  </div>
   <div class="sv-sec"><span class="sv-eyebrow">Gallery</span><h4 class="sv-h4">갤러리</h4></div>
   <div class="sv-grid sv-gal">
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_lobby.webp" width="900" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_dining.webp" width="900" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_ext.webp" width="900" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_food.webp" width="900" height="600" alt=""></figure>
     <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g1.webp" width="900" height="507" alt=""></figure>
     <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g2.webp" width="900" height="600" alt=""></figure>
     <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g3.webp" width="900" height="600" alt=""></figure>
@@ -3370,7 +3808,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 </div>
 </template>
 
-<div class="endmark"><i></i><span>Next · Experience</span><i></i></div>
+<div class="endmark"><i></i><span>Next · 06 Experience</span><i></i></div>
 </section>
 
 <!-- ══ EXPERIENCE ══ -->
@@ -3378,12 +3816,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <div class="wrap">
     <div class="shead rv">
       <div>
-        <span class="secno">03</span>
-        <span class="eyebrow on-dark">Experience · Fukui</span>
-        <h2>라운드 다음의 하루</h2>
+        <div class="ch on-dark" style="margin-bottom:22px;padding-bottom:18px">
+          <span class="ch-no">06</span>
+          <div class="ch-meta">
+            <span class="eyebrow on-dark">Experience · Fukui</span>
+            <span class="ch-label">체험 · 볼거리 · 미식</span>
+          </div>
+        </div>
+        <h2>채워지는 <em>휴식</em>의 하루</h2>
       </div>
-      <p class="lede r">온천 순례, 사케 페어링, 게이샤의 전통 예능. 골프만으로 끝나지 않는
-        후쿠이의 시간을 회원 전용 컨시어지가 안내합니다.</p>
+      <p class="lede r">온천 순례, 사케 페어링, 게이샤의 전통 예능.<br>
+        골프만으로 끝나지 않는,<br>
+        <em>온전히 머무는 후쿠이의 시간을</em></p>
     </div>
 
     <div class="expfeature rv rv-clip">
@@ -3528,16 +3972,27 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 
 <!-- ══ BY HKI ══ -->
 <section class="sec wrap" id="hki">
+  <div class="ch rv">
+    <span class="ch-no">07</span>
+    <div class="ch-meta">
+      <span class="eyebrow">By HKI · 한국산업양행</span>
+      <span class="ch-label">글로벌 골프 운영</span>
+    </div>
+  </div>
   <div class="hki">
     <img decoding="async" class="rv" src="images/ym_hki.webp" alt="야마시로 골프클럽 코스 항공 전경" width="900" height="536">
     <div class="rv">
-      <span class="eyebrow">By HKI · 한국산업양행</span>
-      <h2 style="font-size:clamp(24px,2.8vw,38px);margin-bottom:26px">코스를 만드는 회사가<br>코스를 운영합니다</h2>
-      <p>㈜한국산업양행은 1988년 창사 이래 자연과 하나되는 아름다운 코스 창조에 이바지한다는 사명으로
-        야마하 골프카와 바로네스, 하츠타, 마루야마 등 코스 관리 장비를 취급해 왔습니다.</p>
-      <p>일본과 미국의 골프장을 직접 소유 · 운영하며, 좋은 코스는 오래 관리되고 정성스럽게 운영될 때
-        완성된다는 믿음을 실천해 왔습니다. 고마츠 90 멤버십은 그 철학 위에 준비된 실체 있는 일본 골프 멤버십으로,
-        해외 회원권의 예약 불안을 국내 기업의 책임 있는 운영으로 줄여 드립니다.</p>
+      <h2 style="font-size:clamp(24px,2.8vw,38px);margin-bottom:26px">미국 17개소, 일본 7개소의<br>골프장을 직접 소유·운영하는<br>글로벌 골프 브랜드</h2>
+      <p>㈜한국산업양행은 미국 17개소와 일본 7개소의 골프장을 직접 소유하고 관리·운영하는 글로벌 골프 운영 기업입니다.
+        다양한 지역과 개성을 갖춘 코스를 운영하며, 축적된 운영 노하우와 체계적인 코스 관리 기술을 바탕으로
+        세계적인 골프 브랜드의 가치를 만들어가고 있습니다.</p>
+      <p>1988년 창사 이후에는 야마하 골프카, 바로네스, 하츠타, 마루야마 등 세계적인 코스 관리 장비를 국내에 공급하며
+        골프장 운영과 코스 관리 분야의 전문성을 쌓아왔습니다. 이러한 오랜 경험은 오늘날 글로벌 골프장 운영과
+        코스 품질 관리의 경쟁력으로 이어지고 있습니다.</p>
+      <p>고마츠 90 멤버십은 글로벌 골프장을 직접 운영하는 기업이 선보이는 일본 골프 멤버십입니다.
+        해외 골프장을 운영하는 회사가 직접 관리하는 만큼 안정적인 예약 시스템과 책임 있는 운영 서비스를 제공하여,
+        해외 회원권 이용 시 느낄 수 있는 예약과 운영에 대한 부담을 줄이고, 글로벌 골프 운영 기업이 축적한
+        서비스와 코스 관리의 수준을 직접 경험하실 수 있습니다.</p>
       <div class="values">
         <span>· Differentiated Value</span>
         <span>· Stay by Your Side</span>
@@ -3548,7 +4003,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 </section>
 
 <!-- ══ MEMBERSHIP CTA ══ -->
-<section class="cta" id="membership">
+<section class="cta" id="ms-cta">
   <img loading="lazy" decoding="async" src="images/fk_aerial2.webp" alt="" width="1600" height="985" srcset="images/fk_aerial2_m.webp 820w, images/fk_aerial2.webp 1600w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw">
   <div class="in wrap">
     <span class="eyebrow on-dark">Membership</span>
@@ -3558,28 +4013,17 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </div>
 </section>
 
-<!-- ══ NEWS & FAQ ══ -->
+<!-- ══ FAQ ══ -->
 <section class="sec wrap" id="news">
+  <div class="ch rv">
+    <span class="ch-no">08</span>
+    <div class="ch-meta">
+      <span class="eyebrow">FAQ</span>
+      <span class="ch-label">이용 전 확인사항</span>
+    </div>
+  </div>
   <div class="nf">
     <div class="rv">
-      <span class="eyebrow">News</span>
-      <h2 style="font-size:clamp(22px,2.4vw,32px);margin-bottom:26px">더 고마츠 90의 최신 소식</h2>
-      <ul class="news collapsed" id="newsList">
-        <li><span class="d">2026.07.01</span><h4>여름 시즌 그린피 프로모션 시작</h4>
-          <p>7월 한 달간 평일 라운딩 예약 시 그린피 20% 할인 혜택을 드립니다.</p></li>
-        <li><span class="d">2026.06.20</span><h4>야마시로 골프클럽, 온천 패키지 리뉴얼 오픈</h4>
-          <p>라운드 후 즐기는 프리미엄 온천 패키지가 새롭게 단장했습니다. 숙박 연계 예약도 가능합니다.</p></li>
-        <li><span class="d">2026.06.05</span><h4>후쿠이 국제CC, 기업 행사 전용 컨벤션룸 확대</h4>
-          <p>최대 80인을 수용하는 컨벤션룸이 새롭게 문을 열었습니다.</p></li>
-        <li><span class="d">2026.05.22</span><h4>와카사 컨트리클럽, 리버뷰 코스 재정비 완료</h4>
-          <p>아놀드 파머 설계 코스의 페어웨이와 그린 정비를 마쳤습니다.</p></li>
-        <li><span class="d">2026.05.02</span><h4>멤버십 하나로 3개 골프장, 통합 예약 시스템 오픈</h4>
-          <p>이제 하나의 멤버십으로 세 곳의 골프장을 편리하게 예약하실 수 있습니다.</p></li>
-      </ul>
-      <button class="newsmore" id="newsMore" type="button">지난 소식 전체 보기</button>
-    </div>
-    <div class="rv">
-      <span class="eyebrow">FAQ</span>
       <h2 style="font-size:clamp(22px,2.4vw,32px);margin-bottom:26px">이용 전 확인하세요</h2>
       <div class="faq">
         <a href="#">회원권 및 요금 안내</a>
@@ -3593,7 +4037,6 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <a href="#">여행·관광 정보</a>
         <a href="#">기타 안내 사항</a>
       </div>
-      <p class="lede" style="margin-top:26px">이용문의 <b style="font-family:var(--lat);letter-spacing:.12em;font-size:19px;color:var(--ink)">1660-3500</b></p>
     </div>
   </div>
 </section>
@@ -3602,10 +4045,6 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <div class="wrap">
     <div class="top">
       <div class="fbrand">KOMATSU 90<small>Beyond golf, create your own extraordinary life</small></div>
-      <div class="addr">
-        <div><b>본사</b>서울특별시 강남구 압구정로18길 25 한국산업양행빌딩 (06031)<br>TEL. 02-2051-1211 &nbsp; FAX. 02-2051-1217</div>
-        <div><b>서비스 물류센터</b>경기도 용인시 처인구 원삼면 죽양대로 1630-1 (17166)<br>TEL. 031-338-5421 &nbsp; FAX. 031-338-5427</div>
-      </div>
     </div>
     <div class="bot">
       <span>2026 © THE KOMATSU 90. ALL RIGHTS RESERVED.</span>
@@ -3636,26 +4075,28 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <span class="grip"></span>
     <h4>Chapters</h4>
     <a href="#top" data-ms><span class="mn">—</span><span class="mt2">메인</span></a>
-    <a href="#prologue" data-ms><span class="mn">00</span><span class="mt2">프롤로그</span><span class="ms">후쿠이 소개</span></a>
-    <a href="#golf" data-ms><span class="mn">01</span><span class="mt2">골프 90홀</span><span class="ms">3개 골프장</span></a>
-    <a href="#stay" data-ms><span class="mn">02</span><span class="mt2">스테이</span><span class="ms">온천 료칸</span></a>
-    <a href="#experience" data-ms><span class="mn">03</span><span class="mt2">후쿠이의 하루</span><span class="ms">체험 · 미식</span></a>
-    <a href="#hki" data-ms><span class="mn">04</span><span class="mt2">운영 철학</span><span class="ms">한국산업양행</span></a>
-    <a href="#news" data-ms><span class="mn">05</span><span class="mt2">소식 · 문의</span><span class="ms">뉴스 · FAQ</span></a>
+    <a href="#membership" data-ms><span class="mn">01</span><span class="mt2">멤버십</span><span class="ms">상품 · 혜택</span></a>
+    <a href="#prologue" data-ms><span class="mn">02</span><span class="mt2">프롤로그</span><span class="ms">후쿠이 소개</span></a>
+    <a href="#access" data-ms><span class="mn">03</span><span class="mt2">위치</span><span class="ms">접근 · 동선</span></a>
+    <a href="#golf" data-ms><span class="mn">04</span><span class="mt2">골프 90홀</span><span class="ms">3개 골프장</span></a>
+    <a href="#stay" data-ms><span class="mn">05</span><span class="mt2">스테이</span><span class="ms">온천 료칸</span></a>
+    <a href="#experience" data-ms><span class="mn">06</span><span class="mt2">후쿠이의 하루</span><span class="ms">체험 · 미식</span></a>
+    <a href="#hki" data-ms><span class="mn">07</span><span class="mt2">운영 철학</span><span class="ms">한국산업양행</span></a>
+    <a href="#news" data-ms><span class="mn">08</span><span class="mt2">FAQ</span><span class="ms">이용 안내</span></a>
     <h4 style="margin-top:22px">Membership</h4>
-    <a href="#membership" data-ms><span class="mn">·</span><span class="mt2" style="color:var(--brass)">평생회원권 상담신청</span></a>
+    <a href="#membership" data-ms data-open="inquiry"><span class="mn">·</span><span class="mt2" style="color:var(--brass)">평생회원권 상담신청</span></a>
   </div>
 </div>
 
 <nav class="smap" id="smap" aria-label="위치 지도">
   <a href="#top"><span class="lb">Top</span><span class="dot"></span></a>
+  <a href="#membership"><span class="lb">Membership</span><span class="dot"></span></a>
   <a href="#prologue"><span class="lb">Prologue</span><span class="dot"></span></a>
   <a href="#golf"><span class="lb">Golf</span><span class="dot"></span></a>
   <a href="#stay"><span class="lb">Stay</span><span class="dot"></span></a>
   <a href="#experience"><span class="lb">Experience</span><span class="dot"></span></a>
   <a href="#hki"><span class="lb">By HKI</span><span class="dot"></span></a>
-  <a href="#membership"><span class="lb">Membership</span><span class="dot"></span></a>
-  <a href="#news"><span class="lb">News</span><span class="dot"></span></a>
+  <a href="#news"><span class="lb">FAQ</span><span class="dot"></span></a>
 </nav>
 <div class="resume" id="resume" role="status">
   <span>지난번 <b id="resumeName"></b> 챕터까지 보셨습니다</span>
@@ -3715,7 +4156,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <div id="inqDone" class="done-view" style="display:none">
       <p class="mk">✓</p>
       <h3 style="margin-top:18px">신청이 접수되었습니다</h3>
-      <p class="sub" style="margin-top:12px">담당자가 곧 연락드리겠습니다.<br>급하신 경우 1660-3500 으로 문의해 주세요.</p>
+      <p class="sub" style="margin-top:12px">담당자가 곧 연락드리겠습니다.<br>급하신 경우 1899-0721 으로 문의해 주세요.</p>
       <button class="go" data-close>확인</button>
     </div>
   </div>
@@ -3750,7 +4191,7 @@ window.K90 = (function(){
   },{passive:true});
 
   // 섹션 하나만 관찰해서 여러 곳에 알림
-  var IDS=['top','prologue','golf','stay','experience','hki','membership','news'];
+  var IDS=['top','membership','prologue','access','golf','stay','experience','hki','news'];
   var current='top';
   var so=new IntersectionObserver(function(es){
     var best=null, ratio=0;
@@ -3990,7 +4431,7 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
 (function(){
   var hd=document.getElementById('hd'), prog=document.getElementById('prog'),
       top=document.getElementById('totop'), mega=document.getElementById('mega'),
-      last=scrollY, acc=0, ticking=false;
+      last=scrollY, ticking=false;
 
   function frame(st){
     var y=st.y;
@@ -3999,23 +4440,15 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
     if(prog) prog.style.width=(pr*100)+'%';
     var qp=document.getElementById('qprog');
     if(qp) qp.style.transform='scaleX('+pr+')';
-    // 헤더
+    // 헤더: 스크롤 중에도 항상 표시
     hd.classList.toggle('solid', y>60);
-    if(!(mega&&mega.classList.contains('open'))){
-      var d=y-last;
-      if(y<160){ hd.classList.remove('hide'); acc=0 }
-      else {
-        acc = (d>0)===(acc>0) ? acc+d : d;
-        if(acc>90){ hd.classList.add('hide'); acc=0 }
-        else if(acc<-70){ hd.classList.remove('hide'); acc=0 }
-      }
-    }
-    // 챕터 바: 히어로를 지나면 등장, 헤더가 보이면 그 아래로
+    hd.classList.remove('hide');
+    // 챕터 바: 히어로를 지나면 등장, 헤더 아래로
     var qk=document.getElementById('quick');
     if(qk){
       var past = y > innerHeight*0.72;
       qk.classList.toggle('tuck', !past);
-      qk.style.top = hd.classList.contains('hide') ? '0' : hd.offsetHeight+'px';
+      qk.style.top = hd.offsetHeight+'px';
     }
     last=y;
     // 맨 위로
@@ -4104,8 +4537,8 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
   var bar=document.getElementById('mbar'), sheet=document.getElementById('msheet');
   if(!bar||!sheet) return;
   var nowT=document.getElementById('mbarNowT'), mprg=document.getElementById('mprg');
-  var NAMES={top:'Main',prologue:'Prologue',golf:'Golf',stay:'Stay',
-             experience:'Experience',hki:'By HKI',membership:'Membership',news:'News'};
+  var NAMES={top:'Main',membership:'Membership',prologue:'Prologue',access:'Location',golf:'Golf',stay:'Stay',
+             experience:'Experience',hki:'By HKI',news:'FAQ'};
 
   // 현재 챕터 표시 + 시트 항목 활성화
   var links={};
@@ -4160,8 +4593,8 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
   }
 
   // 현재 챕터를 저장하고, 재방문 시 이어보기 제안
-  var NAMES={prologue:'프롤로그',golf:'골프 90홀',stay:'스테이',experience:'후쿠이의 하루',
-             hki:'운영 철학',membership:'멤버십',news:'소식'};
+  var NAMES={membership:'멤버십',prologue:'프롤로그',access:'위치',golf:'골프 90홀',stay:'스테이',experience:'후쿠이의 하루',
+             hki:'운영 철학',news:'FAQ'};
   var KEY='k90.chapter';
   K90.onSection(function(id){ if(NAMES[id]){ try{ localStorage.setItem(KEY,id) }catch(_){} } });
 
@@ -4344,7 +4777,7 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
       document.getElementById('inqDone').style.display='block';
     }).catch(function(){
       btn.disabled=false; btn.textContent='상담 신청하기';
-      note('접수에 실패했습니다. 잠시 후 다시 시도하시거나 1660-3500 으로 연락해 주세요.');
+      note('접수에 실패했습니다. 잠시 후 다시 시도하시거나 1899-0721 으로 연락해 주세요.');
     });
   });
 })();
