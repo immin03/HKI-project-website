@@ -488,10 +488,9 @@ header.hide{transform:translateY(-102%)}
 .totop{position:fixed;right:clamp(14px,1.6vw,26px);bottom:clamp(14px,1.6vw,26px);z-index:90;
   width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);
   background:rgba(14,18,14,.42);backdrop-filter:blur(6px);color:rgba(255,255,255,.82);cursor:pointer;
-  display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(10px);
-  transition:opacity .45s,visibility .45s,transform .45s,background .3s,border-color .3s,color .3s}
-.totop.on{opacity:.62;visibility:visible;transform:none}
-.totop.on:hover,.totop.on:focus-visible{opacity:1;background:var(--brass);border-color:var(--brass);color:#0E120E}
+  display:grid;place-items:center;opacity:.72;visibility:visible;transform:none;
+  transition:opacity .45s,background .3s,border-color .3s,color .3s}
+.totop:hover,.totop:focus-visible{opacity:1;background:var(--brass);border-color:var(--brass);color:#0E120E}
 .totop svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6}
 
 /* ── tab panel switch animation ────────── */
@@ -1249,54 +1248,21 @@ img.fadein{opacity:0;animation:imgIn 1.2s cubic-bezier(.16,.65,.2,1) forwards}
 
 
 /* ══════════════════════════════════════════════
-   모바일 전용 UX — 챕터 시트 · 하단 바 · 그루핑
+   모바일 UX — 하단 바 제거, 맨위로만 유지
    ══════════════════════════════════════════════ */
+.mbar,.msheet{display:none!important}
 
-/* ── 하단 고정 액션 바 ─────────────────── */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:96;display:none;
-  background:rgba(12,16,13,.96);border-top:1px solid rgba(255,255,255,.12);
-  padding-bottom:env(safe-area-inset-bottom);
-  transform:translateY(0);transition:transform .8s cubic-bezier(.16,.65,.2,1)}
-.mbar.hide{transform:translateY(110%)}
-.mbar .in{display:flex;align-items:stretch;height:58px}
-.mbar button,.mbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
-  background:none;border:0;color:rgba(255,255,255,.66);font-family:var(--sans);font-size:10.5px;
-  font-weight:300;letter-spacing:.04em;cursor:pointer;transition:color .5s;padding:0}
-.mbar .ic{display:block;width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.4}
-.mbar .now{flex:1.5;color:#fff}
-.mbar .now .nowt{font-family:var(--lat);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-l)}
-.mbar .cta{background:var(--brass);color:#0E120E;flex:1.1}
-.mbar .cta .ic{stroke-width:1.6}
-.mbar .prg{position:absolute;left:0;top:0;height:1px;background:var(--brass);
-  transform-origin:left;transform:scaleX(0);transition:transform .2s linear}
-
-/* ── 전체 챕터 시트 (하단에서 올라옴) ───── */
-.msheet{position:fixed;inset:0;z-index:110;visibility:hidden;pointer-events:none}
-.msheet .veil{position:absolute;inset:0;background:rgba(6,9,7,.7);opacity:0;transition:opacity .8s}
-.msheet .panel2{position:absolute;left:0;right:0;bottom:0;background:var(--paper);
-  border-radius:2px 2px 0 0;padding:10px 0 calc(20px + env(safe-area-inset-bottom));
-  max-height:84svh;overflow-y:auto;overscroll-behavior:contain;
-  transform:translateY(100%);transition:transform 1s cubic-bezier(.16,.65,.2,1)}
-.msheet.open{visibility:visible;pointer-events:auto}
-.msheet.open .veil{opacity:1}
-.msheet.open .panel2{transform:none}
-.msheet .grip{width:38px;height:3px;border-radius:3px;background:rgba(14,18,14,.18);margin:6px auto 18px}
-.msheet h4{font-family:var(--lat);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--brass);padding:0 var(--pad);margin-bottom:6px}
-.msheet a{display:flex;align-items:center;gap:14px;padding:15px var(--pad);
-  border-bottom:1px solid var(--line);color:var(--ink);transition:background .4s,padding-left .7s}
-.msheet a:last-of-type{border-bottom:0}
-.msheet a:active{background:rgba(165,133,74,.1);padding-left:calc(var(--pad) + 8px)}
-.msheet a .mn{font-family:var(--lat);font-size:12px;letter-spacing:.14em;color:var(--brass);min-width:22px}
-.msheet a .mt2{font-size:15px;font-weight:300;letter-spacing:-.02em}
-.msheet a .ms{margin-left:auto;font-size:11.5px;color:var(--moss)}
-.msheet a.on{background:rgba(165,133,74,.09)}
-.msheet a.on .mt2{color:var(--brass)}
+/* 햄버거 메뉴 상단 상담 CTA */
+.mega-lead{display:none}
+.mega-lead .rcta{display:block;width:100%;background:var(--brass);color:#0E120E;text-align:center;
+  padding:16px;font-family:var(--lat);font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:.4s}
+.mega-lead .rcta:hover{background:var(--ink);color:#fff}
+.mega-lead-tel{display:flex;justify-content:space-between;align-items:baseline;padding:16px 2px 0;
+  border-bottom:1px solid var(--line);padding-bottom:16px;margin-top:4px;font-size:13.5px;color:var(--moss)}
+.mega-lead-tel b{font-family:var(--lat);font-size:18px;letter-spacing:.12em;color:var(--ink);font-weight:400}
 
 /* ── 모바일 그루핑: 가로 스와이프 스트립 ── */
 @media(max-width:720px){
-  .mbar{display:block}
-
   /* 프롤로그 4카드 — 2×2 한 화면 */
   .grid4{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
     margin-top:26px;overflow:visible}
@@ -1306,9 +1272,8 @@ img.fadein{opacity:0;animation:imgIn 1.2s cubic-bezier(.16,.65,.2,1) forwards}
   .grid4 p{font-size:12.5px;line-height:1.7;
     display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 
-  body{padding-bottom:58px}
-  .totop{bottom:calc(70px + env(safe-area-inset-bottom))}
-  
+  .totop{bottom:calc(18px + env(safe-area-inset-bottom));right:14px;opacity:.88;
+    background:rgba(14,18,14,.82);backdrop-filter:none}  
 
 
   /* 체험 카드 → 가로 스와이프 */
@@ -1358,13 +1323,9 @@ img.fadein{opacity:0;animation:imgIn 1.2s cubic-bezier(.16,.65,.2,1) forwards}
 @media(max-width:720px){
   .quick{display:none}
   .smap{display:none}
-  /* 이어보기 칩은 하단 바 위로 */
-  .resume{bottom:calc(70px + env(safe-area-inset-bottom))}
+  /* 이어보기 칩 */
+  .resume{bottom:calc(20px + env(safe-area-inset-bottom))}
   .resume.on ~ .totop{opacity:0!important;pointer-events:none}
-  /* 상담 모달이 열리면 하단 바 감춤 */
-  body.modal-open .mbar{transform:translateY(110%)}
-  /* 상세 패널이 열려도 하단 바 감춤 */
-  body.panel-open .mbar{transform:translateY(110%)}
   /* 갤러리 화살표는 터치에서 크게 */
   .galnav{width:42px;height:42px}
   /* 탭 목록 여백 */
@@ -1377,7 +1338,7 @@ img.fadein{opacity:0;animation:imgIn 1.2s cubic-bezier(.16,.65,.2,1) forwards}
    ══════════════════════════════════════════════ */
 @media(max-width:900px){
   /* 실시간 블러는 전부 제거 (가장 비싼 연산) */
-  header.solid,.quick,.mbar,.msheet .panel2,.totop,.mdl .veil,.dpanel .veil,.resume{
+  header.solid,.quick,.totop,.mdl .veil,.dpanel .veil,.resume{
     backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
   header.solid{background:rgba(14,18,14,.97)}
   .mdl .veil,.dpanel .veil{background:rgba(6,9,7,.84)}
@@ -1946,7 +1907,8 @@ header,.quick,.mbar,.totop,.smap,.resume,.prog{isolation:isolate}
 
 
   /* 맨 위로 */
-  .totop{width:38px;height:38px;right:12px;bottom:12px;background:rgba(14,18,14,.5);backdrop-filter:none}
+  .totop{width:40px;height:40px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));
+    background:rgba(14,18,14,.82);backdrop-filter:none;opacity:.9}
 }
 
 @media(max-width:480px){
@@ -2384,11 +2346,13 @@ img{max-width:100%}
   .mega .util a:nth-child(even){border-right:0}
   .mega .util a:last-child:nth-child(odd){grid-column:1 / -1;border-right:0}
 
-  /* 문의 영역 */
+  /* 문의 영역 — 모바일은 상단 mega-lead가 메인 CTA */
+  .mega-lead{display:block;margin:8px 0 26px}
+  .mega .right .rcta,.mega .right > .row:first-of-type{display:none}
   .mega .right{padding:30px var(--pad) calc(56px + env(safe-area-inset-bottom))}
   .mega .right .rcta{padding:17px;font-size:14px}
   .mega .right .row{padding:15px 0;font-size:13.5px}
-  .mega .right nav{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:22px;
+  .mega .right nav{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;
     border-top:1px solid var(--line)}
   .mega .right nav a{display:flex;align-items:center;min-height:46px;padding:9px 4px;
     font-size:13px;border-bottom:1px solid var(--line);word-break:keep-all}
@@ -2769,7 +2733,6 @@ img{max-width:100%}
     e.preventDefault();
     var mg=document.getElementById('mega');
     if(mg){ mg.classList.remove('open'); var b=document.getElementById('bg'); if(b) b.setAttribute('aria-expanded','false') }
-    var sh=document.querySelector('.msheet.open'); if(sh) sh.classList.remove('open');
     openMsDetail();
   });
 
@@ -2927,7 +2890,11 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <div class="mega" id="mega" role="dialog" aria-modal="true" aria-label="전체 메뉴">
   <div class="left">
     <button class="x" id="mx"><span>×</span>CLOSE</button>
-    <div class="mgrid" style="margin-top:clamp(34px,4vw,54px)">
+    <div class="mega-lead">
+      <button type="button" class="rcta" data-open="inquiry" style="border:0;cursor:pointer;width:100%">평생 멤버십 상담신청</button>
+      <div class="row mega-lead-tel"><span>입회문의</span><b>1899-0721</b></div>
+    </div>
+    <div class="mgrid" style="margin-top:clamp(20px,3vw,40px)">
       <div class="cat">
         <a class="thumb" href="#golf"><img decoding="async" data-src="images/ym_aerial.webp" alt="" width="1600" height="950" srcset="images/ym_aerial_m.webp 820w, images/ym_aerial.webp 1600w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw"><b><i>打</i><u>GOLF</u></b></a>
         <ul><li><a href="#yamashiro">야마시로 골프클럽</a></li><li><a href="#fukui">후쿠이 국제 컨트리클럽</a></li>
@@ -4215,41 +4182,6 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </div>
 </footer>
 
-<div class="mbar" id="mbar">
-  <span class="prg" id="mprg"></span>
-  <div class="in">
-    <button type="button" id="mbarNow" class="now" aria-label="챕터 목록 열기">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
-      <span class="nowt" id="mbarNowT">Prologue</span>
-    </button>
-    <button type="button" id="mbarTop" aria-label="맨 위로">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>맨 위로
-    </button>
-    <button type="button" class="cta" data-open="inquiry" aria-label="상담신청">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>상담신청
-    </button>
-  </div>
-</div>
-
-<div class="msheet" id="msheet" role="dialog" aria-modal="true" aria-label="챕터 목록">
-  <div class="veil" data-msclose></div>
-  <div class="panel2">
-    <span class="grip"></span>
-    <h4>Chapters</h4>
-    <a href="#top" data-ms><span class="mn">—</span><span class="mt2">메인</span></a>
-    <a href="#membership" data-ms><span class="mn">01</span><span class="mt2">멤버십</span><span class="ms">상품 · 혜택</span></a>
-    <a href="#prologue" data-ms><span class="mn">02</span><span class="mt2">프롤로그</span><span class="ms">후쿠이 소개</span></a>
-    <a href="#access" data-ms><span class="mn">03</span><span class="mt2">위치</span><span class="ms">접근 · 동선</span></a>
-    <a href="#golf" data-ms><span class="mn">04</span><span class="mt2">골프 90홀</span><span class="ms">3개 골프장</span></a>
-    <a href="#stay" data-ms><span class="mn">05</span><span class="mt2">스테이</span><span class="ms">온천 료칸</span></a>
-    <a href="#experience" data-ms><span class="mn">06</span><span class="mt2">후쿠이의 하루</span><span class="ms">체험 · 미식</span></a>
-    <a href="#hki" data-ms><span class="mn">07</span><span class="mt2">운영 철학</span><span class="ms">한국산업양행</span></a>
-    <a href="#news" data-ms><span class="mn">08</span><span class="mt2">FAQ</span><span class="ms">이용 안내</span></a>
-    <h4 style="margin-top:22px">Membership</h4>
-    <a href="#membership" data-ms data-open="inquiry"><span class="mn">·</span><span class="mt2" style="color:var(--brass)">평생 멤버십 상담신청</span></a>
-  </div>
-</div>
-
 <nav class="smap" id="smap" aria-label="위치 지도">
   <a href="#top"><span class="lb">Top</span><span class="dot"></span></a>
   <a href="#membership"><span class="lb">Membership</span><span class="dot"></span></a>
@@ -4265,7 +4197,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <button type="button" id="resumeGo">이어보기</button>
   <button type="button" class="x" id="resumeX" aria-label="닫기">×</button>
 </div>
-<button class="totop" id="totop" aria-label="맨 위로">
+<button class="totop on" id="totop" aria-label="맨 위로">
   <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
@@ -4636,7 +4568,7 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
       if(!cachedHdH) cachedHdH=hd.offsetHeight;
       qk.style.top = cachedHdH+'px';
     }
-    if(top) top.classList.toggle('on', y>innerHeight*0.75);
+    if(top){ /* 항상 표시 — 스크롤 토글 없음 */ }
   }
   K90.onScroll(function(st){ frame(st) });
   K90.onResize(function(){ cachedHdH=hd.offsetHeight; lastSolid=null });
@@ -4715,45 +4647,8 @@ document.querySelectorAll('.accord .ac').forEach(function(a){
 })();
 
 // ══════════════════════════════════════════════
-//  모바일 — 하단 바 + 챕터 시트
+//  모바일 — 하단 바 제거됨 (맨위로 버튼만 유지)
 // ══════════════════════════════════════════════
-(function(){
-  var bar=document.getElementById('mbar'), sheet=document.getElementById('msheet');
-  if(!bar||!sheet) return;
-  var nowT=document.getElementById('mbarNowT'), mprg=document.getElementById('mprg');
-  var NAMES={top:'Main',membership:'Membership',prologue:'Prologue',access:'Location',golf:'Golf',stay:'Stay',
-             experience:'Experience',hki:'By HKI',news:'FAQ'};
-
-  // 현재 챕터 표시 + 시트 항목 활성화
-  var links={};
-  sheet.querySelectorAll('a[data-ms]').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a });
-  K90.onSection(function(id){
-    if(NAMES[id]) nowT.textContent=NAMES[id];
-    Object.keys(links).forEach(function(k){ links[k].classList.toggle('on', k===id) });
-  });
-
-  // 시트 열고 닫기
-  function open(){ sheet.classList.add('open'); document.body.style.overflow='hidden' }
-  function close(){ sheet.classList.remove('open'); document.body.style.overflow='' }
-  document.getElementById('mbarNow').addEventListener('click',open);
-  sheet.addEventListener('click',function(e){
-    if(e.target.closest('[data-msclose]')){ close(); return }
-    var a=e.target.closest('a[data-ms]');
-    if(a){ close(); }
-  });
-  addEventListener('keydown',function(e){ if(e.key==='Escape' && sheet.classList.contains('open')) close() });
-
-  // 맨 위로
-  document.getElementById('mbarTop').addEventListener('click',function(){
-    var a=document.querySelector('a[href="#top"]'); if(a) a.click();
-  });
-
-  // 진행 게이지 + 하단 바 숨김/노출
-  K90.onScroll(function(st){
-    if(mprg) mprg.style.transform='scaleX('+st.ratio+')';
-    bar.classList.toggle('hide', st.y < st.vh*0.5);
-  });
-})();
 
 // 가로 스와이프 그룹에 힌트 붙이기 (모바일에서만 보임)
 (function(){
@@ -4942,6 +4837,11 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
     var o=e.target.closest('[data-open]');
     if(o && !o.classList.contains('card') && !o.classList.contains('xslide') && !o.hasAttribute('data-panel') && !o.hasAttribute('data-xc')){
       e.preventDefault();
+      var mg=document.getElementById('mega');
+      if(mg && mg.classList.contains('open')){
+        mg.classList.remove('open');
+        var b=document.getElementById('bg'); if(b) b.setAttribute('aria-expanded','false');
+      }
       show('mdlInquiry', o.getAttribute('data-interest')||'');
       return;
     }
@@ -5028,8 +4928,6 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
       mg.classList.remove('open');
       var b=document.getElementById('bg'); if(b) b.setAttribute('aria-expanded','false');
     }
-    var sh=document.querySelector('.msheet.open');
-    if(sh) sh.classList.remove('open');
     document.body.style.overflow='';
   }
   document.addEventListener('click',function(e){
@@ -5037,7 +4935,7 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
     if(a.closest('#dpanel')) return;
     var id=panelFor(a.getAttribute('href').slice(1)); if(!id) return;
     e.preventDefault();
-    var wasOverlay=!!document.querySelector('.mega.open, .msheet.open');
+    var wasOverlay=!!document.querySelector('.mega.open');
     closeOverlays();
     setTimeout(function(){ if(window.openPanel) window.openPanel(id) }, wasOverlay?200:0);
   }, true);
