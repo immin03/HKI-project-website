@@ -107,8 +107,21 @@ nav.gnb a:hover::after{width:100%}
 /* ── hero ──────────────────────────────── */
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;color:#fff;display:flex;
   align-items:flex-end;padding-bottom:clamp(190px,24vh,260px)}
-@media(max-width:900px){.hero{padding-bottom:300px}}
-@media(max-width:560px){.hero{padding-bottom:320px;min-height:600px}}
+@media(max-width:900px){
+  .hero{
+    align-items:flex-start;
+    justify-content:flex-start;
+    padding-top:calc(88px + env(safe-area-inset-top,0px));
+    padding-bottom:280px;
+  }
+  .hero .inner{padding-right:64px}
+}
+@media(max-width:720px){
+  .hero{padding-bottom:188px;min-height:560px}
+}
+@media(max-width:560px){
+  .hero{min-height:520px}
+}
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
   opacity:0;transform:scale(1.045) translate3d(0,0,0);backface-visibility:hidden;
@@ -216,8 +229,9 @@ nav.gnb a:hover::after{width:100%}
 .slidedots{position:absolute;right:var(--pad);bottom:clamp(150px,18vh,215px);z-index:5;display:flex;gap:10px}
 .slidedots button{width:26px;height:2px;border:0;padding:0;background:rgba(255,255,255,.34);cursor:pointer;transition:background .5s}
 .slidedots button[aria-current="true"]{background:var(--brass-l)}
-@media(max-width:900px){.slidedots{bottom:252px}}
-@media(max-width:560px){.slidedots{bottom:272px}}
+@media(max-width:900px){.slidedots{bottom:268px}}
+@media(max-width:720px){.slidedots{bottom:calc(188px + 16px)}}
+@media(max-width:560px){.slidedots{bottom:calc(188px + 14px)}}
 
 /* ── golf accordion (expanding panels) ─── */
 .accord{display:flex;height:clamp(300px,40vw,440px);gap:2px;margin-bottom:clamp(20px,3vw,36px)}
@@ -1806,15 +1820,32 @@ header,.quick,.mbar,.totop,.smap,.resume,.prog{isolation:isolate}
   .hd-cta .btn-line{display:none}
   .menubtn{font-size:11px;letter-spacing:.2em}
 
-  /* 히어로 */
-  .hero{padding-bottom:196px;min-height:560px}
-  .hero .lat{font-size:10px;letter-spacing:.38em;margin-bottom:16px}
+  /* 히어로 — 카피 상단 배치, 슬라이드 점과 분리, 이미지 줌 금지 */
+  .hero{
+    align-items:flex-start;
+    justify-content:flex-start;
+    padding-top:calc(84px + env(safe-area-inset-top,0px));
+    padding-bottom:188px;
+    min-height:560px;
+    height:100svh;
+  }
+  .hero .inner{width:100%;padding-right:72px}
+  .hero .lat{font-size:10px;letter-spacing:.38em;margin-bottom:14px}
   .hero h1{font-size:clamp(27px,7.6vw,36px);line-height:1.24;letter-spacing:-.035em}
-  .hero .rule{margin:20px 0 15px;width:40px}
-  .hero .sub{font-size:13.5px;line-height:1.72;max-width:34ch}
+  .hero .rule{margin:16px 0 14px;width:40px}
+  .hero .sub{font-size:13.5px;line-height:1.75;max-width:32ch}
   .scrollcue{display:none}
-  .slidedots{bottom:auto;top:calc(100svh - 196px - 26px);right:var(--pad)}
+  .slidedots{
+    top:auto;bottom:calc(188px + 16px);right:var(--pad);
+    z-index:5}
   .slidedots button{width:20px}
+
+  /* 히어로 사진: 스케일·Ken Burns 완전 차단 (스크롤 시 커짐 방지) */
+  .hero .bg,.hero .bg img,.hero .bg img.on{
+    transform:none!important;animation:none!important;will-change:auto!important;
+    scale:none}
+  .hero .bg img{transition:opacity .8s ease}
+  .hero .bg img.on{opacity:1}
 
   /* 90홀 바 */
   .holes{grid-template-columns:repeat(2,1fr)}
@@ -1923,8 +1954,8 @@ header,.quick,.mbar,.totop,.smap,.resume,.prog{isolation:isolate}
   .grid4 p{-webkit-line-clamp:5;font-size:12px}
   .facility{grid-template-columns:1fr}
   .dine{grid-template-columns:1fr}
-  .hero{padding-bottom:186px}
-  .slidedots{top:calc(100svh - 186px - 24px)}
+  .hero{padding-bottom:188px}
+  .slidedots{top:auto;bottom:calc(188px + 14px)}
   .chapter .lb{display:none}
   .galwrap{--galw:84vw}
 }
@@ -2400,15 +2431,16 @@ img{max-width:100%}
 @media(max-width:720px){
   .am-svg-d{display:none}
   .am-svg-m{display:block}
-  /* 모바일 SVG는 viewBox 520폭이라 텍스트가 자연히 크게 렌더된다 */
-  .am-svg-m .am-name{font-size:18px}
-  .am-svg-m .am-name-c{font-size:19px}
-  .am-svg-m .am-badge text{font-size:16px;font-weight:700}
-  .am-svg-m .am-ringlb{font-size:15px}
-  .am-svg-m .am-geo{font-size:16px}
-  .am-svg-m .am-city{font-size:16px}
-  .am-svg-m .am-compass text{font-size:16px}
-  .am-svg-m .am-name-alpen{font-size:18px}
+  /* 모바일: 글자 키우지 않음 — 겹침 방지 */
+  .am-svg-m .am-name{font-size:12.5px}
+  .am-svg-m .am-name-c{font-size:13px}
+  .am-svg-m .am-badge text{font-size:11px;font-weight:700}
+  .am-svg-m .am-ringlb{font-size:11px}
+  .am-svg-m .am-geo{font-size:11px}
+  .am-svg-m .am-city{font-size:11px}
+  .am-svg-m .am-compass text{font-size:11px}
+  .am-svg-m .am-name-alpen{font-size:12px}
+  .am-svg-m .am-sub{font-size:9px}
 }
 
 
@@ -2514,11 +2546,16 @@ img{max-width:100%}
   to{transform:scale(1.008) translate3d(0,0,0)}
 }
 @media(max-width:900px){
-  .hero .bg img{transition:opacity 1s ease;transform:none!important;will-change:auto;animation:none}
-  .hero .bg img.on{animation:none;transform:none!important;will-change:opacity}
+  .hero .bg img{transition:opacity 1s ease;transform:none!important;will-change:auto;animation:none;scale:none}
+  .hero .bg img.on{animation:none;transform:none!important;will-change:auto;scale:none}
+  .hero .bg{transform:none!important}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero .bg img,.hero .bg img.on{animation:none;transform:none!important}
+  .hero .bg img,.hero .bg img.on{animation:none;transform:none!important;scale:none}
+}
+@media(hover:none){
+  .hero .bg img,.hero .bg img.on{
+    animation:none!important;transform:none!important;will-change:auto!important;scale:none}
 }
 
 .hero .sub{max-width:min(54ch,92vw)}
@@ -2951,7 +2988,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <span class="lat">Fukui &nbsp;·&nbsp; Ishikawa &nbsp;·&nbsp; Japan</span>
     <h1>가까운 하루,<br><em>깊어지는 휴식</em></h1>
     <span class="rule"></span>
-    <p class="sub">코마츠공항에서 차로 30분, 90홀 골프와 1,300년 온천이 <span class="nowrap">하루를 채웁니다.</span></p>
+    <p class="sub">코마츠공항에서 차로 30분,<br>90홀 골프와 1,300년 온천이 <span class="nowrap">하루를 채웁니다.</span></p>
   </div>
   <div class="scrollcue">SCROLL<i></i></div>
   <div class="slidedots" id="dots" aria-label="메인 이미지 전환"></div>
@@ -3396,62 +3433,63 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 
       <!-- 연결선 -->
       <g class="am-links">
-        <line x1="246" y1="214" x2="300" y2="266"/>
-        <line x1="246" y1="214" x2="176" y2="336"/>
-        <line x1="246" y1="214" x2="150" y2="512"/>
-        <line x1="246" y1="214" x2="340" y2="292"/>
-        <line x1="340" y1="292" x2="300" y2="266"/>
-        <line x1="340" y1="292" x2="176" y2="336"/>
-        <line x1="246" y1="214" x2="392" y2="104"/>
+        <line x1="246" y1="214" x2="318" y2="278"/>
+        <line x1="246" y1="214" x2="160" y2="350"/>
+        <line x1="246" y1="214" x2="150" y2="520"/>
+        <line x1="246" y1="214" x2="390" y2="318"/>
+        <line x1="390" y1="318" x2="318" y2="278"/>
+        <line x1="390" y1="318" x2="160" y2="350"/>
+        <line x1="246" y1="214" x2="400" y2="96"/>
       </g>
 
-      <!-- 도시명 -->
-      <text class="am-city" x="356" y="238" text-anchor="middle">가가시</text>
-      <text class="am-city" x="300" y="356" text-anchor="middle">후쿠이시</text>
-      <text class="am-city" x="96" y="470" text-anchor="middle">쓰루가시</text>
+      <!-- 도시명 — 노드와 떨어뜨림 -->
+      <text class="am-city" x="420" y="250" text-anchor="middle">가가시</text>
+      <text class="am-city" x="290" y="400" text-anchor="middle">후쿠이시</text>
+      <text class="am-city" x="70" y="450" text-anchor="middle">쓰루가시</text>
 
       <!-- 공항 -->
       <g class="am-node am-air" transform="translate(246,214)">
         <circle class="am-halo" r="16"/><circle class="am-dot" r="7"/>
         <path class="am-plane" d="M-7,0 L7,-4.5 L7,4.5 Z" transform="rotate(28)"/>
-        <text class="am-name am-name-c" x="0" y="-24" text-anchor="middle">고마츠공항 · KOMATSU</text>
+        <text class="am-name am-name-c" x="0" y="-26" text-anchor="middle">고마츠공항</text>
+        <text class="am-sub" x="0" y="-12" text-anchor="middle">KOMATSU</text>
       </g>
 
       <!-- 야마시로 골프 -->
-      <g class="am-node am-golf" transform="translate(300,266)">
+      <g class="am-node am-golf" transform="translate(318,278)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(16,-12)"><rect x="0" y="0" rx="12" width="84" height="24"/><text x="42" y="17" text-anchor="middle">호텔 7분</text></g>
-        <text class="am-name" x="14" y="30" text-anchor="middle">야마시로 골프클럽 36H</text>
+        <g class="am-badge" transform="translate(14,-28)"><rect x="0" y="0" rx="12" width="72" height="22"/><text x="36" y="15" text-anchor="middle">호텔 7분</text></g>
+        <text class="am-name" x="0" y="28" text-anchor="middle">야마시로 36H</text>
       </g>
 
       <!-- 후쿠이 CC -->
-      <g class="am-node am-golf" transform="translate(176,336)">
+      <g class="am-node am-golf" transform="translate(160,350)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(-92,-12)"><rect x="0" y="0" rx="12" width="88" height="24"/><text x="44" y="17" text-anchor="middle">호텔 20분</text></g>
-        <text class="am-name" x="0" y="30" text-anchor="middle">후쿠이 국제 27H</text>
+        <g class="am-badge" transform="translate(-86,-28)"><rect x="0" y="0" rx="12" width="78" height="22"/><text x="39" y="15" text-anchor="middle">호텔 20분</text></g>
+        <text class="am-name" x="0" y="28" text-anchor="middle">후쿠이 국제 27H</text>
       </g>
 
       <!-- 와카사 CC -->
-      <g class="am-node am-golf" transform="translate(150,512)">
+      <g class="am-node am-golf" transform="translate(150,520)">
         <circle class="am-dot" r="6"/>
-        <g class="am-badge am-badge-w" transform="translate(16,-12)"><rect x="0" y="0" rx="12" width="72" height="24"/><text x="36" y="17" text-anchor="middle">1시간</text></g>
-        <text class="am-name" x="6" y="30" text-anchor="middle">와카사 컨트리클럽 27H</text>
+        <g class="am-badge am-badge-w" transform="translate(14,-28)"><rect x="0" y="0" rx="12" width="64" height="22"/><text x="32" y="15" text-anchor="middle">1시간</text></g>
+        <text class="am-name" x="0" y="28" text-anchor="middle">와카사 27H</text>
       </g>
 
-      <!-- 호텔 -->
-      <g class="am-node am-hotel" transform="translate(340,292)">
+      <!-- 호텔 — 야마시로와 분리 -->
+      <g class="am-node am-hotel" transform="translate(390,318)">
         <path class="am-steam" d="M-4,-11 q4,-5 0,-10 M0,-11 q4,-5 0,-10 M4,-11 q4,-5 0,-10"/>
         <circle class="am-dot" r="5.5"/>
-        <g class="am-badge am-badge-hotel" transform="translate(16,-12)"><rect x="0" y="0" rx="12" width="84" height="24"/><text x="42" y="17" text-anchor="middle">공항 25분</text></g>
-        <text class="am-name" x="18" y="30" text-anchor="middle">루리코 · 하토리</text>
+        <g class="am-badge am-badge-hotel" transform="translate(-42,-36)"><rect x="0" y="0" rx="12" width="84" height="22"/><text x="42" y="15" text-anchor="middle">공항 25분</text></g>
+        <text class="am-name" x="0" y="28" text-anchor="middle">루리코 · 하토리</text>
       </g>
 
       <!-- 알펜루트 -->
-      <g class="am-node am-alpen" transform="translate(392,104)">
+      <g class="am-node am-alpen" transform="translate(400,96)">
         <path class="am-peak" d="M-15,8 L-5,-13 L2,-1 L9,-16 L17,8 Z"/>
         <circle class="am-dot" r="6"/>
-        <g class="am-badge am-badge-alpen" transform="translate(24,-12)"><rect x="0" y="0" rx="12" width="112" height="24"/><text x="56" y="17" text-anchor="middle">차로 약 2시간</text></g>
-        <text class="am-name am-name-alpen" x="0" y="32" text-anchor="middle">다테야마 구로베 알펜루트</text>
+        <g class="am-badge am-badge-alpen" transform="translate(-56,18)"><rect x="0" y="0" rx="12" width="112" height="22"/><text x="56" y="15" text-anchor="middle">차로 약 2시간</text></g>
+        <text class="am-name am-name-alpen" x="0" y="-22" text-anchor="middle">알펜루트</text>
       </g>
 
       <!-- 방위 -->
@@ -4394,8 +4432,23 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
 // hero crossfade slider
 (function(){
   var bg=document.getElementById('heroBg'); if(!bg) return;
+  var hero=bg.closest('.hero');
   var imgs=bg.querySelectorAll('img'), dots=document.getElementById('dots'), i=0, timer;
-  var noKb=matchMedia('(max-width:900px), (prefers-reduced-motion: reduce)').matches;
+  var noKb=matchMedia('(max-width:900px), (hover:none), (prefers-reduced-motion: reduce)').matches;
+
+  // 모바일: 주소창 변화로 히어로가 커지며 사진이 줌처럼 보이는 현상 차단
+  function lockHeroH(){
+    if(!hero || !matchMedia('(max-width:900px), (hover:none)').matches) return;
+    hero.style.height='';
+    var h=Math.round(hero.getBoundingClientRect().height);
+    if(h>200) hero.style.height=h+'px';
+  }
+  lockHeroH();
+  addEventListener('orientationchange',function(){
+    hero.style.height='';
+    setTimeout(lockHeroH,120);
+  });
+
   imgs.forEach(function(im,k){ im.style.visibility=(k===0)?'visible':'hidden'; });
   imgs.forEach(function(_,n){
     var b=document.createElement('button');
@@ -4408,7 +4461,7 @@ mega.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close
     var prev=i;
     imgs[prev].classList.remove('on'); dots.children[prev].setAttribute('aria-current','false');
     i=n;
-    // 데스크톱 Ken Burns 재시작만 — 모바일은 강제 리플로우 생략
+    // 데스크톱 Ken Burns 재시작만 — 모바일은 강제 리플로우·스케일 생략
     if(!noKb) void imgs[i].offsetWidth;
     imgs[i].classList.add('on'); dots.children[i].setAttribute('aria-current','true');
     imgs.forEach(function(im,k){ im.style.visibility=(k===i||k===prev)?'visible':'hidden'; });
@@ -5047,15 +5100,15 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
       targets.push({el:el,sp:speed,cap:cap||60});
     });
   }
-  reg('.hero .copy, .hero .headline, .hero h1', 0.18, 120);
   reg('.subhead', 0.06, 26);
+  // 히어로 타이틀은 패럴랙스 제외 — 스크롤 시 줌처럼 보이는 현상 방지
   document.querySelectorAll('.eyebrow').forEach(function(el){
-    if(el.closest('.ch')) return;
+    if(el.closest('.ch') || el.closest('.hero')) return;
     if(el.hasAttribute('data-parallax')) return;
     el.setAttribute('data-parallax','');
     targets.push({el:el,sp:0.06,cap:26});
   });
-  if(targets.length>10) targets=targets.slice(0,10);
+  if(targets.length>8) targets=targets.slice(0,8);
 
   var vh=innerHeight;
   K90.onScroll(function(stx){
