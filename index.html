@@ -662,6 +662,27 @@ header.hide{transform:translateY(-102%)}
   .ms-pillars article{border-right:0;border-bottom:1px solid rgba(165,133,74,.22)}
   .ms-pillars article:last-child{border-bottom:0}}
 
+.ms-diff-head{margin:0 0 18px}
+.ms-diff-head h3{font-size:clamp(22px,2.4vw,32px);font-weight:200;letter-spacing:-.03em;color:var(--ink);margin:0}
+.ms-diff-head h3 em{font-style:normal;color:var(--brass)}
+.ms-differs{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;
+  background:rgba(165,133,74,.32);border:1px solid rgba(165,133,74,.32)}
+.ms-differs article{background:linear-gradient(180deg,#F3F0E8 0%,#EAE6DC 100%);
+  padding:clamp(22px,2.6vw,34px) clamp(20px,2.2vw,32px)}
+.ms-differs .n{font-family:var(--lat);font-size:12px;letter-spacing:.28em;color:var(--brass);display:block;margin-bottom:8px}
+.ms-differs h4{font-size:clamp(16px,1.35vw,20px);font-weight:300;letter-spacing:-.02em;margin:0 0 10px;color:var(--ink)}
+.ms-differs p{margin:0;font-size:13.5px;color:#2F3A32;line-height:1.85}
+@media(max-width:720px){.ms-differs{grid-template-columns:1fr}}
+.ms-admin{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.ms-admin > div{padding:22px 24px;border:1px solid rgba(165,133,74,.32);
+  background:linear-gradient(135deg,rgba(165,133,74,.1),rgba(165,133,74,.04))}
+.ms-admin b{display:block;font-weight:400;color:var(--ink);margin-bottom:10px;font-size:14px;letter-spacing:.06em}
+.ms-admin ul{margin:0;padding:0;list-style:none}
+.ms-admin li,.ms-admin p{margin:0;font-size:13.5px;color:#2F3A32;line-height:1.85;padding:4px 0}
+.ms-admin .acct{font-family:var(--lat);letter-spacing:.06em;font-size:16px;color:var(--ink)}
+.ms-admin .note{font-size:12.5px;color:#5A665C;margin-top:8px;line-height:1.75}
+@media(max-width:720px){.ms-admin{grid-template-columns:1fr}}
+
 .ms-benefits{margin-top:clamp(56px,7vw,96px);position:relative;
   padding:clamp(40px,5vw,64px) clamp(22px,3vw,48px);background:var(--ink);color:#E8E8E2;
   margin-inline:calc(-1 * var(--pad))}
@@ -836,6 +857,8 @@ header.hide{transform:translateY(-102%)}
   .ms-pillars article{transition:background .5s,box-shadow .5s}
   .ms-pillars article:hover{background:rgba(255,255,255,.45);box-shadow:inset 0 0 0 1px rgba(165,133,74,.25)}
   .ms-pillars article:hover .ms-big{color:rgba(165,133,74,.22);transform:translate(-4px,-4px) scale(1.04)}
+  .ms-differs article{transition:background .5s}
+  .ms-differs article:hover{background:rgba(255,255,255,.52)}
   .ms-grid article{transition:transform .55s cubic-bezier(.16,.65,.2,1)}
   .ms-grid article:hover{transform:translateY(-4px)}
   .ms-grid article:hover .n{transform:translateX(4px);color:#E2C992}
@@ -2399,6 +2422,33 @@ img{max-width:100%}
   color:var(--moss);max-width:620px}
 .accessmap .am-head p b{color:var(--ink);font-weight:500}
 
+.jp-locator{position:relative;overflow:hidden;border:1px solid rgba(14,18,14,.18);
+  margin-bottom:clamp(18px,2.4vw,32px);min-height:clamp(300px,46vw,520px);
+  background:#1a1c16}
+.jp-locator > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 40%;filter:saturate(.78) brightness(.88);max-width:none}
+.jp-locator::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(14,18,14,.18),rgba(14,18,14,.05) 42%,rgba(14,18,14,.28))}
+.jp-map-in{position:relative;z-index:1;display:flex;justify-content:flex-end;align-items:center;
+  min-height:inherit;padding:clamp(16px,3vw,36px) clamp(12px,4vw,48px)}
+.jp-svg{width:min(420px,78vw);height:auto;filter:drop-shadow(0 8px 18px rgba(14,18,14,.18))}
+.jp-islands{fill:rgba(247,244,236,.58);stroke:rgba(40,36,28,.42);stroke-width:.7;stroke-linejoin:round}
+.jp-ishi{fill:#C45A2A;stroke:#9a3e1c;stroke-width:.5}
+.jp-ring{fill:none;stroke:#C45A2A;stroke-width:1.15}
+.jp-pin{fill:#C45A2A;stroke:#fff;stroke-width:.6}
+.jp-label{font-family:var(--serif);font-size:6.2px;font-weight:500;fill:#6B2E14;
+  letter-spacing:.04em}
+.jp-caption{font-family:var(--lat);font-size:3.4px;letter-spacing:.28em;fill:rgba(40,36,28,.7);
+  text-transform:uppercase}
+@media(max-width:720px){
+  .jp-locator{min-height:clamp(280px,78vw,420px)}
+  .jp-map-in{justify-content:center}
+  .jp-svg{width:min(340px,88vw)}
+}
+.jp-note{position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
+  padding:14px 18px 16px;font-size:13px;color:#F7F4EC;letter-spacing:.02em;
+  background:linear-gradient(transparent,rgba(14,18,14,.55))}
+
 .am-figure{position:relative;border:1px solid rgba(14,18,14,.18);
   background:linear-gradient(160deg,#FBFBF8 0%,#EFEFEA 100%);
   border-radius:2px;overflow:hidden;padding:clamp(14px,2vw,26px);
@@ -2860,12 +2910,13 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <nav class="gnb">
     <span class="gi"><a href="#membership">MEMBERSHIP</a>
       <div class="dd">
-        <a href="#membership">멤버십 안내 <em>실버 · 골드</em></a>
-        <a href="#membership" data-ms-open>멤버십 알아보기 <em>요금 · 혜택 · 포인트</em></a>
+        <a href="#membership">입회안내 <em>포인트 · 혜택 · 전용 앱</em></a>
+        <a href="#membership" data-ms-open>등급 · 구비서류 <em>실버 · 골드</em></a>
         <a href="#membership" data-open="inquiry">상담신청 <em>1899-0721</em></a>
       </div></span>
     <span class="gi"><a href="#access">LOCATION</a>
       <div class="dd">
+        <a href="#access">일본 속 고마츠 <em>지도에서 위치 확인</em></a>
         <a href="#access">Access Map <em>공항 · 골프장 · 호텔 위치</em></a>
         <a href="#access">Travel Time <em>공항 25분 · 호텔→야마시로 7분</em></a>
       </div></span>
@@ -2938,8 +2989,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       </div>
     </div>
     <div class="util">
-      <a href="#news">FAQ</a><a href="#membership">멤버십 안내</a>
-      <a href="#hki">오시는 길</a>
+      <a href="#news">FAQ</a><a href="#membership">입회안내</a>
+      <a href="#access">오시는 길</a>
     </div>
   </div>
   <div class="right">
@@ -2960,7 +3011,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <!-- ══ HERO ══ -->
 <section class="hero" id="top">
   <div class="bg" id="heroBg">
-    <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="와카사 컨트리클럽 항공 전경" width="3200" height="1800" srcset="images/hero_m.webp 1600w, images/hero.webp 3200w" sizes="100vw">
+    <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="석양빛 골프 코스 전경" width="1024" height="681" srcset="images/hero_m.webp 820w, images/hero.webp 1024w" sizes="100vw">
     <img decoding="async" loading="lazy" src="images/hero2.webp" alt="야마시로 골프클럽 항공 전경" width="3200" height="1800" srcset="images/hero2_m.webp 1600w, images/hero2.webp 3200w" sizes="100vw">
     <img decoding="async" loading="lazy" src="images/hero3.webp" alt="후쿠이 국제 컨트리클럽 항공 전경" width="3200" height="1800" srcset="images/hero3_m.webp 1600w, images/hero3.webp 3200w" sizes="100vw">
   </div>
@@ -3014,39 +3065,36 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </div>
 
   <div class="ms-body">
-    <div class="ms-pillars rv rv-stagger">
+    <div class="ms-diff-head rv">
+      <h3><em>THE 고마츠 90</em>은 다릅니다</h3>
+    </div>
+    <div class="ms-differs rv">
       <article>
-        <span class="ms-big" aria-hidden="true">90</span>
-        <span class="lab">3 Courses</span>
-        <h3>Total 90홀</h3>
-        <ul>
-          <li>야마시로 · 36홀</li>
-          <li>후쿠이 국제 · 27홀</li>
-          <li>와카사 · 27홀</li>
-        </ul>
+        <span class="n">01</span>
+        <h4>포인트 사용 구조가 다릅니다</h4>
+        <p>포인트 선순환 시스템으로 소진을 늦추고 실질 회비를 낮춥니다. 입회 시 실버 90만 · 골드 150만 포인트 지급(1pt=1엔). 투어 요금은 포인트 전액 · 현금+포인트 복합 · 현금 전액 결제가 가능하며, 현금 결제액의 10%가 포인트로 적립됩니다.</p>
       </article>
       <article>
-        <span class="ms-big" aria-hidden="true">2</span>
-        <span class="lab">Plans</span>
-        <h3>실버 · 골드</h3>
-        <ul>
-          <li>실버 3,000만원</li>
-          <li>골드 4,800만원</li>
-          <li>평생 멤버십</li>
-        </ul>
+        <span class="n">02</span>
+        <h4>잠자는 곳이 다릅니다</h4>
+        <p>야마시로 온천의 료칸 — 루리코 · 하토리. 골프장에서 차로 5~15분 거리의 온천 숙소에서 머뭅니다.</p>
       </article>
       <article>
-        <span class="ms-big" aria-hidden="true">100</span>
-        <span class="lab">Ownership</span>
-        <h3>직접 소유·운영</h3>
-        <p>운영사 변경·매각 리스크 없이 멤버십 가치와 이용 안정을 지켜 드립니다.</p>
+        <span class="n">03</span>
+        <h4>코스관리가 다릅니다</h4>
+        <p>㈜한국산업양행이 세 골프장을 직접 소유·운영합니다. 저가 일본 골프 멤버십과는 다른 하이엔드 코스 관리입니다.</p>
+      </article>
+      <article>
+        <span class="n">04</span>
+        <h4>예약의 투명성이 다릅니다</h4>
+        <p>일본 골프 멤버십 최초 회원 전용 앱. 예약 · 일정 관리 · AI 맞춤 스케줄 · 알림 · 결제까지 투명하게 운영합니다. 회원전담 예약팀이 함께합니다.</p>
       </article>
     </div>
 
     <div class="ms-teaser rv">
       <div class="ms-teaser-copy">
-        <h3>요금 · 혜택 · 포인트까지<br>자세히 안내합니다</h3>
-        <p>등급별 입회금, 동반인, 회원요금, 포인트 제도와 송영비 안내를 한곳에서 확인하세요.</p>
+        <h3>입회금 · 포인트 · 구비서류까지<br>자세히 안내합니다</h3>
+        <p>실버 · 골드 등급, 포인트 선순환, 회원 전용 앱과 입회 절차를 한곳에서 확인하세요.</p>
       </div>
       <div class="ms-teaser-actions">
         <button type="button" class="btn-solid" data-ms-open style="border:0;cursor:pointer;font-family:var(--lat)">멤버십 알아보기</button>
@@ -3069,13 +3117,13 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <div class="ms-tier-top"><span class="ms-tier-lab">Silver</span></div>
         <h4>실버</h4>
         <p class="ms-price">3,000<small>만원</small></p>
-        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 동반 3</p>
+        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 무기명 3</p>
         <ul class="ms-tier-list">
           <li>연 2회 위임 가능</li>
           <li>90홀 통합 이용</li>
           <li>회원요금 · 포인트 적립</li>
         </ul>
-        <p class="ms-tier-pts">입회 포인트 900만 지급</p>
+        <p class="ms-tier-pts">입회 포인트 90만 포인트 지급 (1pt=1엔)</p>
         <button type="button" class="btn-line" data-open="inquiry" data-interest="실버 멤버십" data-dclose
           style="margin-top:18px;cursor:pointer;font-family:var(--lat);color:var(--ink);border-color:rgba(14,18,14,.35);position:relative;z-index:2">실버로 상담신청</button>
       </article>
@@ -3087,13 +3135,13 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         </div>
         <h4>골드</h4>
         <p class="ms-price">4,800<small>만원</small></p>
-        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 동반 7</p>
+        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 무기명 7</p>
         <ul class="ms-tier-list">
           <li>연 3회 위임 가능</li>
           <li>90홀 통합 이용</li>
           <li>회원요금 · 포인트 적립</li>
         </ul>
-        <p class="ms-tier-pts">입회 포인트 1,500만 지급</p>
+        <p class="ms-tier-pts">입회 포인트 150만 포인트 지급 (1pt=1엔)</p>
         <button type="button" class="btn-solid" data-open="inquiry" data-interest="골드 멤버십" data-dclose
           style="margin-top:18px;border:0;cursor:pointer;font-family:var(--lat);position:relative;z-index:2;background:var(--brass-l);color:var(--ink)">골드로 상담신청</button>
       </article>
@@ -3132,9 +3180,19 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <td>4,800만원</td>
           </tr>
           <tr>
-            <th scope="row">회원적용</th>
-            <td>기명 2 + 동반 3</td>
-            <td>기명 2 + 동반 7</td>
+            <th scope="row">회원구성</th>
+            <td>기명 2 + 무기명 3</td>
+            <td>기명 2 + 무기명 7</td>
+          </tr>
+          <tr>
+            <th scope="row">지급 포인트</th>
+            <td>90만 pt (1pt=1엔)</td>
+            <td>150만 pt (1pt=1엔)</td>
+          </tr>
+          <tr>
+            <th scope="row">무기명 위임</th>
+            <td>연 2회</td>
+            <td>연 3회</td>
           </tr>
           <tr>
             <th scope="row">회원요금<br><small style="color:var(--moss);font-size:12px">기명회원 및 동반인</small></th>
@@ -3165,12 +3223,36 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     </div>
 
     <ul class="ms-notes">
-      <li>입회 시 실버 900만 / 골드 1,500만 포인트 지급</li>
-      <li>투어 요금 결제 시 현금 최소 60% · 포인트 최대 40%</li>
-      <li>회원요금 현금 결제 금액의 10% 포인트 적립</li>
+      <li>입회 시 실버 90만 / 골드 150만 포인트 지급 (1pt=1엔)</li>
+      <li>투어 요금 결제 시 포인트 전액, 현금+포인트 복합, 현금 전액 결제</li>
+      <li>현금 결제액의 10% 포인트로 적립</li>
       <li>회원 추천 시 60만 포인트 지급</li>
       <li>위임 시 포인트 사용 불가 · 현금 결제 금액 포인트 적립 없음</li>
     </ul>
+
+    <div class="ms-xfer">
+      <b>회원증서</b>
+      <p>야마시로GC · 후쿠이국제CC · 와카사CC 공동 발행</p>
+    </div>
+
+    <div class="ms-admin">
+      <div>
+        <b>구비서류</b>
+        <ul>
+          <li>입회신청서 1부</li>
+          <li>정회원 인감증명서</li>
+          <li>등록회원 신분증 사본</li>
+          <li>법인·사업자등록증 사본 (해당 시)</li>
+        </ul>
+      </div>
+      <div>
+        <b>입금계좌</b>
+        <p>IBK기업은행</p>
+        <p class="acct">059-065855-01-039</p>
+        <p>예금주 (주)한국산업양행</p>
+        <p class="note">결제는 온라인 계좌이체만 유효합니다. 안내된 계좌 외 입금으로 발생한 사고는 책임지지 않습니다.</p>
+      </div>
+    </div>
 
     <div class="ms-xfer">
       <b>송영비 안내</b>
@@ -3231,6 +3313,27 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
        호텔에서 야마시로 7분 · 후쿠이 국제 컨트리클럽 20분. 세 골프장과 온천 숙소가
        하루 동선 안에 이어집니다.</p>
   </div>
+
+  <figure class="jp-locator rv" id="komatsu-map">
+    <img src="images/ym_aerial.webp" alt="" width="1600" height="950" decoding="async" aria-hidden="true">
+    <div class="jp-map-in">
+      <svg class="jp-svg" viewBox="0 0 100 118" role="img" aria-label="일본 지도에서 고마츠의 위치">
+        <g class="jp-islands">
+          <path d="M58 5 L78 9 L82 22 L70 31 L52 26 L49 13 Z"/>
+          <path d="M62 34 C68 36 73 42 73 50 C74 56 78 60 82 66 C86 72 85 80 78 82 C70 84 66 90 58 92 C50 94 42 90 36 84 C30 78 26 72 30 68 C36 66 42 62 40 56 C36 50 28 50 28 44 C30 38 38 36 44 40 C48 36 54 32 62 34 Z"/>
+          <path d="M48 86 L58 88 L60 96 L50 98 L44 94 Z"/>
+          <path d="M30 82 L42 86 L40 100 L28 104 L20 94 L24 84 Z"/>
+          <path d="M8 108 L18 110 L14 114 L6 112 Z"/>
+        </g>
+        <path class="jp-ishi" d="M30 41 C33 36 40 37 44 41 C45 46 42 52 38 57 C34 60 29 58 28 53 C27 48 28 44 30 41 Z"/>
+        <circle class="jp-ring" cx="36.2" cy="55.6" r="7.4"/>
+        <circle class="jp-pin" cx="36.2" cy="55.6" r="1.45"/>
+        <text class="jp-label" x="36.2" y="47.4" text-anchor="middle">고마츠</text>
+        <text class="jp-caption" x="36.2" y="67.8" text-anchor="middle">Ishikawa · Komatsu</text>
+      </svg>
+    </div>
+    <figcaption class="jp-note">이시카와현 고마츠 — 한국에서 직항으로 닿는 호쿠리쿠의 관문</figcaption>
+  </figure>
 
   <div class="am-figure rv">
     <svg class="am-svg am-svg-d" viewBox="0 0 900 720" role="img"
@@ -3550,7 +3653,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <tr><td>퀸</td><td>18H / 6,848y / 파72</td><td>★★★★☆</td><td>전략 · 중상급</td></tr>
             <tr><th scope="row" rowspan="3">후쿠이 국제</th><td>도진보</td><td>9H / 3,356y / 파36</td><td>★★★★☆</td><td>전략 · 중급</td></tr>
             <tr><td>에치젠미사키</td><td>9H / 3,438y / 파36</td><td>★★★☆☆</td><td>장타 · 개방</td></tr>
-            <tr><td>구즈류</td><td>9H / 3,414y / 파36</td><td>★★★★★</td><td>상급 · 집중</td></tr>
+            <tr><td>구즈류</td><td>9H / 3,435y / 파36</td><td>★★★★★</td><td>상급 · 집중</td></tr>
             <tr><th scope="row" rowspan="3">와카사</th><td>스이게츠코</td><td>9H / 파36</td><td>★★★☆☆</td><td>장타 · 초중급</td></tr>
             <tr><td>스가코</td><td>9H / 파36</td><td>★★★★☆</td><td>전략 · 중상급</td></tr>
             <tr><td>휴가코</td><td>9H / 파36</td><td>★★★★★</td><td>정밀 · 상급</td></tr>
@@ -3576,7 +3679,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <span class="tx">
           <span class="jp">福井国際カントリークラブ</span>
           <h3>후쿠이 국제 컨트리클럽</h3>
-          <p>아와라시의 웅대한 자연을 살린 구릉형 27홀. 코스마다 연못이 배치되어 비거리와 정확도를 함께 요구합니다.</p>
+          <p>아와라시의 웅대한 자연을 살린 구릉형 27홀. 각각 특징이 다른 3개의 코스가 있고, 서로 각기 다른 테크닉이 필요합니다.</p>
           <span class="more">27 Holes</span>
         </span>
         <span class="ph"><span class="badge">27H</span><img loading="lazy" decoding="async" src="images/fk_aerial1.webp" srcset="images/fk_aerial1_m.webp 820w, images/fk_aerial1.webp 1600w" sizes="(max-width:900px) 100vw, 20vw" alt=""></span>
@@ -3605,7 +3708,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <p class="desc">이시카와현 가가시, 호쿠리쿠 지역을 대표하는 명문 36홀. 온천 마을에서 5분 거리로
             “골프 여행 = 야마시로”라는 말을 만들어 낸 코스입니다. 106만 평 부지를 자연림이 감싸 여름에도 서늘합니다.</p>
           <dl class="meta">
-            <div><dt>Opened</dt><dd>1972.10</dd></div>
+            <div><dt>Opened</dt><dd>1995.10</dd></div>
             <div><dt>Course</dt><dd>36H · Par 72/72</dd></div>
             <div><dt>Designer</dt><dd>熊谷組 (Kumagaya Gumi)</dd></div>
             <div><dt>Area</dt><dd>350만 ㎡</dd></div>
@@ -3619,7 +3722,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <button role="tab" aria-selected="false">QUEEN COURSE 퀸 코스</button>
         </div>
         <div class="panel show" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king.webp" alt="킹 코스" srcset="images/ym_king_m.webp 820w, images/ym_king.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="950"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king.webp" alt="킹 코스" srcset="images/ym_king_m.webp 820w, images/ym_king.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="953"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>18홀 / 6,987야드 / 파 72</td></tr>
             <tr><th>코스 형태</th><td>원 웨이 원 라운드 스루 플레이 / 전체적으로 플랫한 구성</td></tr>
@@ -3629,7 +3732,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           </table>
         </div>
         <div class="panel" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_queen.webp" alt="퀸 코스" srcset="images/ym_queen_m.webp 820w, images/ym_queen.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_queen.webp" alt="퀸 코스" srcset="images/ym_queen_m.webp 820w, images/ym_queen.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="934"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>18홀 / 6,848야드 / 파 72</td></tr>
             <tr><th>코스 형태</th><td>대부분의 홀이 나무로 둘러싸인 구성 / 페어웨이 플랫</td></tr>
@@ -3672,7 +3775,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <p class="jp">福井国際カントリークラブ</p>
           <h3>후쿠이 국제 컨트리클럽</h3>
           <p class="desc">아와라시의 웅대한 자연을 살린 구릉형 27홀. 코스마다 연못이 배치되어 비거리와 정확도를
-            함께 요구합니다. 후쿠이현의 공식 대표 경기장으로 지역 대회를 꾸준히 개최합니다.</p>
+            함께 요구합니다.<br>각각 특징이 다른 3개의 코스가 있고,<br>서로 각기 다른 테크닉이 필요합니다.
+            후쿠이현의 공식 대표 경기장으로 지역 대회를 꾸준히 개최합니다.</p>
           <dl class="meta">
             <div><dt>Opened</dt><dd>1974.10</dd></div>
             <div><dt>Course</dt><dd>27H · Par 108</dd></div>
@@ -3689,7 +3793,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <button role="tab" aria-selected="false">구즈류 九頭竜</button>
         </div>
         <div class="panel show" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_tojinbo.webp" alt="도진보 코스" srcset="images/fk_tojinbo_m.webp 820w, images/fk_tojinbo.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_tojinbo.webp" alt="도진보 코스" srcset="images/fk_tojinbo_m.webp 820w, images/fk_tojinbo.webp 680w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="680" height="510"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,356야드</td></tr>
             <tr><th>코스 형태</th><td>계곡과 숲을 따라 이어지는 전략형 코스</td></tr>
@@ -3702,16 +3806,16 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_echizen.webp" alt="에치젠미사키 코스" srcset="images/fk_echizen_m.webp 820w, images/fk_echizen.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,438야드</td></tr>
-            <tr><th>코스 형태</th><td>넓은 페어웨이, 시원한 전개, 바다를 향한 해안 레이아웃</td></tr>
+            <tr><th>코스 형태</th><td>넓은 페어웨이, 시원한 전개</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★☆☆</span> 비거리와 개방감</td></tr>
             <tr><th>플레이 스타일</th><td>넓은 페어웨이, 드라이버를 마음껏 활용</td></tr>
             <tr><th>추천 골퍼</th><td>장타자, 드라이버 자신 있는 골퍼</td></tr>
           </table>
         </div>
         <div class="panel" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_kuzuryu.webp" alt="구즈류 코스 3번 홀" srcset="images/fk_kuzuryu_m.webp 820w, images/fk_kuzuryu.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="969"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/fk_kuzuryu.webp" alt="구즈류 코스" srcset="images/fk_kuzuryu_m.webp 820w, images/fk_kuzuryu.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="969"></figure>
           <table class="spec">
-            <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,414야드</td></tr>
+            <tr><th>홀 구성</th><td>9홀 / 파 36 / 3,435야드</td></tr>
             <tr><th>코스 형태</th><td>물을 활용한 전략적 홀 구성</td></tr>
             <tr><th>난이도</th><td><span class="stars">★★★★★</span> 멘털과 집중력</td></tr>
             <tr><th>플레이 스타일</th><td>워터 해저드 다수, 까다로운 숏홀, 코스 매니지먼트 필수</td></tr>
@@ -3740,7 +3844,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <img loading="lazy" decoding="async" src="images/fk_g4.webp" alt="붉은 다리와 워터 해저드" width="900" height="600">
         <img loading="lazy" decoding="async" src="images/fk_g5.webp" alt="숲으로 둘러싸인 그린" width="900" height="600">
         <img loading="lazy" decoding="async" src="images/fk_g6.webp" alt="개방감 있는 페어웨이" width="900" height="600">
-        <img loading="lazy" decoding="async" src="images/fk_g7.webp" alt="후쿠이 국제CC 코스 전경" width="900" height="600">
+        <img loading="lazy" decoding="async" src="images/fk_g7.webp" alt="티잉 그라운드에서 바라본 오르막 페어웨이" width="952" height="473">
         <img loading="lazy" decoding="async" src="images/fk_g8.webp" alt="후쿠이 국제CC 항공 전경" width="900" height="507">
       </div></div><div class="galbar"><i></i></div></div></template>
 
@@ -4175,7 +4279,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <a href="#">예약 및 취소 규정</a>
         <a href="#">객실 및 숙박 안내</a>
         <a href="#">골프 관련 비용</a>
-        <a href="#">교통 및 이용</a>
+        <a href="#access">교통 및 이용</a>
         <a href="#">부대시설 및 서비스</a>
         <a href="#">여행·관광 정보</a>
         <a href="#">기타 안내 사항</a>
@@ -4187,7 +4291,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <footer>
   <div class="wrap">
     <div class="top">
-      <div class="fbrand">KOMATSU 90<small>Beyond golf, create your own extraordinary life</small></div>
+      <div class="fbrand">THE KOMATSU 90<small>Beyond golf, create your own extraordinary life</small></div>
     </div>
     <div class="bot">
       <span>2026 © THE KOMATSU 90. ALL RIGHTS RESERVED.</span>
