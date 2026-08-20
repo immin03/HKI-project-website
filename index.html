@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="THE KOMATSU 90">
 <meta property="og:title" content="THE KOMATSU 90 — 가까운 하루, 깊어지는 휴식">
-<meta property="og:description" content="코마츠공항에서 차로 30분, 90홀 골프와 1,300년 온천이 하루를 채웁니다.">
+<meta property="og:description" content="고마츠공항에서 차로 30분, 90홀 골프와 1,300년 온천이 하루를 채웁니다.">
 <meta property="og:image" content="https://brilliant-yeot-20afd1.netlify.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -128,14 +128,18 @@ nav.gnb a:hover::after{width:100%}
   transition:opacity .9s ease;animation:none}
 .hero .bg img.on{opacity:1;animation:none}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:
-  linear-gradient(180deg,rgba(6,9,7,.5) 0%,rgba(6,9,7,.06) 26%,rgba(6,9,7,.42) 62%,rgba(6,9,7,.9) 100%),
-  linear-gradient(90deg,rgba(6,9,7,.5) 0%,rgba(6,9,7,.08) 46%,rgba(6,9,7,0) 70%),
-  radial-gradient(120% 78% at 50% 44%,rgba(0,0,0,0) 46%,rgba(0,0,0,.34) 100%)}
+  linear-gradient(180deg,rgba(8,12,10,.18) 0%,rgba(8,12,10,0) 22%,rgba(8,12,10,.06) 56%,rgba(8,12,10,.46) 100%),
+  linear-gradient(90deg,rgba(8,12,10,.14) 0%,rgba(8,12,10,0) 36%,transparent 62%)}
+@media(max-width:900px){
+  .hero::after{background:
+    linear-gradient(180deg,rgba(8,12,10,.34) 0%,rgba(8,12,10,.08) 24%,rgba(8,12,10,0) 44%,rgba(8,12,10,.42) 100%),
+    linear-gradient(90deg,rgba(8,12,10,.10) 0%,transparent 42%)}
+}
 .hero .inner{position:relative;z-index:3;width:100%}
 .hero .lat{font-family:var(--lat);font-size:clamp(11px,.92vw,13px);letter-spacing:.52em;
   color:rgba(255,255,255,.66);text-transform:uppercase;display:block;margin-bottom:clamp(20px,2.4vw,32px)}
 .hero h1{font-size:clamp(34px,5.2vw,76px);font-weight:150;line-height:1.16;letter-spacing:-.045em;
-  text-shadow:0 2px 40px rgba(0,0,0,.45)}
+  text-shadow:0 2px 28px rgba(0,0,0,.28)}
 .hero h1 em{font-style:normal;color:var(--brass-l)}
 .hero .rule{width:52px;height:1px;background:var(--brass);margin:clamp(24px,3vw,38px) 0 clamp(18px,2vw,26px);opacity:.9}
 .hero .sub{font-size:clamp(14px,1.05vw,16.5px);color:rgba(255,255,255,.76);line-height:1.72;
@@ -3021,7 +3025,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
 <!-- ══ HERO ══ -->
 <section class="hero" id="top">
   <div class="bg" id="heroBg">
-    <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="석양빛 골프 코스 전경" width="1024" height="681" srcset="images/hero_m.webp 820w, images/hero.webp 1024w" sizes="100vw">
+    <img class="on" fetchpriority="high" decoding="async" src="images/hero.webp" alt="석양빛 골프 코스 전경" width="3880" height="2584" srcset="images/hero_m.webp 1600w, images/hero.webp 3880w" sizes="100vw">
     <img decoding="async" loading="lazy" src="images/hero2.webp" alt="야마시로 골프클럽 항공 전경" width="3200" height="1800" srcset="images/hero2_m.webp 1600w, images/hero2.webp 3200w" sizes="100vw">
     <img decoding="async" loading="lazy" src="images/hero3.webp" alt="후쿠이 국제 컨트리클럽 항공 전경" width="3200" height="1800" srcset="images/hero3_m.webp 1600w, images/hero3.webp 3200w" sizes="100vw">
   </div>
@@ -3029,7 +3033,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <span class="lat">Fukui &nbsp;·&nbsp; Ishikawa &nbsp;·&nbsp; Japan</span>
     <h1>가까운 하루,<br><em>깊어지는 휴식</em></h1>
     <span class="rule"></span>
-    <p class="sub">코마츠공항에서 차로 30분,<br>90홀 골프와 1,300년 온천이 <span class="nowrap">하루를 채웁니다.</span></p>
+    <p class="sub">고마츠공항에서 차로 30분,<br>90홀 골프와 1,300년 온천이 <span class="nowrap">하루를 채웁니다.</span></p>
   </div>
   <div class="scrollcue">SCROLL<i></i></div>
   <div class="slidedots" id="dots" aria-label="메인 이미지 전환"></div>
@@ -3304,7 +3308,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <div class="c rv"><span class="num">01</span><h3>골프 천국</h3><p>에치젠 해안의 해풍과 수려한 산세가 어우러진 코스. 여유로운 라운드가 온천과 미식으로 자연스럽게 이어집니다.</p></div>
     <div class="c rv"><span class="num">02</span><h3>온천 힐링</h3><p>1,300년 역사의 온천 마을. 라운드 후 노천탕에 몸을 담그면 하루의 피로가 물결처럼 흩어집니다.</p></div>
     <div class="c rv"><span class="num">03</span><h3>프리미엄 미식</h3><p>에치젠 게, 와카사 소고기, 에치젠 소바. 후쿠이 특산 식재료로 완성한 가이세키와 지역 사케.</p></div>
-    <div class="c rv"><span class="num">04</span><h3>가장 가까운 일본</h3><p>한국에서 코마츠공항까지 직항 약 1시간 30분, 공항에서 골프장까지 차로 약 30분.</p></div>
+    <div class="c rv"><span class="num">04</span><h3>가장 가까운 일본</h3><p>한국에서 고마츠공항까지 직항 약 1시간 30분, 공항에서 골프장까지 차로 약 30분.</p></div>
   </div>
 </section>
 
@@ -3314,11 +3318,11 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <span class="ch-no">03</span>
     <div class="ch-meta">
       <span class="eyebrow">Access · One Base, Many Journeys</span>
-      <span class="ch-label">코마츠공항 중심 동선</span>
+      <span class="ch-label">고마츠공항 중심 동선</span>
     </div>
   </div>
   <div class="am-head rv">
-    <h2>코마츠공항에서<br><em>하루가 시작됩니다</em></h2>
+    <h2>고마츠공항에서<br><em>하루가 시작됩니다</em></h2>
     <p>한국에서 직항 약 1시간 30분. 공항에서 루리코·하토리까지 약 25분,
        호텔에서 야마시로 7분 · 후쿠이 국제 컨트리클럽 20분. 세 골프장과 온천 숙소가
        하루 동선 안에 이어집니다.</p>
@@ -3587,7 +3591,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     </svg>
 
     <ul class="am-legend rv">
-      <li><span class="am-lg am-lg-air"></span>코마츠공항 — 한국 직항 1시간 30분</li>
+      <li><span class="am-lg am-lg-air"></span>고마츠공항 — 한국 직항 1시간 30분</li>
       <li><span class="am-lg am-lg-hotel"></span>루리코 · 하토리 — 공항에서 약 25분</li>
       <li><span class="am-lg am-lg-golf"></span>골프장 — 호텔→야마시로 7분 · 후쿠이 20분 / 공항→와카사 1시간</li>
       <li><span class="am-lg am-lg-alpen"></span>알펜루트 — 북알프스 산악 절경</li>
@@ -3716,7 +3720,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <div><dt>Course</dt><dd>36H · Par 72/72</dd></div>
             <div><dt>Designer</dt><dd>熊谷組 (Kumagaya Gumi)</dd></div>
             <div><dt>Area</dt><dd>350만 ㎡</dd></div>
-            <div><dt>Airport</dt><dd>코마츠 30분</dd></div>
+            <div><dt>Airport</dt><dd>고마츠 30분</dd></div>
           </dl>
         </div>
       </div>
@@ -3786,7 +3790,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <div><dt>Course</dt><dd>27H · Par 108</dd></div>
             <div><dt>Yards</dt><dd>10,229 y</dd></div>
             <div><dt>Designer</dt><dd>宮沢長平 (Miyazawa Chouhei)</dd></div>
-            <div><dt>Airport</dt><dd>코마츠 30분</dd></div>
+            <div><dt>Airport</dt><dd>고마츠 30분</dd></div>
           </dl>
         </div>
       </div>
