@@ -2431,19 +2431,27 @@ img{max-width:100%}
   background:linear-gradient(90deg,rgba(14,18,14,.18),rgba(14,18,14,.05) 42%,rgba(14,18,14,.28))}
 .jp-map-in{position:relative;z-index:1;display:flex;justify-content:flex-end;align-items:center;
   min-height:inherit;padding:clamp(16px,3vw,36px) clamp(12px,4vw,48px)}
-.jp-svg{width:min(420px,78vw);height:auto;filter:drop-shadow(0 8px 18px rgba(14,18,14,.18))}
-.jp-islands{fill:rgba(247,244,236,.58);stroke:rgba(40,36,28,.42);stroke-width:.7;stroke-linejoin:round}
-.jp-ishi{fill:#C45A2A;stroke:#9a3e1c;stroke-width:.5}
-.jp-ring{fill:none;stroke:#C45A2A;stroke-width:1.15}
-.jp-pin{fill:#C45A2A;stroke:#fff;stroke-width:.6}
-.jp-label{font-family:var(--serif);font-size:6.2px;font-weight:500;fill:#6B2E14;
-  letter-spacing:.04em}
-.jp-caption{font-family:var(--lat);font-size:3.4px;letter-spacing:.28em;fill:rgba(40,36,28,.7);
-  text-transform:uppercase}
+.jp-map{position:relative;width:min(400px,78vw);flex:0 0 auto;
+  filter:drop-shadow(0 10px 22px rgba(14,18,14,.28))}
+.jp-map > img{display:block;width:100%;height:auto;max-width:none;
+  filter:brightness(1.55) contrast(.92)}
+.jp-mark{position:absolute;left:59.8%;top:52.5%;z-index:2;
+  width:0;height:0;pointer-events:none}
+.jp-mark i{position:absolute;left:50%;top:50%;width:clamp(34px,7vw,46px);height:clamp(34px,7vw,46px);
+  border:2px solid #C45A2A;border-radius:50%;transform:translate(-50%,-50%);
+  box-sizing:border-box;background:rgba(196,90,42,.16)}
+.jp-mark i::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;
+  background:#C45A2A;border:2px solid #fff;border-radius:50%;transform:translate(-50%,-50%)}
+.jp-mark b{position:absolute;left:50%;bottom:calc(50% + 22px);transform:translateX(-50%);
+  font-family:var(--serif);font-size:clamp(15px,1.5vw,18px);font-weight:500;
+  color:#6B2E14;letter-spacing:.06em;white-space:nowrap;text-shadow:0 1px 0 rgba(255,255,255,.7)}
+.jp-mark small{position:absolute;left:50%;top:calc(50% + 22px);transform:translateX(-50%);
+  font-family:var(--lat);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(80,40,20,.75);white-space:nowrap}
 @media(max-width:720px){
   .jp-locator{min-height:clamp(280px,78vw,420px)}
   .jp-map-in{justify-content:center}
-  .jp-svg{width:min(340px,88vw)}
+  .jp-map{width:min(340px,88vw)}
 }
 .jp-note{position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
   padding:14px 18px 16px;font-size:13px;color:#F7F4EC;letter-spacing:.02em;
@@ -3317,20 +3325,14 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   <figure class="jp-locator rv" id="komatsu-map">
     <img src="images/ym_aerial.webp" alt="" width="1600" height="950" decoding="async" aria-hidden="true">
     <div class="jp-map-in">
-      <svg class="jp-svg" viewBox="0 0 100 118" role="img" aria-label="일본 지도에서 고마츠의 위치">
-        <g class="jp-islands">
-          <path d="M58 5 L78 9 L82 22 L70 31 L52 26 L49 13 Z"/>
-          <path d="M62 34 C68 36 73 42 73 50 C74 56 78 60 82 66 C86 72 85 80 78 82 C70 84 66 90 58 92 C50 94 42 90 36 84 C30 78 26 72 30 68 C36 66 42 62 40 56 C36 50 28 50 28 44 C30 38 38 36 44 40 C48 36 54 32 62 34 Z"/>
-          <path d="M48 86 L58 88 L60 96 L50 98 L44 94 Z"/>
-          <path d="M30 82 L42 86 L40 100 L28 104 L20 94 L24 84 Z"/>
-          <path d="M8 108 L18 110 L14 114 L6 112 Z"/>
-        </g>
-        <path class="jp-ishi" d="M30 41 C33 36 40 37 44 41 C45 46 42 52 38 57 C34 60 29 58 28 53 C27 48 28 44 30 41 Z"/>
-        <circle class="jp-ring" cx="36.2" cy="55.6" r="7.4"/>
-        <circle class="jp-pin" cx="36.2" cy="55.6" r="1.45"/>
-        <text class="jp-label" x="36.2" y="47.4" text-anchor="middle">고마츠</text>
-        <text class="jp-caption" x="36.2" y="67.8" text-anchor="middle">Ishikawa · Komatsu</text>
-      </svg>
+      <div class="jp-map">
+        <img src="images/japan-map.webp" alt="일본 지도" width="740" height="740" decoding="async">
+        <span class="jp-mark" aria-hidden="true">
+          <i></i>
+          <b>고마츠</b>
+          <small>Ishikawa</small>
+        </span>
+      </div>
     </div>
     <figcaption class="jp-note">이시카와현 고마츠 — 한국에서 직항으로 닿는 호쿠리쿠의 관문</figcaption>
   </figure>
