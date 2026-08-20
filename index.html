@@ -4991,7 +4991,7 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body:new URLSearchParams(new FormData(form)).toString()
     }).then(function(r){
-      if(!r.ok) throw new Error(r.status);
+      if(!r.ok && r.status!==301 && r.status!==302 && r.status!==303) throw new Error(r.status);
       form.style.display='none';
       document.getElementById('inqDone').style.display='block';
     }).catch(function(){
