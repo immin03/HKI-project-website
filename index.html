@@ -110,7 +110,15 @@ nav.gnb a:hover::after{width:100%}
 
 /* ── hero ──────────────────────────────── */
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;color:#fff;display:flex;
-  align-items:flex-end;padding-bottom:clamp(190px,24vh,260px)}
+  align-items:center;padding-bottom:clamp(132px,16vh,188px)}
+@media(min-width:901px){
+  .hero .inner{
+    margin-left:clamp(28px,3.4vw,56px);
+    margin-right:auto;
+    padding-inline:0;
+    max-width:1100px;
+  }
+}
 @media(max-width:900px){
   .hero{
     align-items:center;
@@ -1885,6 +1893,8 @@ header,.quick,.mbar,.totop,.smap,.resume,.prog{isolation:isolate}
     height:100svh;
   }
   .hero .inner{width:100%;padding-right:72px}
+  .hero .lat{letter-spacing:.26em;white-space:nowrap}
+  .hero .rule{margin:32px 0 30px}
   .scrollcue{display:none}
   .slidedots{
     top:auto;bottom:calc(188px + 16px);right:var(--pad);
