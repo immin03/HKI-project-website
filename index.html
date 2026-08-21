@@ -113,9 +113,9 @@ nav.gnb a:hover::after{width:100%}
   align-items:flex-end;padding-bottom:clamp(190px,24vh,260px)}
 @media(max-width:900px){
   .hero{
-    align-items:flex-start;
+    align-items:center;
     justify-content:flex-start;
-    padding-top:calc(88px + env(safe-area-inset-top,0px));
+    padding-top:0;
     padding-bottom:280px;
   }
   .hero .inner{padding-right:64px}
@@ -134,19 +134,7 @@ nav.gnb a:hover::after{width:100%}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(180deg,rgba(8,12,10,.32) 0%,rgba(8,12,10,.08) 20%,rgba(8,12,10,.12) 52%,rgba(8,12,10,.66) 84%,rgba(8,12,10,.82) 100%),
   linear-gradient(90deg,rgba(8,12,10,.32) 0%,rgba(8,12,10,.08) 40%,transparent 66%)}
-@media(max-width:900px){
-  .hero::after{background:
-    linear-gradient(180deg,rgba(8,12,10,.72) 0%,rgba(8,12,10,.46) 18%,rgba(8,12,10,.12) 38%,rgba(8,12,10,.16) 58%,rgba(8,12,10,.74) 100%),
-    linear-gradient(90deg,rgba(8,12,10,.28) 0%,transparent 50%)}
-}
 .hero .inner{position:relative;z-index:3;width:100%;isolation:isolate}
-.hero .inner::before{display:none}
-@media(max-width:900px){
-  .hero .inner::before{
-    content:"";display:block;position:absolute;left:-20px;right:-8px;top:-20px;bottom:-12px;
-    background:linear-gradient(180deg,rgba(6,9,7,.55) 0%,rgba(6,9,7,.28) 72%,transparent 100%);
-    pointer-events:none;z-index:-1}
-}
 .hero .lat{font-family:var(--lat);font-size:clamp(11px,.92vw,13px);letter-spacing:.52em;
   color:#fff;text-transform:uppercase;display:block;margin-bottom:clamp(20px,2.4vw,32px);
   text-shadow:0 1px 2px rgba(0,0,0,.65),0 8px 22px rgba(0,0,0,.45)}
@@ -1421,7 +1409,6 @@ img.fadein{opacity:0;animation:imgIn 1.2s cubic-bezier(.16,.65,.2,1) forwards}
   .card .tx{padding:18px var(--pad) 22px}
   .card p{-webkit-line-clamp:2;font-size:13px;margin-top:9px}
   .card .more{margin-top:13px;font-size:10px}
-  .hero .rule{margin:16px 0 13px}
 }
 @media(min-width:721px){ .swipehint{display:none} }
 
@@ -1888,20 +1875,16 @@ header,.quick,.mbar,.totop,.smap,.resume,.prog{isolation:isolate}
   .hd-cta .btn-line{display:none}
   .menubtn{font-size:11px;letter-spacing:.2em}
 
-  /* 히어로 — 카피 상단 배치, 슬라이드 점과 분리, 이미지 줌 금지 */
+  /* 히어로 — 웹과 같은 카피, 사진 가운데 쪽에 배치 */
   .hero{
-    align-items:flex-start;
+    align-items:center;
     justify-content:flex-start;
-    padding-top:calc(84px + env(safe-area-inset-top,0px));
+    padding-top:0;
     padding-bottom:188px;
     min-height:560px;
     height:100svh;
   }
   .hero .inner{width:100%;padding-right:72px}
-  .hero .lat{font-size:10px;letter-spacing:.38em;margin-bottom:14px}
-  .hero h1{font-size:clamp(27px,7.6vw,36px);line-height:1.24;letter-spacing:-.035em;font-weight:350}
-  .hero .rule{margin:16px 0 14px;width:40px}
-  .hero .sub{font-size:13.5px;line-height:1.75;max-width:32ch;font-weight:400}
   .scrollcue{display:none}
   .slidedots{
     top:auto;bottom:calc(188px + 16px);right:var(--pad);
