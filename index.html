@@ -140,13 +140,12 @@ nav.gnb a:hover::after{width:100%}
     linear-gradient(90deg,rgba(8,12,10,.28) 0%,transparent 50%)}
 }
 .hero .inner{position:relative;z-index:3;width:100%;isolation:isolate}
-.hero .inner::before{content:"";position:absolute;left:-28px;right:-12px;top:-36px;bottom:-18px;
-  background:linear-gradient(0deg,rgba(6,9,7,.5) 0%,rgba(6,9,7,.22) 58%,transparent 100%);
-  pointer-events:none;z-index:-1}
+.hero .inner::before{display:none}
 @media(max-width:900px){
   .hero .inner::before{
-    left:-20px;right:-8px;top:-20px;bottom:-12px;
-    background:linear-gradient(180deg,rgba(6,9,7,.55) 0%,rgba(6,9,7,.28) 72%,transparent 100%)}
+    content:"";display:block;position:absolute;left:-20px;right:-8px;top:-20px;bottom:-12px;
+    background:linear-gradient(180deg,rgba(6,9,7,.55) 0%,rgba(6,9,7,.28) 72%,transparent 100%);
+    pointer-events:none;z-index:-1}
 }
 .hero .lat{font-family:var(--lat);font-size:clamp(11px,.92vw,13px);letter-spacing:.52em;
   color:#fff;text-transform:uppercase;display:block;margin-bottom:clamp(20px,2.4vw,32px);
