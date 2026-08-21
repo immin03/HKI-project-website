@@ -924,6 +924,8 @@ footer .fbrand small{display:block;font-family:var(--sans);font-size:11px;letter
 footer .addr{display:grid;grid-template-columns:repeat(2,minmax(200px,1fr));gap:30px}
 footer .addr b{color:#C7CBC4;font-weight:400;display:block;margin-bottom:6px;font-size:12px;letter-spacing:.1em}
 footer .bot{padding-top:26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--lat);letter-spacing:.12em;font-size:12px}
+footer .admin-link{color:inherit;text-decoration:none;opacity:.22;margin-left:12px;letter-spacing:.16em;font-size:10px}
+footer .admin-link:hover{opacity:.7;color:var(--brass-l)}
 
 /* ── 갤러리 (인덱스 트랙 방식) ─────────────── */
 
@@ -4322,7 +4324,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <div class="fbrand">THE KOMATSU 90<small>Beyond golf, create your own extraordinary life</small></div>
     </div>
     <div class="bot">
-      <span>2026 © THE KOMATSU 90. ALL RIGHTS RESERVED.</span>
+      <span>2026 © THE KOMATSU 90. ALL RIGHTS RESERVED.<a class="admin-link" href="/admin.html">관리</a></span>
       <span>THE HANKUK IND CO., LTD.</span>
     </div>
   </div>
@@ -5012,19 +5014,48 @@ document.querySelectorAll('[data-gal]').forEach(initGal);
     note('');
     btn.disabled=true; btn.textContent='접수 중…';
 
+    var fd=new FormData(form);
+    var adminCopy={
+      action:'inquiry',
+      name:fd.get('성함')||'',
+      phone:fd.get('연락처')||'',
+      email:fd.get('이메일')||'',
+      interest:fd.get('관심사항')||'',
+      region:fd.get('지역')||'',
+      message:fd.get('문의내용')||''
+    };
+
     fetch('/', {
       method:'POST',
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:new URLSearchParams(new FormData(form)).toString()
+      body:new URLSearchParams(fd).toString()
     }).then(function(r){
       if(!r.ok && r.status!==301 && r.status!==302 && r.status!==303) throw new Error(r.status);
       form.style.display='none';
       document.getElementById('inqDone').style.display='block';
+      fetch('/api/k90',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(adminCopy)
+      }).catch(function(){});
     }).catch(function(){
       btn.disabled=false; btn.textContent='상담 신청하기';
       note('접수에 실패했습니다. 잠시 후 다시 시도하시거나 1899-0721 으로 연락해 주세요.');
     });
   });
+})();
+
+(function(){
+  try{
+    var k='k90_visit_day';
+    var d=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Seoul'});
+    if(localStorage.getItem(k)===d) return;
+    fetch('/api/k90',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'visit'})
+    }).then(function(r){ if(r.ok) localStorage.setItem(k,d); }).catch(function(){});
+  }catch(e){}
 })();
 </script>
 <div class="mdl" id="mdlX" role="dialog" aria-modal="true">

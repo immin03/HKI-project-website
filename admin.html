@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>관리자 — THE KOMATSU 90</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<style>
+:root{--ink:#0E120E;--paper:#F4F0E6;--brass:#A5854A;--brass-l:#C9AE79;--moss:#8E958B;--line:rgba(165,133,74,.28);
+  --sans:'SUIT Variable','SUIT',-apple-system,sans-serif;--lat:'Cormorant Garamond',serif}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--ink);color:#E8E8E2;font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font-family:inherit}
+.wrap{width:min(1080px,calc(100% - 40px));margin:0 auto}
+.brand{font-family:var(--lat);letter-spacing:.32em;text-transform:uppercase;font-size:15px;color:#fff;display:inline-flex;align-items:baseline;gap:.3em}
+.brand i{font-style:italic;font-size:.62em;color:var(--brass-l);position:relative;top:-.45em}
+
+#gate{min-height:100svh;display:grid;place-items:center;padding:32px}
+#gate .card{width:min(420px,100%);background:#141914;border:1px solid var(--line);padding:40px 36px 34px}
+#gate .kicker{font-family:var(--lat);letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--brass-l);margin-bottom:18px}
+#gate h1{font-size:28px;font-weight:200;letter-spacing:-.03em;margin:0 0 8px}
+#gate p{color:var(--moss);font-size:13.5px;line-height:1.7;margin:0 0 26px}
+#gate label{display:block;font-size:11px;letter-spacing:.08em;color:var(--moss);margin-bottom:8px}
+#gate input{width:100%;padding:13px 14px;border:1px solid var(--line);background:#0E120E;color:#fff;font-size:15px}
+#gate input:focus{outline:0;border-color:var(--brass)}
+#gate .go{margin-top:16px;width:100%;border:0;background:var(--brass-l);color:var(--ink);padding:14px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--lat);font-size:13px;cursor:pointer}
+#gate .err{display:none;margin-top:12px;color:#E8B4A0;font-size:13px}
+
+#app{display:none;padding:36px 0 80px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:36px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.08)}
+header.top h1{margin:0;font-size:22px;font-weight:200;letter-spacing:-.03em}
+.logout{background:none;border:1px solid rgba(255,255,255,.2);color:#C7CBC4;padding:8px 14px;font-size:12px;letter-spacing:.12em;cursor:pointer}
+.logout:hover{border-color:var(--brass-l);color:#fff}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.stat{background:#141914;border:1px solid var(--line);padding:22px 22px 18px}
+.stat b{display:block;font-family:var(--lat);font-size:42px;font-weight:400;color:#fff;letter-spacing:-.03em;line-height:1}
+.stat span{display:block;margin-top:10px;font-size:12px;letter-spacing:.08em;color:var(--moss)}
+.stat em{font-style:normal;color:var(--brass-l)}
+
+.panel{background:#141914;border:1px solid var(--line);padding:24px;margin-bottom:18px}
+.panel h2{margin:0 0 18px;font-size:15px;font-weight:400;letter-spacing:.08em;color:var(--brass-l)}
+.bars{display:grid;grid-template-columns:repeat(14,1fr);gap:8px;align-items:end;height:140px}
+.bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}
+.bar i{display:block;width:100%;min-height:2px;background:var(--brass-l);opacity:.85}
+.bar u{font-size:10px;color:var(--moss);text-decoration:none;letter-spacing:0}
+.bar b{font-size:11px;color:#fff;font-weight:400}
+
+.list{display:grid;gap:10px}
+.empty{color:var(--moss);font-size:14px;padding:20px 0}
+.card-inq{border:1px solid rgba(255,255,255,.08);padding:18px 18px 16px}
+.card-inq .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px;font-size:12px;color:var(--moss)}
+.card-inq .meta strong{color:var(--brass-l);font-weight:400}
+.card-inq h3{margin:0 0 8px;font-size:18px;font-weight:400}
+.card-inq dl{display:grid;grid-template-columns:72px 1fr;gap:6px 10px;margin:0;font-size:13.5px}
+.card-inq dt{color:var(--moss)}
+.card-inq dd{margin:0;color:#E8E8E2;word-break:break-word}
+.card-inq .msg{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);line-height:1.75;color:#C7CBC4;font-size:14px;white-space:pre-wrap}
+
+@media(max-width:720px){
+  .stats{grid-template-columns:1fr}
+  .bars{gap:4px}
+  .card-inq dl{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="gate">
+  <form class="card" id="login">
+    <div class="brand">The Komatsu <i>90</i></div>
+    <p class="kicker" style="margin-top:28px">Private</p>
+    <h1>관리자</h1>
+    <p>상담신청과 일일 방문자를 확인합니다. 이메일 접수는 그대로 유지됩니다.</p>
+    <label for="pw">비밀번호</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="go" type="submit">입장</button>
+    <p class="err" id="loginErr">비밀번호가 올바르지 않습니다.</p>
+  </form>
+</div>
+
+<div id="app">
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <div class="brand">The Komatsu <i>90</i></div>
+        <h1>관리자</h1>
+      </div>
+      <button class="logout" id="logout" type="button">로그아웃</button>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><b id="todayCount">0</b><span>오늘 방문자 <em id="todayLabel"></em></span></div>
+      <div class="stat"><b id="weekCount">0</b><span>최근 7일 방문자</span></div>
+      <div class="stat"><b id="inqCount">0</b><span>상담신청 누적</span></div>
+    </div>
+
+    <section class="panel">
+      <h2>최근 14일 방문자</h2>
+      <div class="bars" id="bars"></div>
+    </section>
+
+    <section class="panel">
+      <h2>상담신청</h2>
+      <div class="list" id="list"></div>
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='k90_admin_pw';
+  var gate=document.getElementById('gate');
+  var app=document.getElementById('app');
+  var err=document.getElementById('loginErr');
+
+  function esc(s){
+    return String(s||'').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])});
+  }
+  function fmtWhen(iso){
+    try{
+      return new Date(iso).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+    }catch(e){ return iso }
+  }
+  function md(date){
+    var p=String(date).split('-');
+    return (p[1]||'')+'/'+(p[2]||'');
+  }
+
+  function render(data){
+    document.getElementById('todayCount').textContent=data.todayCount||0;
+    document.getElementById('todayLabel').textContent=data.today||'';
+    document.getElementById('weekCount').textContent=data.weekCount||0;
+    document.getElementById('inqCount').textContent=(data.inquiries||[]).length;
+    var max=Math.max.apply(null, (data.days||[]).map(function(d){return d.count}) .concat([1]));
+    document.getElementById('bars').innerHTML=(data.days||[]).map(function(d){
+      var h=Math.max(4, Math.round((d.count/max)*120));
+      return '<div class="bar"><b>'+d.count+'</b><i style="height:'+h+'px"></i><u>'+md(d.date)+'</u></div>';
+    }).join('');
+    var list=data.inquiries||[];
+    document.getElementById('list').innerHTML = list.length ? list.map(function(it){
+      return '<article class="card-inq">'+
+        '<div class="meta"><strong>'+esc(it.interest||'상담')+'</strong><span>'+esc(fmtWhen(it.at))+'</span></div>'+
+        '<h3>'+esc(it.name)+'</h3>'+
+        '<dl>'+
+          '<dt>연락처</dt><dd>'+esc(it.phone)+'</dd>'+
+          '<dt>이메일</dt><dd>'+esc(it.email||'—')+'</dd>'+
+          '<dt>지역</dt><dd>'+esc(it.region||'—')+'</dd>'+
+        '</dl>'+
+        (it.message ? '<div class="msg">'+esc(it.message)+'</div>' : '')+
+      '</article>';
+    }).join('') : '<p class="empty">아직 접수된 상담이 없습니다. 홈페이지에서 신청되면 이곳에 쌓입니다. 이메일도 함께 발송됩니다.</p>';
+  }
+
+  function load(pw){
+    return fetch('/api/k90',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'admin',password:pw})
+    }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok&&j.ok, data:j} }) });
+  }
+
+  function enter(data){
+    gate.style.display='none';
+    app.style.display='block';
+    render(data);
+  }
+
+  document.getElementById('login').addEventListener('submit',function(e){
+    e.preventDefault();
+    err.style.display='none';
+    var pw=document.getElementById('pw').value;
+    load(pw).then(function(res){
+      if(!res.ok){
+        err.textContent = res.data && res.data.error==='store'
+          ? '저장소를 연결하지 못했습니다. Netlify 배포 후 이용해 주세요.'
+          : '비밀번호가 올바르지 않습니다.';
+        err.style.display='block';
+        return;
+      }
+      sessionStorage.setItem(KEY,pw);
+      enter(res.data);
+    }).catch(function(){
+      err.textContent='서버에 연결하지 못했습니다. 배포가 끝난 뒤 다시 시도해 주세요.';
+      err.style.display='block';
+    });
+  });
+
+  document.getElementById('logout').addEventListener('click',function(){
+    sessionStorage.removeItem(KEY);
+    location.reload();
+  });
+
+  var saved=sessionStorage.getItem(KEY);
+  if(saved){
+    load(saved).then(function(res){ if(res.ok) enter(res.data); else sessionStorage.removeItem(KEY); });
+  }
+})();
+</script>
+</body>
+</html>
