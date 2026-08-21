@@ -5,3 +5,4 @@ _convert_photos.py
 __pycache__/
 images/*_old.webp
 images/*_old.jpg
+node_modules/

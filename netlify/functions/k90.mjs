@@ -1,7 +1,8 @@
-import { getStore } from '@netlify/blobs'
+import { createHash } from 'node:crypto'
 
-const DEFAULT_PW_SHA256 = '7d560199c254ac26c46bede595f2af8b66a83a46a8c8e7e610f6874e086e3a2e'
+const DEFAULT_PASSWORD = 'Komatsu90!'
 const MAX_INQUIRIES = 400
+
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
     status,
@@ -32,9 +33,8 @@ function seoulDay(d = new Date()) {
   return d.toLocaleDateString('en-CA', { timeZone: 'Asia/Seoul' })
 }
 
-async function sha256(text) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text || ''))
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('')
+function sha256(text) {
+  return createHash('sha256').update(String(text || ''), 'utf8').digest('hex')
 }
 
 function safeEq(a, b) {
@@ -44,23 +44,30 @@ function safeEq(a, b) {
   return x === 0
 }
 
-async function expectedHash() {
-  if (process.env.ADMIN_PASSWORD_SHA256) return process.env.ADMIN_PASSWORD_SHA256.toLowerCase()
-  if (process.env.ADMIN_PASSWORD) return sha256(process.env.ADMIN_PASSWORD)
-  return DEFAULT_PW_SHA256
+function passwordOk(password) {
+  const got = String(password || '')
+  const expected = process.env.ADMIN_PASSWORD || DEFAULT_PASSWORD
+  if (got === expected) return true
+  const expectedHash = (process.env.ADMIN_PASSWORD_SHA256 || sha256(expected)).toLowerCase()
+  return safeEq(sha256(got), expectedHash)
 }
 
 function clip(v, n) {
   return String(v == null ? '' : v).trim().slice(0, n)
 }
 
-function store() {
+async function store() {
+  const { getStore } = await import('@netlify/blobs')
   return getStore('k90-admin')
 }
 
 async function readJson(key, fallback) {
-  const raw = await store().get(key, { type: 'json' })
+  const raw = await (await store()).get(key, { type: 'json' })
   return raw == null ? fallback : raw
+}
+
+async function writeJson(key, value) {
+  await (await store()).setJSON(key, value)
 }
 
 async function recordVisit() {
@@ -69,7 +76,7 @@ async function recordVisit() {
   visits[day] = (Number(visits[day]) || 0) + 1
   const keys = Object.keys(visits).sort()
   while (keys.length > 120) delete visits[keys.shift()]
-  await store().setJSON('visits', visits)
+  await writeJson('visits', visits)
   return json({ ok: true, day, count: visits[day] })
 }
 
@@ -91,13 +98,12 @@ async function recordInquiry(body) {
   }
   const list = await readJson('inquiries', [])
   list.unshift(item)
-  await store().setJSON('inquiries', list.slice(0, MAX_INQUIRIES))
+  await writeJson('inquiries', list.slice(0, MAX_INQUIRIES))
   return json({ ok: true })
 }
 
 async function adminData(password) {
-  const got = await sha256(String(password || ''))
-  if (!safeEq(got, await expectedHash())) {
+  if (!passwordOk(password)) {
     return json({ ok: false, error: 'auth' }, 401)
   }
   const visits = await readJson('visits', {})

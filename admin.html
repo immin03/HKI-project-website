@@ -160,7 +160,21 @@ header.top h1{margin:0;font-size:22px;font-weight:200;letter-spacing:-.03em}
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({action:'admin',password:pw})
-    }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok&&j.ok, data:j} }) });
+    }).then(function(r){
+      return r.json().then(function(j){
+        return {ok:r.ok&&j.ok, data:j}
+      }).catch(function(){
+        return {ok:false, data:{error:'parse'}}
+      })
+    })
+  }
+
+  function failMsg(data){
+    var e=data && data.error
+    if(e==='auth') return '비밀번호가 올바르지 않습니다.'
+    if(e==='store') return '저장소를 연결하지 못했습니다. 잠시 후 다시 시도해 주세요.'
+    if(e==='parse') return '관리자 서버가 아직 준비되지 않았습니다. 배포가 끝난 뒤 다시 시도해 주세요.'
+    return '접속에 실패했습니다. 잠시 후 다시 시도해 주세요.'
   }
 
   function enter(data){
@@ -175,9 +189,7 @@ header.top h1{margin:0;font-size:22px;font-weight:200;letter-spacing:-.03em}
     var pw=document.getElementById('pw').value;
     load(pw).then(function(res){
       if(!res.ok){
-        err.textContent = res.data && res.data.error==='store'
-          ? '저장소를 연결하지 못했습니다. Netlify 배포 후 이용해 주세요.'
-          : '비밀번호가 올바르지 않습니다.';
+        err.textContent = failMsg(res.data);
         err.style.display='block';
         return;
       }
