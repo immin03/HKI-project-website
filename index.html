@@ -67,7 +67,8 @@ p{margin:0}
 .eyebrow.on-dark{color:var(--brass-l)}
 .rule{height:1px;background:var(--line);border:0;margin:0}
 .sec{padding-block:clamp(64px,8.5vw,124px)}
-.lede{font-size:clamp(15px,1.15vw,17px);color:var(--moss);max-width:62ch}
+.lede{font-size:clamp(15px,1.15vw,17px);color:var(--moss);max-width:62ch;word-break:keep-all}
+.nowrap{white-space:nowrap}
 .dark{background:var(--ink);color:#E8E8E2}
 .dark .lede{color:#C5C9C1}
 .num{font-family:var(--lat);font-size:12px;letter-spacing:.3em;color:var(--brass)}
@@ -658,7 +659,7 @@ header.hide{transform:translateY(-102%)}
 .ms-hero h2{font-size:clamp(30px,4vw,52px);font-weight:200;line-height:1.22;margin:0;letter-spacing:-.045em;color:var(--ink)}
 .ms-hero h2 em{font-style:normal;color:var(--brass)}
 .ms-hero .ms-hero-rule{display:block;width:48px;height:1px;background:var(--brass);margin:28px 0 22px;opacity:.9}
-.ms-hero .lede{color:var(--moss);max-width:48ch;margin:0;font-size:clamp(14.5px,1.15vw,16.5px);line-height:1.9}
+.ms-hero .lede{color:var(--moss);max-width:48ch;margin:0;font-size:clamp(14.5px,1.15vw,16.5px);line-height:1.9;word-break:keep-all}
 .ms-hero-stats{display:none}
 
 .ms-body{padding-top:clamp(36px,4.5vw,56px)}
@@ -3092,7 +3093,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       </div>
       <h2>가장 특별한 라운드를,<br><em>하나의 멤버십</em>으로</h2>
       <span class="ms-hero-rule"></span>
-      <p class="lede">야마시로 · 후쿠이 국제 · 와카사, 총 90홀을 하나의 멤버십으로 이용합니다.
+      <p class="lede">야마시로 · 후쿠이 국제 · 와카사, 총 90홀을 하나의 멤버십으로 이용 <span class="nowrap">합니다.</span>
         ㈜한국산업양행이 세 골프장을 직접 소유·운영합니다.</p>
     </div>
   </div>
@@ -3706,7 +3707,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <span class="tx">
           <span class="jp">福井国際カントリークラブ</span>
           <h3>후쿠이 국제 컨트리클럽</h3>
-          <p>아와라시의 웅대한 자연을 살린 구릉형 27홀. 각각 특징이 다른 3개의 코스가 있고, 서로 각기 다른 테크닉이 필요합니다.</p>
+          <p>아와라시의 웅대한 자연을 살린 구릉형 27홀. 각각 특징이 다른 3개의 코스가 있고 서로 각기 다른 테크닉이 필요합니다.</p>
           <span class="more">27 Holes</span>
         </span>
         <span class="ph"><span class="badge">27H</span><img loading="lazy" decoding="async" src="images/fk_aerial1.webp" srcset="images/fk_aerial1_m.webp 820w, images/fk_aerial1.webp 1600w" sizes="(max-width:900px) 100vw, 20vw" alt=""></span>
@@ -3801,9 +3802,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <div>
           <p class="jp">福井国際カントリークラブ</p>
           <h3>후쿠이 국제 컨트리클럽</h3>
-          <p class="desc">아와라시의 웅대한 자연을 살린 구릉형 27홀. 코스마다 연못이 배치되어 비거리와 정확도를
-            함께 요구합니다.<br>각각 특징이 다른 3개의 코스가 있고,<br>서로 각기 다른 테크닉이 필요합니다.
-            후쿠이현의 공식 대표 경기장으로 지역 대회를 꾸준히 개최합니다.</p>
+          <p class="desc">아와라시의 웅대한 자연을 살린 구릉형 27홀. 각각 특징이 다른 3개의 코스가 있고
+            서로 각기 다른 테크닉이 필요합니다. 후쿠이현의 공식 대표 경기장으로 지역 대회를 꾸준히 개최합니다.</p>
           <dl class="meta">
             <div><dt>Opened</dt><dd>1974.10</dd></div>
             <div><dt>Course</dt><dd>27H · Par 108</dd></div>
@@ -3900,7 +3900,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <button role="tab" aria-selected="false">휴가코 ひゅうが湖</button>
         </div>
         <div class="panel show" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/wk_suigetsu.webp" alt="스이게츠코 코스" srcset="images/wk_suigetsu_m.webp 820w, images/wk_suigetsu.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/wk_suigetsu.webp" alt="스이게츠코 코스" srcset="images/wk_suigetsu_m.webp 641w, images/wk_suigetsu.webp 641w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="641" height="481"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>9홀 / 파 36</td></tr>
             <tr><th>코스 형태</th><td>넓은 페어웨이, 장타형 구성</td></tr>
@@ -3910,7 +3910,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           </table>
         </div>
         <div class="panel" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/wk_suga.webp" alt="스가코 코스" srcset="images/wk_suga_m.webp 820w, images/wk_suga.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="933"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/wk_suga.webp" alt="스가코 코스" srcset="images/wk_suga_m.webp 641w, images/wk_suga.webp 641w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="641" height="481"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>9홀 / 파 36</td></tr>
             <tr><th>코스 형태</th><td>숲과 바위를 활용한 전략적 구성</td></tr>
@@ -4070,14 +4070,15 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </div>
   <div class="sv-sec"><span class="sv-eyebrow">Gallery</span><h4 class="sv-h4">갤러리</h4></div>
   <div class="sv-grid sv-gal">
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_lobby.webp" width="900" height="600" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_dining.webp" width="900" height="600" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_ext.webp" width="900" height="600" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_food.webp" width="900" height="600" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g1.webp" width="900" height="507" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g2.webp" width="900" height="600" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g3.webp" width="900" height="600" alt=""></figure>
-    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g4.webp" width="900" height="600" alt=""></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_lobby.webp" width="900" height="600" alt="와카사 골프리조트 로비"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_dining.webp" width="900" height="600" alt="와카사 골프리조트 레스토랑"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_ext.webp" width="900" height="600" alt="와카사 골프리조트 외관"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_food.webp" width="900" height="600" alt="와카사 골프리조트 정식"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g4.webp" width="900" height="600" alt="와카사 컨트리클럽 페어웨이"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_ch_locker.webp" width="640" height="360" alt="와카사 골프리조트 락커룸"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g9.webp" width="1024" height="576" alt="와카사 컨트리클럽 코스 전경"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g10.webp" width="1024" height="682" alt="와카사 컨트리클럽 티잉 그라운드"></figure>
+    <figure class="sv-fig"><img class="sv-img" loading="lazy" decoding="async" src="images/wk_g11.webp" width="1024" height="682" alt="와카사 골프리조트 클럽하우스 항공 전경"></figure>
   </div>
 </div>
 </template>
