@@ -1,4 +1,5 @@
 _incoming/
+_upload/
 _review/
 _convert_photos.py
 *.pyc
