@@ -14,9 +14,8 @@
 *{box-sizing:border-box}
 body{margin:0;min-height:100svh;background:var(--ink);color:#fff;font-family:var(--sans);font-weight:300;
   display:grid;place-items:center;padding:32px;text-align:center;-webkit-font-smoothing:antialiased}
-.brand{font-family:var(--lat);font-size:20px;letter-spacing:.3em;text-transform:uppercase;
-  display:inline-flex;align-items:baseline;gap:.32em;margin-bottom:56px}
-.brand sup{font-style:italic;font-size:.6em;color:var(--brass-l);position:relative;top:-.5em}
+.brand{display:block;line-height:0;margin:0 auto 56px}
+.brand img{display:block;width:min(78vw,280px);height:auto;margin:0 auto}
 .mk{font-family:var(--lat);font-size:52px;color:var(--brass-l);line-height:1;margin:0 0 22px}
 h1{font-size:clamp(23px,3vw,32px);font-weight:200;letter-spacing:-.035em;margin:0 0 18px}
 p{color:rgba(255,255,255,.68);font-size:15px;line-height:1.9;margin:0 0 40px}
@@ -27,7 +26,7 @@ a:hover{background:var(--brass);border-color:var(--brass);color:var(--ink)}
 </head>
 <body>
 <div>
-  <span class="brand">The Komatsu <sup>90</sup></span>
+  <span class="brand"><img src="images/logo-wordmark-white.png" alt="THE KOMATSU 90" width="1070" height="73"></span>
   <p class="mk">✓</p>
   <h1>신청이 접수되었습니다</h1>
   <p>남겨주신 연락처로 담당자가 영업일 기준 1일 이내에 연락드리겠습니다.<br>
