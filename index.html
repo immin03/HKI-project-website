@@ -2469,27 +2469,10 @@ img{max-width:100%}
   background:linear-gradient(transparent,rgba(14,18,14,.55))}
 
 .am-figure{position:relative;border:1px solid rgba(14,18,14,.18);
-  background:linear-gradient(160deg,#FBFBF8 0%,#EFEFEA 100%);
-  border-radius:2px;overflow:hidden;padding:clamp(14px,2vw,26px);
+  background:#1a2a1c;border-radius:2px;overflow:hidden;padding:0;
   box-shadow:0 1px 3px rgba(14,18,14,.05)}
-.am-svg{display:block;width:100%;height:auto}
-
-/* 지도 SVG — 데스크톱/모바일 전환 */
-.am-svg-m{display:none}
-@media(max-width:720px){
-  .am-svg-d{display:none}
-  .am-svg-m{display:block}
-  /* 모바일: 글자 키우지 않음 — 겹침 방지 */
-  .am-svg-m .am-name{font-size:12.5px}
-  .am-svg-m .am-name-c{font-size:13px}
-  .am-svg-m .am-badge text{font-size:11px;font-weight:700}
-  .am-svg-m .am-ringlb{font-size:11px}
-  .am-svg-m .am-geo{font-size:11px}
-  .am-svg-m .am-city{font-size:11px}
-  .am-svg-m .am-compass text{font-size:11px}
-  .am-svg-m .am-name-alpen{font-size:12px}
-  .am-svg-m .am-sub{font-size:9px}
-}
+.am-photo{display:block;width:100%;height:auto}
+.am-svg{display:none}
 
 
 /* 지형 추가 요소 (v3) */
@@ -2540,7 +2523,7 @@ img{max-width:100%}
 .am-badge-hotel rect{fill:#7A6540}
 
 .am-times{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-  margin-top:22px;border:1px solid var(--line)}
+  margin:0;border:1px solid var(--line);border-left:none;border-right:none;border-bottom:none}
 .am-times div{background:var(--paper);padding:16px 18px}
 .am-times b{display:block;font-weight:400;font-size:12.5px;letter-spacing:.04em;color:var(--brass);margin-bottom:8px}
 .am-times span{font-family:var(--lat);font-size:18px;letter-spacing:.08em;color:var(--ink)}
@@ -2565,7 +2548,8 @@ img{max-width:100%}
 .am-compass text{font-family:var(--lat);font-size:12px;fill:var(--moss);opacity:.85;font-weight:600}
 
 /* 범례 */
-.am-legend{list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 0;padding:0}
+.am-legend{list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px;margin:0;padding:18px 22px 12px;
+  background:var(--paper)}
 .am-legend li{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink)}
 .am-lg{width:12px;height:12px;border-radius:50%;flex:none}
 .am-lg-air{background:var(--brass)}
@@ -2575,10 +2559,10 @@ img{max-width:100%}
 .am-lg-alpen{background:transparent;border:2px solid var(--brass);border-radius:1px}
 
 @media(max-width:720px){
-  .am-figure{padding:12px 8px 16px}
-  .am-legend{gap:6px 14px;margin-top:14px}
+  .am-figure{padding:0}
+  .am-legend{gap:6px 14px;margin-top:0;padding:16px 14px 8px}
   .am-legend li{font-size:12px;line-height:1.4}
-  .am-times{margin-top:14px}
+  .am-times{margin-top:0}
   .accessmap .am-head{margin-bottom:clamp(22px,4vw,36px)}
   .accessmap .am-head p{font-size:13.5px;line-height:1.75}
 }
@@ -3355,264 +3339,19 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </figure>
 
   <div class="am-figure rv">
-    <svg class="am-svg am-svg-d" viewBox="0 0 900 720" role="img"
-         aria-label="이시카와·후쿠이 지역 도식 지도 — 고마츠공항 중심 접근성" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <radialGradient id="amGlow" cx="46%" cy="34%" r="60%">
-          <stop offset="0%" stop-color="#C9AE79" stop-opacity=".20"/>
-          <stop offset="55%" stop-color="#C9AE79" stop-opacity=".06"/>
-          <stop offset="100%" stop-color="#C9AE79" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="amLand" x1="0" y1="0" x2="0.4" y2="1">
-          <stop offset="0%" stop-color="#FCFCF9"/>
-          <stop offset="100%" stop-color="#F1F1EC"/>
-        </linearGradient>
-        <linearGradient id="amSea" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#8E958B" stop-opacity=".18"/>
-          <stop offset="100%" stop-color="#8E958B" stop-opacity=".30"/>
-        </linearGradient>
-      </defs>
-
-      <!-- 육지 바탕 -->
-      <rect x="0" y="0" width="900" height="720" fill="url(#amLand)"/>
-
-      <!-- 동해 (좌상단, 해안선 NE→SW) -->
-      <path class="am-sea" d="M0,0 L360,0
-        Q300,70 250,140 Q205,206 150,250 Q92,296 40,356 Q14,384 0,430 Z"/>
-      <path class="am-coast" d="M360,0 Q300,70 250,140 Q205,206 150,250
-        Q92,296 40,356 Q14,384 0,430"/>
-      <text class="am-geo am-geo-sea" x="118" y="150" transform="rotate(-53 118 150)">SEA OF JAPAN · 동해</text>
-
-      <!-- 비와호 (좌하단, 시가현) -->
-      <path class="am-water" d="M120,600 Q150,548 200,556 Q244,564 250,610
-        Q256,660 220,690 Q188,714 150,700 Q118,688 112,652 Q108,624 120,600 Z"/>
-      <text class="am-geo" x="182" y="632" text-anchor="middle">비와호</text>
-      <text class="am-geo am-geo-en" x="182" y="648" text-anchor="middle">LAKE BIWA</text>
-
-      <!-- 산지 녹지 (하쿠산 연봉 — 내륙/우측) -->
-      <g class="am-green">
-        <path d="M560,470 Q612,430 668,458 Q724,486 706,548 Q690,602 626,600 Q566,598 548,540 Q536,500 560,470 Z"/>
-        <path d="M690,300 Q734,272 778,296 Q818,318 806,366 Q794,410 742,408 Q694,406 680,360 Q672,326 690,300 Z"/>
-        <path d="M470,556 Q506,536 540,558 Q570,578 556,614 Q542,646 502,642 Q466,638 458,600 Q454,574 470,556 Z"/>
-        <path d="M770,470 Q806,452 838,474 Q866,494 854,528 Q842,560 806,556 Q772,552 764,518 Q760,492 770,470 Z"/>
-      </g>
-      <text class="am-geo am-geo-mtn" x="726" y="352" text-anchor="middle">하쿠산 · 白山</text>
-
-      <!-- 중심 글로우 + 동심원 (공항 중심) -->
-      <circle cx="392" cy="248" r="270" fill="url(#amGlow)"/>
-      <circle class="am-ring" cx="392" cy="248" r="118"/>
-      <circle class="am-ring" cx="392" cy="248" r="214"/>
-      <circle class="am-ring" cx="392" cy="248" r="312"/>
-      <text class="am-ringlb" x="392" y="382" text-anchor="middle">30 MIN</text>
-      <text class="am-ringlb" x="392" y="478" text-anchor="middle">1 HR</text>
-
-      <!-- 연결선 -->
-      <g class="am-links">
-        <line x1="392" y1="248" x2="450" y2="292"/>
-        <line x1="392" y1="248" x2="300" y2="380"/>
-        <line x1="392" y1="248" x2="238" y2="560"/>
-        <line x1="392" y1="248" x2="575" y2="355"/>
-        <line x1="575" y1="355" x2="450" y2="292"/>
-        <line x1="575" y1="355" x2="300" y2="380"/>
-        <line x1="392" y1="248" x2="760" y2="152"/>
-      </g>
-
-      <!-- 도시명 (옅게) — 노드·배지와 겹치지 않게 -->
-      <text class="am-city" x="660" y="268" text-anchor="middle">가가시</text>
-      <text class="am-city" x="360" y="424" text-anchor="middle">후쿠이시</text>
-      <text class="am-city" x="150" y="512" text-anchor="middle">쓰루가시</text>
-
-      <!-- ── 공항 (중심) ── -->
-      <g class="am-node am-air" transform="translate(392,248)">
-        <circle class="am-halo" r="16"/>
-        <circle class="am-dot" r="6.5"/>
-        <path class="am-plane" d="M-6.5,0 L6.5,-4.2 L6.5,4.2 Z" transform="rotate(28)"/>
-        <text class="am-name am-name-c" x="0" y="-23" text-anchor="middle">고마츠공항 · KOMATSU</text>
-      </g>
-
-      <!-- ── 야마시로 골프클럽 (호텔→7분) — 배지 좌상단 -->
-      <g class="am-node am-golf" transform="translate(450,292)">
-        <circle class="am-dot" r="5"/>
-        <g class="am-badge" transform="translate(-76,-30)">
-          <rect x="0" y="0" rx="9.5" width="70" height="19"/>
-          <text x="35" y="13.4" text-anchor="middle">호텔→7분</text>
-        </g>
-        <text class="am-name" x="0" y="26" text-anchor="middle">야마시로 골프클럽 · 36H</text>
-      </g>
-
-      <!-- ── 후쿠이 국제 (호텔→20분) ── -->
-      <g class="am-node am-golf" transform="translate(300,380)">
-        <circle class="am-dot" r="5"/>
-        <g class="am-badge" transform="translate(-80,-9)">
-          <rect x="0" y="0" rx="9.5" width="76" height="19"/>
-          <text x="38" y="13.4" text-anchor="middle">호텔→20분</text>
-        </g>
-        <text class="am-name" x="0" y="24" text-anchor="middle">후쿠이 국제 컨트리클럽 · 27H</text>
-      </g>
-
-      <!-- ── 와카사 컨트리클럽 (공항→1시간) ── -->
-      <g class="am-node am-golf" transform="translate(238,560)">
-        <circle class="am-dot" r="5"/>
-        <g class="am-badge am-badge-w" transform="translate(14,-9)">
-          <rect x="0" y="0" rx="9.5" width="74" height="19"/>
-          <text x="37" y="13.4" text-anchor="middle">공항→1시간</text>
-        </g>
-        <text class="am-name" x="0" y="24" text-anchor="middle">와카사 컨트리클럽 · 27H</text>
-      </g>
-
-      <!-- ── 루리코 · 하토리 (공항→25분) — 배지 우상단 -->
-      <g class="am-node am-hotel" transform="translate(575,355)">
-        <path class="am-steam" d="M-3,-9 q3,-4 0,-8 M0,-9 q3,-4 0,-8 M3,-9 q3,-4 0,-8"/>
-        <circle class="am-dot" r="4.5"/>
-        <g class="am-badge am-badge-hotel" transform="translate(14,-30)">
-          <rect x="0" y="0" rx="9.5" width="74" height="19"/>
-          <text x="37" y="13.4" text-anchor="middle">공항→25분</text>
-        </g>
-        <text class="am-name" x="0" y="26" text-anchor="middle">루리코 · 하토리</text>
-      </g>
-
-      <!-- ── 다테야마 구로베 알펜루트 ── -->
-      <g class="am-node am-alpen" transform="translate(760,152)">
-        <path class="am-peak" d="M-13,7 L-4,-11 L2,-1 L8,-14 L15,7 Z"/>
-        <circle class="am-dot" r="5"/>
-        <g class="am-badge am-badge-alpen" transform="translate(-104,-9)">
-          <rect x="0" y="0" rx="9.5" width="90" height="19"/>
-          <text x="45" y="13.4" text-anchor="middle">차로 약 2시간</text>
-        </g>
-        <text class="am-name am-name-alpen" x="0" y="24" text-anchor="middle">다테야마 구로베 알펜루트</text>
-        <text class="am-sub" x="0" y="41" text-anchor="middle">TATEYAMA KUROBE ALPINE ROUTE</text>
-      </g>
-
-      <!-- 방위 -->
-      <g class="am-compass" transform="translate(858,652)">
-        <line x1="0" y1="14" x2="0" y2="-14"/>
-        <path d="M0,-14 L4,-5 L-4,-5 Z" class="am-compass-n"/>
-        <text x="0" y="-19" text-anchor="middle">N</text>
-      </g>
-    </svg>
-<svg class="am-svg am-svg-m" viewBox="0 0 520 660" role="img"
-         aria-label="이시카와·후쿠이 지역 도식 지도 (모바일)" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <radialGradient id="amGlowM" cx="50%" cy="32%" r="62%">
-          <stop offset="0%" stop-color="#C9AE79" stop-opacity=".22"/>
-          <stop offset="55%" stop-color="#C9AE79" stop-opacity=".06"/>
-          <stop offset="100%" stop-color="#C9AE79" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="amLandM" x1="0" y1="0" x2="0.4" y2="1">
-          <stop offset="0%" stop-color="#FCFCF9"/><stop offset="100%" stop-color="#F1F1EC"/>
-        </linearGradient>
-        <linearGradient id="amSeaM" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#8E958B" stop-opacity=".18"/>
-          <stop offset="100%" stop-color="#8E958B" stop-opacity=".30"/>
-        </linearGradient>
-      </defs>
-
-      <rect x="0" y="0" width="520" height="660" fill="url(#amLandM)"/>
-
-      <!-- 동해 -->
-      <path class="am-sea" d="M0,0 L210,0 Q170,60 130,120 Q92,178 46,220 Q20,244 0,286 Z"/>
-      <path class="am-coast" d="M210,0 Q170,60 130,120 Q92,178 46,220 Q20,244 0,286"/>
-      <text class="am-geo am-geo-sea" x="82" y="150" transform="rotate(-54 82 150)">SEA OF JAPAN</text>
-
-      <!-- 비와호 -->
-      <path class="am-water" d="M70,556 Q96,516 138,524 Q174,532 178,570 Q182,610 152,632 Q124,650 94,638 Q68,628 64,598 Q62,576 70,556 Z"/>
-      <text class="am-geo" x="120" y="582" text-anchor="middle">비와호</text>
-
-      <!-- 산지 녹지 -->
-      <g class="am-green">
-        <path d="M360,430 Q404,400 448,424 Q486,446 472,494 Q458,538 408,536 Q362,534 350,490 Q342,458 360,430 Z"/>
-        <path d="M420,250 Q456,228 490,248 Q520,266 510,304 Q500,340 460,338 Q422,336 412,300 Q406,272 420,250 Z"/>
-      </g>
-      <text class="am-geo am-geo-mtn" x="454" y="296" text-anchor="middle">하쿠산</text>
-
-      <!-- 동심원 (공항 중심 246,214) -->
-      <circle cx="246" cy="214" r="220" fill="url(#amGlowM)"/>
-      <circle class="am-ring" cx="246" cy="214" r="96"/>
-      <circle class="am-ring" cx="246" cy="214" r="172"/>
-      <circle class="am-ring" cx="246" cy="214" r="248"/>
-      <text class="am-ringlb" x="200" y="330" text-anchor="middle">30 MIN</text>
-      <text class="am-ringlb" x="200" y="406" text-anchor="middle">1 HR</text>
-
-      <!-- 연결선 -->
-      <g class="am-links">
-        <line x1="246" y1="214" x2="280" y2="268"/>
-        <line x1="246" y1="214" x2="160" y2="350"/>
-        <line x1="246" y1="214" x2="150" y2="520"/>
-        <line x1="246" y1="214" x2="430" y2="360"/>
-        <line x1="430" y1="360" x2="280" y2="268"/>
-        <line x1="430" y1="360" x2="160" y2="350"/>
-        <line x1="246" y1="214" x2="400" y2="96"/>
-      </g>
-
-      <!-- 도시명 — 노드·배지와 떨어뜨림 -->
-      <text class="am-city" x="470" y="240" text-anchor="middle">가가시</text>
-      <text class="am-city" x="290" y="410" text-anchor="middle">후쿠이시</text>
-      <text class="am-city" x="70" y="450" text-anchor="middle">쓰루가시</text>
-
-      <!-- 공항 -->
-      <g class="am-node am-air" transform="translate(246,214)">
-        <circle class="am-halo" r="16"/><circle class="am-dot" r="7"/>
-        <path class="am-plane" d="M-7,0 L7,-4.5 L7,4.5 Z" transform="rotate(28)"/>
-        <text class="am-name am-name-c" x="0" y="-26" text-anchor="middle">고마츠공항</text>
-        <text class="am-sub" x="0" y="-12" text-anchor="middle">KOMATSU</text>
-      </g>
-
-      <!-- 야마시로 골프 — 배지 좌상단 -->
-      <g class="am-node am-golf" transform="translate(280,268)">
-        <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(-86,-32)"><rect x="0" y="0" rx="12" width="80" height="22"/><text x="40" y="15" text-anchor="middle">호텔→7분</text></g>
-        <text class="am-name" x="0" y="28" text-anchor="middle">야마시로 36H</text>
-      </g>
-
-      <!-- 후쿠이 CC -->
-      <g class="am-node am-golf" transform="translate(160,350)">
-        <circle class="am-dot" r="6"/>
-        <g class="am-badge" transform="translate(-94,-28)"><rect x="0" y="0" rx="12" width="88" height="22"/><text x="44" y="15" text-anchor="middle">호텔→20분</text></g>
-        <text class="am-name" x="0" y="28" text-anchor="middle">후쿠이 국제 27H</text>
-      </g>
-
-      <!-- 와카사 CC -->
-      <g class="am-node am-golf" transform="translate(150,520)">
-        <circle class="am-dot" r="6"/>
-        <g class="am-badge am-badge-w" transform="translate(14,-28)"><rect x="0" y="0" rx="12" width="86" height="22"/><text x="43" y="15" text-anchor="middle">공항→1시간</text></g>
-        <text class="am-name" x="0" y="28" text-anchor="middle">와카사 27H</text>
-      </g>
-
-      <!-- 호텔 — 우측으로 분리, 배지 우상단 -->
-      <g class="am-node am-hotel" transform="translate(430,360)">
-        <path class="am-steam" d="M-4,-11 q4,-5 0,-10 M0,-11 q4,-5 0,-10 M4,-11 q4,-5 0,-10"/>
-        <circle class="am-dot" r="5.5"/>
-        <g class="am-badge am-badge-hotel" transform="translate(14,-32)"><rect x="0" y="0" rx="12" width="86" height="22"/><text x="43" y="15" text-anchor="middle">공항→25분</text></g>
-        <text class="am-name" x="0" y="28" text-anchor="middle">루리코 · 하토리</text>
-      </g>
-
-      <!-- 알펜루트 -->
-      <g class="am-node am-alpen" transform="translate(400,96)">
-        <path class="am-peak" d="M-15,8 L-5,-13 L2,-1 L9,-16 L17,8 Z"/>
-        <circle class="am-dot" r="6"/>
-        <g class="am-badge am-badge-alpen" transform="translate(-56,18)"><rect x="0" y="0" rx="12" width="112" height="22"/><text x="56" y="15" text-anchor="middle">차로 약 2시간</text></g>
-        <text class="am-name am-name-alpen" x="0" y="-22" text-anchor="middle">알펜루트</text>
-      </g>
-
-      <!-- 방위 -->
-      <g class="am-compass" transform="translate(494,600)">
-        <line x1="0" y1="16" x2="0" y2="-16"/><path d="M0,-16 L5,-6 L-5,-6 Z" class="am-compass-n"/>
-        <text x="0" y="-22" text-anchor="middle">N</text>
-      </g>
-    </svg>
+    <img class="am-photo" src="images/access-map.png" alt="이시카와·후쿠이 지역 접근 지도 — 인천에서 고마츠공항, 골프장, 온천 료칸까지의 이동" width="843" height="814" decoding="async">
 
     <ul class="am-legend rv">
-      <li><span class="am-lg am-lg-air"></span>고마츠공항 — 한국 직항 1시간 30분</li>
-      <li><span class="am-lg am-lg-hotel"></span>루리코 · 하토리 — 공항에서 약 25분</li>
-      <li><span class="am-lg am-lg-golf"></span>골프장 — 호텔→야마시로 7분 · 후쿠이 20분 / 공항→와카사 1시간</li>
-      <li><span class="am-lg am-lg-alpen"></span>알펜루트 — 북알프스 산악 절경</li>
+      <li><span class="am-lg am-lg-air"></span>인천 → 고마츠 직항 90분</li>
+      <li><span class="am-lg am-lg-golf"></span>공항 → 야마시로GC 25분 · 후쿠이국제CC 30분 · 와카사CC 100분</li>
+      <li><span class="am-lg am-lg-hotel"></span>야마시로GC → 온천 료칸 5분 · 후쿠이국제CC → 온천 료칸 20분</li>
     </ul>
 
     <div class="am-times rv">
-      <div><b>공항 → 호텔</b><span>약 25분</span></div>
-      <div><b>호텔 → 야마시로 GC</b><span>약 7분</span></div>
-      <div><b>호텔 → 후쿠이 국제</b><span>약 20분</span></div>
-      <div><b>공항 → 와카사 CC</b><span>약 1시간</span></div>
+      <div><b>인천 → 고마츠</b><span>90분</span></div>
+      <div><b>공항 → 야마시로 GC</b><span>약 25분</span></div>
+      <div><b>공항 → 후쿠이 국제</b><span>약 30분</span></div>
+      <div><b>공항 → 와카사 CC</b><span>약 100분</span></div>
     </div>
   </div>
 </section>
@@ -3741,7 +3480,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <button role="tab" aria-selected="false">QUEEN COURSE 퀸 코스</button>
         </div>
         <div class="panel show" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king.webp" alt="킹 코스" srcset="images/ym_king_m.webp 820w, images/ym_king.webp 1400w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1400" height="953"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king2.webp" alt="킹 코스" srcset="images/ym_king2_m.webp 820w, images/ym_king2.webp 1600w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1600" height="983"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>18홀 / 6,987야드 / 파 72</td></tr>
             <tr><th>코스 형태</th><td>원 웨이 원 라운드 스루 플레이 / 전체적으로 플랫한 구성</td></tr>
