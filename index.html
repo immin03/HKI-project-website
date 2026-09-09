@@ -82,21 +82,26 @@ p{margin:0}
 header{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;justify-content:space-between;
   padding:22px var(--pad);transition:background .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
 header.solid{background:rgba(14,18,14,.94);backdrop-filter:blur(8px);padding-block:14px;border-color:rgba(255,255,255,.1)}
-.brand{display:flex;align-items:center;min-width:0;flex:0 1 auto;line-height:0;
+.brand{display:flex;align-items:center;flex:0 0 auto;line-height:0;
   margin-right:clamp(52px,6.5vw,104px)}
-.brand img{display:block;height:clamp(15px,1.5vw,20px);width:auto;
-  transition:height .5s cubic-bezier(.16,.65,.2,1)}
-header.solid .brand img{height:clamp(13px,1.25vw,17px)}
+.brand img{display:block;height:clamp(15px,1.5vw,20px);width:auto;max-width:none;
+  transform:translateY(-1px);
+  transition:height .5s cubic-bezier(.16,.65,.2,1),transform .5s}
+header.solid .brand img{height:clamp(13px,1.25vw,17px);transform:translateY(-0.5px)}
 header:not(.solid) .brand img{
   filter:drop-shadow(0 1px 2px rgba(0,0,0,.55)) drop-shadow(0 6px 16px rgba(0,0,0,.35))}
 header:not(.solid) nav.gnb a,header:not(.solid) .tel,header:not(.solid) .hd-cta .link{
   text-shadow:0 1px 2px rgba(0,0,0,.5),0 6px 16px rgba(0,0,0,.35)}
-nav.gnb{display:flex;gap:clamp(18px,2.6vw,40px);flex:1 1 auto}
+nav.gnb{display:flex;align-items:center;flex-wrap:nowrap;gap:clamp(18px,2.6vw,40px);flex:1 1 auto;min-width:0}
+nav.gnb > .gi{display:flex;align-items:center;flex:0 0 auto}
 nav.gnb a{font-family:var(--lat);font-size:14px;letter-spacing:.24em;color:rgba(255,255,255,.82);padding-block:6px;position:relative}
+nav.gnb > .gi > a{display:flex;align-items:center;line-height:1;padding:0;height:clamp(15px,1.5vw,20px);white-space:nowrap}
 nav.gnb a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass-l);transition:width .45s}
+nav.gnb > .gi > a::after{bottom:-5px}
 nav.gnb a:hover::after{width:100%}
-.hd-cta{display:flex;align-items:center;gap:18px}
-.tel{font-family:var(--lat);font-size:14px;letter-spacing:.16em;color:rgba(255,255,255,.75)}
+.hd-cta{display:flex;align-items:center;gap:18px;flex:0 0 auto}
+.tel{font-family:var(--lat);font-size:14px;letter-spacing:.16em;color:rgba(255,255,255,.75);
+  white-space:nowrap;flex:none;line-height:1}
 .btn-line{border:1px solid rgba(255,255,255,.45);color:#fff;font-size:12px;letter-spacing:.2em;padding:11px 20px;transition:.4s;white-space:nowrap}
 .btn-line:hover{background:var(--brass);border-color:var(--brass);color:#0E120E}
 .burger{display:none;width:30px;height:16px;position:relative;background:none;border:0;cursor:pointer}
