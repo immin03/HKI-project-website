@@ -2439,8 +2439,8 @@ img{max-width:100%}
 .accessmap .am-head p b{color:var(--ink);font-weight:500}
 
 .jp-locator{position:relative;overflow:hidden;border:1px solid rgba(14,18,14,.18);
-  margin-bottom:clamp(18px,2.4vw,32px);min-height:clamp(300px,46vw,520px);
-  background:#1a1c16}
+  margin:0 0 clamp(18px,2.4vw,32px);min-height:clamp(300px,46vw,520px);
+  background:#1a1c16;width:100%;box-sizing:border-box}
 .jp-locator > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:center 40%;filter:saturate(.7) brightness(.58);max-width:none}
 .jp-locator::after{content:"";position:absolute;inset:0;pointer-events:none;
@@ -2476,9 +2476,11 @@ img{max-width:100%}
   background:linear-gradient(transparent,rgba(14,18,14,.55))}
 
 .am-figure{position:relative;border:1px solid rgba(14,18,14,.18);
-  background:#1a2a1c;border-radius:2px;overflow:hidden;padding:0;
-  box-shadow:0 1px 3px rgba(14,18,14,.05)}
-.am-photo{display:block;width:100%;height:auto}
+  background:#162018;overflow:hidden;padding:0;width:100%;box-sizing:border-box}
+.am-map-scroll{display:flex;justify-content:center;background:#162018;padding:0}
+.am-photo{display:block;width:100%;max-width:none;height:auto;margin:0}
+.am-map-hint{display:none;margin:0;padding:10px 14px 2px;font-size:12px;
+  color:rgba(232,232,226,.7);background:#162018;text-align:center;letter-spacing:.02em}
 .am-svg{display:none}
 
 
@@ -2567,6 +2569,13 @@ img{max-width:100%}
 
 @media(max-width:720px){
   .am-figure{padding:0}
+  .am-map-scroll{
+    overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+    justify-content:flex-start;scrollbar-width:thin;
+    scrollbar-color:rgba(201,174,121,.55) transparent;
+    padding:0}
+  .am-photo{width:780px;max-width:none;flex:none}
+  .am-map-hint{display:block}
   .am-legend{gap:6px 14px;margin-top:0;padding:16px 14px 8px}
   .am-legend li{font-size:12px;line-height:1.4}
   .am-times{margin-top:0}
@@ -3088,7 +3097,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <article>
         <span class="n">01</span>
         <h4>포인트 사용 구조가 다릅니다</h4>
-        <p>포인트 선순환 시스템으로 소진을 늦추고 실질 회비를 낮춥니다. 입회 시 실버 90만 · 골드 150만 포인트 지급(1pt=1엔). 투어 요금은 포인트 전액 · 현금+포인트 복합 · 현금 전액 결제가 가능하며, 현금 결제액의 10%가 포인트로 적립됩니다.</p>
+        <p>포인트 선순환 시스템으로 소진을 늦추고 실질 회비를 낮춥니다. 입회 시 실버 90만 · 골드 150만 포인트 지급(1pt=1엔). 투어 요금은 포인트 전액 · 현금+포인트 복합 · 현금 전액 결제가 가능하며, 모바일 선결제(현금) 금액 중 골프 요금의 10%가 적립됩니다.</p>
       </article>
       <article>
         <span class="n">02</span>
@@ -3133,11 +3142,11 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         <div class="ms-tier-top"><span class="ms-tier-lab">Silver</span></div>
         <h4>실버</h4>
         <p class="ms-price">3,000<small>만원</small></p>
-        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 무기명 3</p>
+        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 동반 3</p>
         <ul class="ms-tier-list">
           <li>연 2회 위임 가능</li>
           <li>90홀 통합 이용</li>
-          <li>회원요금 · 포인트 적립</li>
+          <li>※ 모바일 선결제(현금) 금액 중 골프 요금의 10% 적립</li>
         </ul>
         <p class="ms-tier-pts">입회 포인트 90만 포인트 지급 (1pt=1엔)</p>
         <button type="button" class="btn-line" data-open="inquiry" data-interest="실버 멤버십" data-dclose
@@ -3151,11 +3160,11 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
         </div>
         <h4>골드</h4>
         <p class="ms-price">4,800<small>만원</small></p>
-        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 무기명 7</p>
+        <p class="ms-tier-meta">평생 멤버십 · 기명 2 + 동반 7</p>
         <ul class="ms-tier-list">
           <li>연 3회 위임 가능</li>
           <li>90홀 통합 이용</li>
-          <li>회원요금 · 포인트 적립</li>
+          <li>※ 모바일 선결제(현금) 금액 중 골프 요금의 10% 적립</li>
         </ul>
         <p class="ms-tier-pts">입회 포인트 150만 포인트 지급 (1pt=1엔)</p>
         <button type="button" class="btn-solid" data-open="inquiry" data-interest="골드 멤버십" data-dclose
@@ -3197,8 +3206,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           </tr>
           <tr>
             <th scope="row">회원구성</th>
-            <td>기명 2 + 무기명 3</td>
-            <td>기명 2 + 무기명 7</td>
+            <td>기명 2 + 동반 3</td>
+            <td>기명 2 + 동반 7</td>
           </tr>
           <tr>
             <th scope="row">지급 포인트</th>
@@ -3206,18 +3215,18 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
             <td>150만 pt (1pt=1엔)</td>
           </tr>
           <tr>
-            <th scope="row">무기명 위임</th>
+            <th scope="row">위임</th>
             <td>연 2회</td>
             <td>연 3회</td>
           </tr>
           <tr>
             <th scope="row">회원요금<br><small style="color:var(--moss);font-size:12px">기명회원 및 동반인</small></th>
-            <td>루리코 · 하토리 호텔 주중/주말 20,000엔<br>와카사 CC 호텔 주중/주말 18,000엔<br>(VIP Room 19,000엔)</td>
+            <td>루리코 · 하토리 호텔 주중/주말 20,000엔<br>와카사 CC 호텔 주중/주말 20,000엔</td>
             <td>동일</td>
           </tr>
           <tr>
             <th scope="row">포함사항</th>
-            <td>2인 1실 숙박 · 조식 · 중식 · 그린피 · 카트비 · 클럽 락커 · 사우나 · 호텔 온천<br>와카사 CC는 조·중·석식 포함</td>
+            <td>2인 1실 숙박 · 조식 · 중식(￥1,000/인/식까지 지원되며, 초과 요금은 현장 결제) · 그린피 · 카트비 · 클럽 락커 · 사우나 · 호텔 온천<br>와카사 CC는 조·중·석식 포함</td>
             <td>동일</td>
           </tr>
           <tr>
@@ -3227,8 +3236,8 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           </tr>
           <tr>
             <th scope="row">멤버 혜택</th>
-            <td>포인트 적립 · 평생 멤버십 · 연 2회 위임 가능</td>
-            <td>포인트 적립 · 평생 멤버십 · 연 3회 위임 가능</td>
+            <td>모바일 선결제(현금) 금액 중 골프 요금의 10% 적립 · 평생 멤버십 · 연 2회 위임 가능</td>
+            <td>모바일 선결제(현금) 금액 중 골프 요금의 10% 적립 · 평생 멤버십 · 연 3회 위임 가능</td>
           </tr>
           <tr>
             <th scope="row">기타</th>
@@ -3241,7 +3250,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <ul class="ms-notes">
       <li>입회 시 실버 90만 / 골드 150만 포인트 지급 (1pt=1엔)</li>
       <li>투어 요금 결제 시 포인트 전액, 현금+포인트 복합, 현금 전액 결제</li>
-      <li>현금 결제액의 10% 포인트로 적립</li>
+      <li>모바일 선결제(현금) 금액 중 골프 요금의 10% 적립</li>
       <li>회원 추천 시 60만 포인트 지급</li>
       <li>위임 시 포인트 사용 불가 · 현금 결제 금액 포인트 적립 없음</li>
     </ul>
@@ -3255,10 +3264,9 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
       <div>
         <b>구비서류</b>
         <ul>
-          <li>입회신청서 1부</li>
-          <li>정회원 인감증명서</li>
-          <li>등록회원 신분증 사본</li>
-          <li>법인·사업자등록증 사본 (해당 시)</li>
+          <li>개인: 신분증, 인감증명서 (정회원 및 기명회원 각각 필요)</li>
+          <li>법인: 사업자등록증, 법인등기부등본, 법인인감증명서, 기명회원 2명의 신분증</li>
+          <li>공통서류: 입회신청서, 위임/동의서 (회원의 신고대행 동의서 또는 위임장)</li>
         </ul>
       </div>
       <div>
@@ -3273,8 +3281,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
     <div class="ms-xfer">
       <b>송영비 안내</b>
       <p>야마시로 · 후쿠이 국제: 4박 5일 기준 1인 5,000엔 / 추가 1일당 1인 1,000엔<br>
-         와카사 CC: 1인 7,000엔 (장기 투숙 추가 송영비 없음)<br>
-         야마시로 + 와카사 CC 일정: 1인 7,000엔</p>
+         와카사 CC: 1인당 편도 6,000엔 / 왕복 12,000엔</p>
     </div>
 
     <div class="ms-actions">
@@ -3346,7 +3353,10 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
   </figure>
 
   <div class="am-figure rv">
-    <img class="am-photo" src="images/access-map.png" alt="이시카와·후쿠이 지역 접근 지도 — 인천에서 고마츠공항, 골프장, 온천 료칸까지의 이동" width="843" height="814" decoding="async">
+    <div class="am-map-scroll">
+      <img class="am-photo" src="images/access-map.png" alt="이시카와·후쿠이 지역 접근 지도 — 인천에서 고마츠공항, 골프장, 온천 료칸까지의 이동" width="843" height="814" decoding="async">
+    </div>
+    <p class="am-map-hint">지도를 좌우로 밀어 이동 경로를 확인하세요</p>
 
     <ul class="am-legend rv">
       <li><span class="am-lg am-lg-air"></span>인천 → 고마츠 직항 90분</li>
@@ -3487,7 +3497,7 @@ if('scrollRestoration' in history) history.scrollRestoration='manual';
           <button role="tab" aria-selected="false">QUEEN COURSE 퀸 코스</button>
         </div>
         <div class="panel show" role="tabpanel">
-          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king2.webp" alt="킹 코스" srcset="images/ym_king2_m.webp 820w, images/ym_king2.webp 1600w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1600" height="983"></figure>
+          <figure class="rimg"><img loading="lazy" decoding="async" src="images/ym_king2.webp" alt="킹 코스" srcset="images/ym_king2_m.webp 820w, images/ym_king2.webp 1920w" sizes="(max-width:720px) 92vw, (max-width:1080px) 48vw, 46vw" width="1920" height="1179"></figure>
           <table class="spec">
             <tr><th>홀 구성</th><td>18홀 / 6,987야드 / 파 72</td></tr>
             <tr><th>코스 형태</th><td>원 웨이 원 라운드 스루 플레이 / 전체적으로 플랫한 구성</td></tr>
